@@ -1,87 +1,51 @@
-# ubuntu-ve.github.io
+# Ubuntu Venezuela - Sitio Oficial
 
-Este nuevo sitio, es contruido con [Hugo](https://gohugo.io) y vanillaframework.io
+![Ubuntu Logo](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)
+![Hugo](https://img.shields.io/badge/Hugo-FF4088?style=for-the-badge&logo=hugo&logoColor=white)
+![Status](https://img.shields.io/badge/Estado-En_Desarrollo-orange?style=for-the-badge)
 
-## Ubuntu-Ve LoCo Website repo
+Este es el repositorio oficial del sitio web de la comunidad **Ubuntu Venezuela (Ubuntu-Ve)**. El sitio está construido con [Hugo](https://gohugo.io) y utiliza el [Vanilla Framework](https://vanillaframework.io) para mantener la estética oficial de la marca Ubuntu.
 
-Este es el repositorio del contenido de la nueva web de la comunidad. Este estara mmontado en el link  hosted at https://ubuntu-ve.org/ y https://ubuntu-ve.github.io/
+## 🚀 Inicio Rápido
 
-## Involucrate
+Para ejecutar el sitio localmente y ver los cambios en tiempo real, asegúrate de tener Hugo instalado en tu sistema.
 
-## Eres bienvenido a contribuir, como puedas con lo que quieras y como puedas!!
+### Requisitos previos
+- **Hugo (Extended version):** Versión 0.119.0 o superior.
+- **Dart Sass:** Se recomienda `dart-sass-embedded` para la compilación de estilos.
 
-Usamos [Hugo](https://gohugo.io/) y GitAction [GitHub action](https://github.com/features/actions).
+### Instalación y proto-visualización
+1. Clona el repositorio:
+   ```bash
+   git clone https://github.com/Ubuntu-Venezuela/SitioOficial.git
+   cd SitioOficial
+   ```
+2. Inicia el servidor de desarrollo:
+   ```bash
+   hugo serve
+   ```
+3. Visita [localhost:1313](http://localhost:1313) en tu navegador.
 
-### Install Hugo
+## 🤝 Cómo Contribuir
 
-[Install](https://gohugo.io/installation/) Hugo using their documentation for [Linux](https://gohugo.io/installation/linux/), [Windows](https://gohugo.io/installation/windows/), [macOS](https://gohugo.io/installation/macos/), or [BSD](https://gohugo.io/installation/bsd/).
+¡Las contribuciones son bienvenidas! Si deseas ayudar a mejorar el sitio de la comunidad, sigue estos pasos:
 
-Necesitaras dart-sass-embedded, y vanilla framework.
+1. **Haz un Fork** del proyecto.
+2. **Crea una rama** para tu funcionalidad (`git checkout -b feature/nueva-seccion`).
+3. **Realiza tus cambios** y haz el commit (`git commit -m 'Añade nueva sección de eventos'`).
+4. **Push** a la rama (`git push origin feature/nueva-seccion`).
+5. Abre un **Pull Request**.
 
-`sudo snap install dart-sass-embedded`
+### Estructura de contenido
+- `/content`: Aquí reside todo el texto en formato Markdown (`.md`). Si quieres editar una página, búscala aquí.
+- `/static`: Imágenes, iconos y archivos estáticos.
+- `/themes`: Plantillas y estilos del sitio.
 
-`npm install vanilla-framework`
+## 📜 Código de Conducta
+Como parte del ecosistema de Ubuntu, seguimos estrictamente el [Código de Conducta de Ubuntu](https://ubuntu.com/community/ethos/code-of-conduct). Por favor, léelo antes de interactuar con el código o la comunidad.
 
-### Obten el codigo y contribuye
+## 📄 Licencia
+Este proyecto está bajo la **Licencia MIT**. Los contenidos están bajo la licencia **CC BY-SA 4.0**.
 
-forkea el repo, y podras correrlo en tu workstation o workspace local
-
-### Prototype
-
-Inicie hugo en el directorio donde esta clonado el codigo con el comando:
-
-`hugo serve`
-
-Esta deberia mostrar algo asi en la salida:
-
-```
-Watching for changes in /home/cyph3r/Source/ubuntu-ve/ubuntu-ve.github.io/{archetypes,content,package.json,static,themes}
-Watching for config changes in /home/cyph3r/Source/ubuntu-ve/ubuntu-ve.github.io/config.yaml, /home/cypher/Source/ubuntu-ve/ubuntu-ve.github.io/go.mod
-Start building sites … 
-hugo v0.119.0-b84644c008e0dc2c4b67bd69cccf87a41a03937e linux/amd64 BuildDate=2023-09-24T15:20:17Z VendorInfo=gohugoio
-
-
-                   | EN  
--------------------+-----
-  Pages            | 17  
-  Paginator pages  |  0  
-  Non-page files   | 19  
-  Static files     | 13  
-  Processed images |  0  
-  Aliases          |  0  
-  Sitemaps         |  1  
-  Cleaned          |  0  
-
-Built in 620 ms
-Environment: "development"
-Serving pages from memory
-Running in Fast Render Mode. For full rebuilds on change: hugo server --disableFastRender
-Web Server is available at http://localhost:1313/ (bind address 127.0.0.1) 
-Press Ctrl+C to stop
-
-```
-
-### Visite el site
-
-Visit [localhost:1313](https://localhost:1313) to view the site
-
-Hugo will update the site whenever files are changed, typically there's no need to refresh the page.
-
-The Hugo documentation can be found at [gohugo.io/documentation/](https://gohugo.io/documentation/).
-
-### Submit PR
-
- Haga sus Push y envie sus cambios,un  pull request y ahi podemos revisar y discutir los cambios que ha enviado, antes de un merging. 
-
-## Codigo de Conducta
-
-Por favor leer [Ubuntu Code of Conduct](https://ubuntu.com/community/ethos/code-of-conduct) antes de interactuar con el codigo, por favor lea. 
-
-
-## License
-MIT License (See `LICENSE`)
-
-## Este repositorio es original de la comunidad de https://github.com/ubuntu-uk/ubuntu-uk.github.io
-* En la que nos proveen una plantilla a la comunidad , esto nos ayuda a tener mas control y una uniformidad entre todas las comunidades 
-* Nos permite optimimzar el tiempo de desarrollo en las web de las comunidades! 
-
+---
+*Mantenido con ❤️ por la comunidad de Ubuntu Venezuela.*
