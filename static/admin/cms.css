@@ -1,0 +1,76 @@
+/* Estilos personalizados para el Backend de Ubuntu Venezuela */
+:root {
+  --ubuntu-orange: #E95420;
+  --ubuntu-aubergine: #772953;
+  --ubuntu-warm-grey: #AEA79F;
+}
+
+/* Sidebar y navegación */
+.nc-app-layout-sidebar {
+  background-color: var(--ubuntu-aubergine) !important;
+  color: white !important;
+}
+
+.nc-app-layout-sidebar a {
+  color: #f7f7f7 !important;
+  font-weight: 500;
+}
+
+.nc-app-layout-sidebar a:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Botones principales */
+.nc-ui-button-primary {
+  background-color: var(--ubuntu-orange) !important;
+  border-radius: 4px !important;
+  text-transform: none !important;
+  font-weight: bold !important;
+}
+
+/* Encabezados y fuentes */
+body {
+  font-family: "Ubuntu", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif !important;
+}
+
+h1, h2, h3 {
+  color: var(--ubuntu-aubergine) !important;
+}
+
+/* Tarjetas en el listado */
+.nc-collection-page-card {
+  border-left: 4px solid var(--ubuntu-orange) !important;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+}
+
+/* Preview pane info */
+.nc-preview-pane-frame {
+  background: #fdfdfd !important;
+}
+
+/* Inputs y bordes */
+.nc-ui-input {
+  border: 1px solid #ddd !important;
+  border-radius: 3px !important;
+  padding: 10px !important;
+}
+
+.nc-ui-input:focus {
+  border-color: var(--ubuntu-orange) !important;
+}
+
+/* Títulos de sección */
+.nc-app-layout-main-header {
+  border-bottom: 2px solid var(--ubuntu-warm-grey) !important;
+  background-color: #fff !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05) !important;
+}
+
+/* Transiciones para botones */
+.nc-ui-button {
+  transition: all 0.2s ease-in-out !important;
+}
+
+.nc-ui-button:hover {
+  filter: brightness(0.9) !important;
+}

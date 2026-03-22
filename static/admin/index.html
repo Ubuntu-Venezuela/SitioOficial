@@ -4,23 +4,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ubuntu Venezuela - Administrador de Contenidos</title>
-  <!-- Incluir el script de Decap CMS -->
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-  <!-- Login con Netlify Identity / OAUTH (Opcional, pero recomendado) -->
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <!-- Estilos de Ubuntu-Ve paleta de colores -->
+  <link rel="stylesheet" href="cms.css">
 </head>
 <body>
-  <!-- Decap CMS se cargará e inyectará en esta página -->
-  <script>
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.on("init", user => {
-        if (!user) {
-          window.netlifyIdentity.on("login", () => {
-            document.location.href = "/admin/";
-          });
-        }
-      });
-    }
-  </script>
+  <!-- Incluir el script de Decap CMS directamente -->
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 </body>
 </html>

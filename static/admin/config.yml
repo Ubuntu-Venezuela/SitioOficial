@@ -7,8 +7,8 @@ backend:
 media_folder: "static/img/uploads" # Carpeta donde subirán las imágenes
 public_folder: "/img/uploads"      # Ruta pública web para leerlas
 
-locale: "es" # El CMS funcionará en español
-
+publish_mode: editorial_workflow
+local_backend: true
 collections:
   # 1. NOTICIAS (Blog Oficial de Ubuntu-Ve)
   - name: "noticias"
@@ -23,6 +23,7 @@ collections:
       - {label: "Etiquetas", name: "tags", widget: "list", default: ["comunidad"]}
       - {label: "Origen", name: "source", widget: "select", options: ["Comunidad Local", "Ubuntu Oficial", "Externo"], default: "Comunidad Local"}
       - {label: "Cuerpo de la Noticia", name: "body", widget: "markdown"}
+      - {label: "Autor Responsable", name: "author", widget: "string", default: "Ubuntu Venezuela Bot", hint: "Nombre del redactor"}
 
   # 2. DIRECTORIO DE CONFERENCISTAS / MIEMBROS LOCO
   - name: "miembros"
@@ -34,6 +35,7 @@ collections:
       - {label: "Nombre del Miembro", name: "title", widget: "string"}
       - {label: "Foto de Perfil", name: "image", widget: "image", required: false}
       - {label: "Rol Profesional / Especialidad", name: "role_bio", widget: "string", hint: "Ej: Ingeniero Cloud, Traductor."}
+      - {label: "Permisos / Rango", name: "member_role", widget: "select", options: ["Admin", "Editor", "Escritor", "Miembro LoCo"], default: "Miembro LoCo"}
       - {label: "Insignia Oficial de Ubuntu", name: "badge", widget: "select", options: ["Miembro Oficial", "LoCo Contact", "Voluntario", "Invitado Especial", "Conferencista"]}
       - {label: "Contribuciones Principales", name: "contributions", widget: "list", required: false, hint: "Proyectos en los que ayuda en Ubuntu"}
       - {label: "GitHub Username", name: "github", widget: "string", required: false}
@@ -58,6 +60,19 @@ collections:
         value_field: "title"
         search_fields: ["title"]
         display_fields: ["title", "badge"]
+
+  # 4. PATROCINADORES Y ALIADOS
+  - name: "patrocinadores"
+    label: "Sponsors y Aliados"
+    folder: "content/sponsors"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Nombre de la Empresa", name: "title", widget: "string"}
+      - {label: "Logo", name: "image", widget: "image", required: false}
+      - {label: "Sitio Web", name: "website", widget: "string", required: false}
+      - {label: "Orden / Prioridad", name: "weight", widget: "number", default: 10, hint: "Menor número = Más arriba"}
+      - {label: "Descripción de Apoyo", name: "body", widget: "markdown"}
         multiple: true
         required: false
       - {label: "Descripción del Evento", name: "body", widget: "markdown"}
