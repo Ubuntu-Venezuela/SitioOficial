@@ -1,0 +1,98 @@
+baseURL: 'https://ubuntu-ve.org'
+languageCode: es-ve
+title: 'Ubuntu Venezuela'
+theme: "ubuntukr"
+buildFuture: true
+#googleAnalytics: ""
+params:
+  contact: junta@ubuntu-ve.org
+  #facebook: ubuntu-ve
+  twitter: ubuntu_ve
+  telegram: https://t.me/ubuntuve
+  github: ubuntu-ve
+  launchpad: ubuntu-ve
+  #mastodon: https://floss.social/@ubuntu_VE
+  source_repo: https://github.com/ubuntu-ve/ubuntu-ve.github.io
+defaultContentLanguage: es
+languages:
+  es:
+    languageName: Español
+    title: Ubuntu Venezuela
+    weight: 2
+    params:
+      description: >-
+        La Comunidad de Ubuntu Venezuela es un LoCo (Local Community) oficial de Ubuntu. 
+        Es un lugar para todos los interesados en usar, desarrollar con Ubuntu, o contribuir a los proyectos de Ubuntu.
+      copyright: >-
+        © 2026 Ubuntu Venezuela (Ubuntu Venezuela LoCo Team).
+        Excepto donde se indique lo contrario, el código fuente del sitio está bajo licencia MIT, y los contenidos bajo CC BY-SA 4.0. 
+        Ubuntu y Canonical son marcas registradas de Canonical Ltd.
+      main_slide:
+        label: Sobre la comunidad
+        link: about
+    menu:
+      main:
+      - identifier: try
+        name: Prueba Ubuntu
+        weight: 1
+      - identifier: download
+        parent: try
+        name: Descargar
+        url: download
+        weight: 20
+      - identifier: hardware
+        name: Hardware Certificado Ubuntu
+        parent: try
+        url: https://ubuntu.com/certified
+        weight: 20
+      - identifier: docs-en
+        parent: try
+        name: Documentación
+        url: https://help.ubuntu.com/
+        weight: 22
+      - identifier: tutorials-en
+        parent: try
+        name: Tutoriales
+        url: https://ubuntu.com/tutorials
+        weight: 23
+      - identifier: wiki-en
+        parent: try
+        name: Wiki
+        url: https://wiki.ubuntu.com
+        weight: 24
+      - identifier: about-group
+        name: Sobre nosotros
+        weight: 2
+      - identifier: community
+        name: Comunidad
+        url: community
+        weight: 3
+      - identifier: forum
+        parent: community
+        name: Foro (Discourse)
+        url: https://discourse.ubuntu.com/c/locos/ubuntu-ve
+        weight: 32
+      - identifier: lists
+        parent: community
+        name: Listas de Correo
+        url: https://lists.ubuntu.com/mailman/listinfo/ubuntu-ve
+        weight: 35
+      - identifier: chat
+        parent: community
+        name: Telegram
+        url: https://t.me/ubuntuve
+        weight: 36
+      - identifier: follow
+        name: Síguenos
+        weight: 5
+      - identifier: twitter
+        parent: follow
+        name: Twitter (X)
+        url: https://twitter.com/ubuntu_ve
+        weight: 160
+      - identifier: telegram-follow
+        parent: follow
+        name: Telegram
+        url: https://t.me/ubuntuve
+        weight: 165
+ 4
