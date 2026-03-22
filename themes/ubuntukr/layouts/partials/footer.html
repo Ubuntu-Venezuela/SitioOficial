@@ -1,58 +1,89 @@
-<section class="p-strip--accent">
-  <div class="row">
-    <div class="col-12">
-      <h2>{{.Site.Title}}</h2>
-      <ul class="p-inline-list--middot is-dark">
-        <li class="p-inline-list__item">
-          <a href="mailto:{{.Site.Params.contact}}">{{ i18n "footer_contact" }}</a>
-        </li>
-        <li class="p-inline-list__item">
-          <a href="mailto:{{.Site.Params.privacyPolicy}}">{{ i18n "privacy_policy" }}</a>
-        </li>
-        <li class="p-inline-list__item">
-          <a href="https://fb.com/{{.Site.Params.facebook}}">Facebook</a>
-        </li>
-        <li class="p-inline-list__item">
-          <a href="https://twitter.com/{{.Site.Params.twitter}}">Twitter</a>
-        </li>
-        <li class="p-inline-list__item">
-          <a href="{{.Site.Params.youtube}}">YouTube</a>
-        </li>
-        <li class="p-inline-list__item">
-          <a href="https://github.com/{{.Site.Params.github}}">GitHub</a>
-        </li>
-        <li class="p-inline-list__item">
-          <a href="https://launchpad.net/~{{.Site.Params.launchpad}}">Launchpad</a>
-        </li>
-        <li class="p-inline-list__item">
-          <a rel="me" href="{{.Site.Params.mastodon}}">Mastodon</a>
-        </li>
-        <li class="p-inline-list__item">
-          <a rel="me" href="{{.Site.Params.linkedin}}">LinkedIn</a>
-        </li>
+<!-- CUERPO DEL FOOTER (Gris Carbono) -->
+<footer class="p-strip--dark" style="background-color: #262626; padding: 4rem 0 2rem 0; border-top: 1px solid #333;">
+  <div class="row" style="max-width: 72rem; margin: 0 auto; padding: 0 1rem;">
+    <!-- Columna 1: La Comunidad -->
+    <div class="col-3">
+      <h4 style="color: #fff; font-weight: 400; font-size: 1.1rem; margin-bottom: 1.5rem;">La Comunidad</h4>
+      <ul class="p-list" style="list-style: none; padding: 0;">
+        <li style="margin-bottom: 0.5rem;"><a href="/about/" style="color: #ccc; text-decoration: none; font-size: 0.9rem;">Sobre nosotros</a></li>
+        <li style="margin-bottom: 0.5rem;"><a href="/miembros/" style="color: #ccc; text-decoration: none; font-size: 0.9rem;">Directorio de Miembros</a></li>
+        <li style="margin-bottom: 0.5rem;"><a href="/sponsors/" style="color: #ccc; text-decoration: none; font-size: 0.9rem;">Aliados y Sponsors</a></li>
+        <li style="margin-bottom: 0.5rem;"><a href="https://wiki.ubuntu.com/VenezuelaTeam" style="color: #ccc; text-decoration: none; font-size: 0.9rem;">Loco Team Wiki</a></li>
       </ul>
-      <p>{{.Site.Params.copyright}}</p>
-      <a href="{{.Site.Params.source_repo}}">{{ i18n "footer_src_repo" }}</a>
+    </div>
+
+    <!-- Columna 2: Soporte y Recursos -->
+    <div class="col-3">
+      <h4 style="color: #fff; font-weight: 400; font-size: 1.1rem; margin-bottom: 1.5rem;">Soporte y Recursos</h4>
+      <ul class="p-list" style="list-style: none; padding: 0;">
+        <li style="margin-bottom: 0.5rem;"><a href="/recursos/certificados/" style="color: #ccc; text-decoration: none; font-size: 0.9rem;">Guía de Certificados</a></li>
+        <li style="margin-bottom: 0.5rem;"><a href="https://help.ubuntu.com/" style="color: #ccc; text-decoration: none; font-size: 0.9rem;">Documentación Oficial</a></li>
+        <li style="margin-bottom: 0.5rem;"><a href="https://askubuntu.com" style="color: #ccc; text-decoration: none; font-size: 0.9rem;">Ask Ubuntu</a></li>
+        <li style="margin-bottom: 0.5rem;"><a href="mailto:{{.Site.Params.contact}}" style="color: #ccc; text-decoration: none; font-size: 0.9rem;">Contacto Junta</a></li>
+      </ul>
+    </div>
+
+    <!-- Columna 3: Descargar Ubuntu -->
+    <div class="col-3">
+      <h4 style="color: #fff; font-weight: 400; font-size: 1.1rem; margin-bottom: 1.5rem;">Descargar Ubuntu</h4>
+      <ul class="p-list" style="list-style: none; padding: 0;">
+        <li style="margin-bottom: 0.5rem;"><a href="https://ubuntu.com/download/desktop" style="color: #ccc; text-decoration: none; font-size: 0.9rem;">Ubuntu Desktop</a></li>
+        <li style="margin-bottom: 0.5rem;"><a href="https://ubuntu.com/download/server" style="color: #ccc; text-decoration: none; font-size: 0.9rem;">Ubuntu Server</a></li>
+        <li style="margin-bottom: 0.5rem;"><a href="https://ubuntu.com/download/cloud" style="color: #ccc; text-decoration: none; font-size: 0.9rem;">Ubuntu Cloud</a></li>
+        <li style="margin-bottom: 0.5rem;"><a href="https://ubuntu.com/download/iot" style="color: #ccc; text-decoration: none; font-size: 0.9rem;">Ubuntu IoT</a></li>
+      </ul>
+    </div>
+
+    <!-- Columna 4: Síguenos -->
+    <div class="col-3">
+      <h4 style="color: #fff; font-weight: 400; font-size: 1.1rem; margin-bottom: 1.5rem;">Síguenos</h4>
+      <ul class="p-list" style="list-style: none; padding: 0;">
+        <li style="margin-bottom: 0.5rem;"><a href="https://t.me/ubuntuve" style="color: #ccc; text-decoration: none; font-size: 0.9rem;">Telegram</a></li>
+        <li style="margin-bottom: 0.5rem;"><a href="https://twitter.com/{{.Site.Params.twitter}}" style="color: #ccc; text-decoration: none; font-size: 0.9rem;">Twitter (X)</a></li>
+        <li style="margin-bottom: 0.5rem;"><a href="https://lists.ubuntu.com/mailman/listinfo/ubuntu-ve" style="color: #ccc; text-decoration: none; font-size: 0.9rem;">Mailing Lists</a></li>
+        <li style="margin-bottom: 0.5rem;"><a href="https://github.com/{{.Site.Params.github}}" style="color: #ccc; text-decoration: none; font-size: 0.9rem;">GitHub Open Source</a></li>
+      </ul>
     </div>
   </div>
-  
-  <!-- Ubuntu-Ve Radio Player -->
-  <div class="row" style="margin-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
+
+  <!-- UBUNTU-VE RADIO PLAYER (Moderno y Centrado) -->
+  <div class="row" style="max-width: 72rem; margin: 3rem auto 0 auto; padding: 0 1rem;">
     <div class="col-12">
-      <div class="p-card" style="background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1); padding: 15px;">
-        <div class="row">
-          <div class="col-3">
-            <h4 style="margin: 0; color: #fff;"><i class="p-icon--audio"></i> Ubuntu-Ve Radio</h4>
-            <small style="color: #ccc;">En vivo desde Last.fm</small>
+      <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 4px; padding: 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;">
+        <div style="display: flex; align-items: center; gap: 1rem;">
+          <div style="background-color: #E95420; width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#fff">
+              <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+            </svg>
           </div>
-          <div class="col-9">
-            <audio controls style="width: 100%; height: 32px;">
-              <source src="https://stream.last.fm/your-stream-url" type="audio/mpeg">
-              Tu navegador no soporta el reproductor de audio.
-            </audio>
+          <div>
+            <h4 style="color: #fff; margin: 0; font-size: 1.1rem; font-weight: 400;">Ubuntu-Ve Radio</h4>
+            <span style="color: #888; font-size: 0.85rem;">En vivo desde la comunidad</span>
           </div>
+        </div>
+        <div style="flex-grow: 1; max-width: 500px;">
+          <audio controls style="width: 100%; height: 36px; filter: grayscale(1) invert(1) brightness(0.8);">
+            <source src="https://stream.last.fm/your-stream-url" type="audio/mpeg">
+            Tu navegador no soporta el reproductor de audio.
+          </audio>
         </div>
       </div>
     </div>
   </div>
-</section>
+
+  <!-- BARRA LEGAL (Negro Puro) -->
+  <div style="background-color: #000; padding: 2rem 0; margin-top: 4rem; border-top: 1px solid #111;">
+    <div class="row" style="max-width: 72rem; margin: 0 auto; padding: 0 1rem; text-align: center;">
+      <div class="col-12">
+        <p style="color: #666; font-size: 0.85rem; line-height: 1.6; margin-bottom: 1rem;">
+          {{.Site.Params.copyright}}
+        </p>
+        <div style="display: flex; justify-content: center; gap: 2rem;">
+          <a href="{{.Site.Params.source_repo}}" style="color: #888; font-size: 0.8rem; text-decoration: none;">Código Fuente</a>
+          <a href="https://ubuntu.com/legal" style="color: #888; font-size: 0.8rem; text-decoration: none;">Información Legal</a>
+          <a href="mailto:{{.Site.Params.contact}}" style="color: #888; font-size: 0.8rem; text-decoration: none;">Contacto</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
