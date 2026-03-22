@@ -35,3 +35,24 @@
       <a href="{{.Site.Params.source_repo}}">{{ i18n "footer_src_repo" }}</a>
     </div>
   </div>
+  
+  <!-- Ubuntu-Ve Radio Player -->
+  <div class="row" style="margin-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
+    <div class="col-12">
+      <div class="p-card" style="background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1); padding: 15px;">
+        <div class="row">
+          <div class="col-3">
+            <h4 style="margin: 0; color: #fff;"><i class="p-icon--audio"></i> Ubuntu-Ve Radio</h4>
+            <small style="color: #ccc;">En vivo desde Last.fm</small>
+          </div>
+          <div class="col-9">
+            <audio controls style="width: 100%; height: 32px;">
+              <source src="https://stream.last.fm/your-stream-url" type="audio/mpeg">
+              Tu navegador no soporta el reproductor de audio.
+            </audio>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
