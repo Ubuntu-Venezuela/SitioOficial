@@ -1,0 +1,40 @@
+# Ignorar entornos virtuales
+venv/
+.env/
+*.env
+
+# Ignorar archivos de configuración de IDEs
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Ignorar archivos compilados de Python
+__pycache__/
+*.py[cod]
+
+# Ignorar archivos de registro
+*.log
+
+# Ignorar archivos de base de datos
+*.sqlite3
+
+# Ignorar archivos de caché
+.cache/
+*.bak
+*.swp
+
+# Ignorar archivos de configuración de sistemas operativos
+.DS_Store
+Thumbs.db
+
+# Ignorar archivos de paquetes
+*.egg-info/
+dist/
+build/
+
+# Ignorar archivos de instalación de pip
+pip-log.txt
+
+# Ignorar archivos de instalación de node_modules (en caso de usar Node.js)
+node_modules/

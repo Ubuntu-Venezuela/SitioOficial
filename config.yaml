@@ -18,7 +18,7 @@ languages:
   es:
     languageName: Español
     title: Ubuntu Venezuela
-    weight: 2
+    weight: 1
     params:
       description: >-
         La Comunidad de Ubuntu Venezuela es un LoCo (Local Community) oficial de Ubuntu. 
@@ -32,67 +32,154 @@ languages:
         link: about
     menu:
       main:
-      - identifier: try
-        name: Prueba Ubuntu
-        weight: 1
-      - identifier: download
-        parent: try
-        name: Descargar
-        url: download
-        weight: 20
-      - identifier: hardware
-        name: Hardware Certificado Ubuntu
-        parent: try
-        url: https://ubuntu.com/certified
-        weight: 20
-      - identifier: docs-en
-        parent: try
-        name: Documentación
-        url: https://help.ubuntu.com/
-        weight: 22
-      - identifier: tutorials-en
-        parent: try
-        name: Tutoriales
-        url: https://ubuntu.com/tutorials
-        weight: 23
-      - identifier: wiki-en
-        parent: try
-        name: Wiki
-        url: https://wiki.ubuntu.com
-        weight: 24
-      - identifier: about-group
-        name: Sobre nosotros
-        weight: 2
       - identifier: community
         name: Comunidad
-        url: community
+        weight: 1
+      - identifier: members
+        parent: community
+        name: Directorio de Miembros
+        url: miembros
+        weight: 10
+      - identifier: events
+        parent: community
+        name: Eventos y Meetups
+        url: eventos
+        weight: 11
+      - identifier: sponsors
+        parent: community
+        name: Aliados y Sponsors
+        url: sponsors
+        weight: 12
+      - identifier: resources
+        name: Recursos
+        weight: 2
+      - identifier: certs
+        parent: resources
+        name: Guía de Certificados
+        url: recursos/certificados
+        weight: 20
+      - identifier: wiki
+        parent: resources
+        name: Wiki Ubuntu
+        url: https://wiki.ubuntu.com/VenezuelaTeam
+        weight: 21
+      - identifier: docs
+        parent: resources
+        name: Documentación Oficial
+        url: https://help.ubuntu.com/
+        weight: 22
+      - identifier: try
+        name: Descargar Ubuntu
         weight: 3
-      - identifier: forum
-        parent: community
-        name: Foro (Discourse)
-        url: https://discourse.ubuntu.com/c/locos/ubuntu-ve
-        weight: 32
-      - identifier: lists
-        parent: community
-        name: Listas de Correo
-        url: https://lists.ubuntu.com/mailman/listinfo/ubuntu-ve
-        weight: 35
-      - identifier: chat
-        parent: community
-        name: Telegram
+      - identifier: download-os
+        parent: try
+        name: Versiones Desktop / Server
+        url: https://ubuntu.com/download
+        weight: 30
+      - identifier: hardware
+        parent: try
+        name: Hardware Certificado
+        url: https://ubuntu.com/certified
+        weight: 31
+      - identifier: contact
+        name: Contacto
+        weight: 4
+      - identifier: telegram
+        parent: contact
+        name: Grupo Telegram
         url: https://t.me/ubuntuve
-        weight: 36
-      - identifier: follow
-        name: Síguenos
-        weight: 5
+        weight: 40
       - identifier: twitter
-        parent: follow
+        parent: contact
         name: Twitter (X)
         url: https://twitter.com/ubuntu_ve
-        weight: 160
-      - identifier: telegram-follow
-        parent: follow
-        name: Telegram
+        weight: 41
+      - identifier: lists
+        parent: contact
+        name: Listas de Correo
+        url: https://lists.ubuntu.com/mailman/listinfo/ubuntu-ve
+        weight: 42
+  en:
+    languageName: English
+    title: Ubuntu Venezuela
+    weight: 2
+    params:
+      description: >-
+        The Ubuntu Venezuela Community is an official Ubuntu LoCo (Local Community). 
+        It is a place for everyone interested in using, developing with Ubuntu, or contributing to Ubuntu projects.
+      copyright: >-
+        © 2026 Ubuntu Venezuela (Ubuntu Venezuela LoCo Team).
+        Except where otherwise noted, the site's source code is under the MIT license, and the content under CC BY-SA 4.0. 
+        Ubuntu and Canonical are registered trademarks of Canonical Ltd.
+      main_slide:
+        label: About the community
+        link: about
+    menu:
+      main:
+      - identifier: community
+        name: Community
+        weight: 1
+      - identifier: members
+        parent: community
+        name: Members Directory
+        url: miembros
+        weight: 10
+      - identifier: events
+        parent: community
+        name: Events and Meetups
+        url: eventos
+        weight: 11
+      - identifier: sponsors
+        parent: community
+        name: Partners and Sponsors
+        url: sponsors
+        weight: 12
+      - identifier: resources
+        name: Resources
+        weight: 2
+      - identifier: certs
+        parent: resources
+        name: Certificates Guide
+        url: recursos/certificados
+        weight: 20
+      - identifier: wiki
+        parent: resources
+        name: Ubuntu Wiki
+        url: https://wiki.ubuntu.com/VenezuelaTeam
+        weight: 21
+      - identifier: docs
+        parent: resources
+        name: Official Documentation
+        url: https://help.ubuntu.com/
+        weight: 22
+      - identifier: try
+        name: Download Ubuntu
+        weight: 3
+      - identifier: download-os
+        parent: try
+        name: Desktop / Server Versions
+        url: https://ubuntu.com/download
+        weight: 30
+      - identifier: hardware
+        parent: try
+        name: Certified Hardware
+        url: https://ubuntu.com/certified
+        weight: 31
+      - identifier: contact
+        name: Contact
+        weight: 4
+      - identifier: telegram
+        parent: contact
+        name: Telegram Group
         url: https://t.me/ubuntuve
-        weight: 165
- 4
+        weight: 40
+      - identifier: twitter
+        parent: contact
+        name: Twitter (X)
+        url: https://twitter.com/ubuntu_ve
+        weight: 41
+      - identifier: lists
+        parent: contact
+        name: Mailing Lists
+        url: https://lists.ubuntu.com/mailman/listinfo/ubuntu-ve
+        weight: 42
