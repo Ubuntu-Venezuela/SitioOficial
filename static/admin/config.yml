@@ -1,0 +1,75 @@
+backend:
+  name: github
+  repo: Ubuntu-Venezuela/SitioOficial # Repositorio donde guarda el CMS
+  branch: main # Rama a la que hace commit
+  site_domain: ubuntu-ve.org
+
+media_folder: "static/img/uploads" # Carpeta donde subirán las imágenes
+public_folder: "/img/uploads"      # Ruta pública web para leerlas
+
+locale: "es" # El CMS funcionará en español
+
+collections:
+  # 1. NOTICIAS (Blog Oficial de Ubuntu-Ve)
+  - name: "noticias"
+    label: "Noticias y Novedades"
+    folder: "content/noticias"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Título", name: "title", widget: "string"}
+      - {label: "Fecha de Publicación", name: "date", widget: "datetime"}
+      - {label: "Imagen de Portada", name: "image", widget: "image", required: false}
+      - {label: "Etiquetas", name: "tags", widget: "list", default: ["comunidad"]}
+      - {label: "Origen", name: "source", widget: "select", options: ["Comunidad Local", "Ubuntu Oficial", "Externo"], default: "Comunidad Local"}
+      - {label: "Cuerpo de la Noticia", name: "body", widget: "markdown"}
+
+  # 2. DIRECTORIO DE CONFERENCISTAS / MIEMBROS LOCO
+  - name: "miembros"
+    label: "Comunidad / Conferencistas"
+    folder: "content/miembros"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Nombre del Miembro", name: "title", widget: "string"}
+      - {label: "Foto de Perfil", name: "image", widget: "image", required: false}
+      - {label: "Rol Profesional / Especialidad", name: "role_bio", widget: "string", hint: "Ej: Ingeniero Cloud, Traductor."}
+      - {label: "Insignia Oficial de Ubuntu", name: "badge", widget: "select", options: ["Miembro Oficial", "LoCo Contact", "Voluntario", "Invitado Especial", "Conferencista"]}
+      - {label: "Contribuciones Principales", name: "contributions", widget: "list", required: false, hint: "Proyectos en los que ayuda en Ubuntu"}
+      - {label: "GitHub Username", name: "github", widget: "string", required: false}
+      - {label: "Biografía Detallada", name: "body", widget: "markdown"}
+
+  # 3. EVENTOS OFICIALES DE UBUNTU VENEZUELA
+  - name: "eventos"
+    label: "Eventos y Meetups"
+    folder: "content/eventos"
+    create: true
+    slug: "{{year}}-{{month}}-{{slug}}"
+    fields:
+      - {label: "Nombre del Evento", name: "title", widget: "string"}
+      - {label: "Fecha y Hora del Evento", name: "date", widget: "datetime"}
+      - {label: "Lugar / Ubicación", name: "location", widget: "string"}
+      - {label: "URL de Registro Externo (Formspree/Typeform)", name: "registration_url", widget: "string", required: false}
+      - {label: "Banner del Evento", name: "image", widget: "image", required: false}
+      - label: "Conferencistas (Seleccionar Miembros)"
+        name: "speakers"
+        widget: "relation"
+        collection: "miembros" # Aquí se engancha con la colección 2
+        value_field: "title"
+        search_fields: ["title"]
+        display_fields: ["title", "badge"]
+        multiple: true
+        required: false
+      - {label: "Descripción del Evento", name: "body", widget: "markdown"}
+
+  # 4. EDICIÓN DE PÁGINAS FIJAS EXISTENTES
+  - name: "paginas_fijas"
+    label: "Páginas Fijas (Institucionales)"
+    folder: "content"
+    create: false
+    extension: "md"
+    fields:
+      - {label: "Título", name: "title", widget: "string"}
+      - {label: "Descripción SEO", name: "description", widget: "text", required: false}
+      - {label: "Fondo Decorativo", name: "backgroundType", widget: "select", options: ["light", "dark", "accent", "suru", "suru-topped", "image"]}
+      - {label: "Contenido de la Página", name: "body", widget: "markdown"}
