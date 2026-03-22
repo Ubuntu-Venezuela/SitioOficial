@@ -1,0 +1,40 @@
+{{ define "main" }}
+<div class="row" style="padding: 4rem 1rem;">
+  <div class="col-12" style="text-align: center; margin-bottom: 3rem;">
+    <h1 style="color: #111; font-weight: 700; font-size: 2.5rem; letter-spacing: -0.5px;">Noticias Ubuntu Venezuela</h1>
+    <p style="color: #555; font-size: 1.15rem; max-width: 600px; margin: 0 auto;">Las últimas novedades publicadas por el equipo de redacción y los bots de la comunidad global y local.</p>
+  </div>
+  
+  <div class="row u-equal-height">
+    {{ range .Pages.ByDate.Reverse }}
+    <div class="col-4" style="margin-bottom: 2rem; display: flex; padding: 1rem;">
+      <a href="{{ .Permalink }}" class="p-card--highlighted" style="
+        display: flex; 
+        flex-direction: column; 
+        text-decoration: none; 
+        width: 100%; 
+        border-top: 4px solid #E95420; 
+        transition: transform 0.3s cubic-bezier(0.1, 0.7, 0.1, 1), box-shadow 0.3s;
+        border-radius: 8px;
+        background: #fff;
+        padding: 2rem;
+      " onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 15px 30px rgba(233, 84, 32, 0.1)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+        <h3 class="p-heading--4" style="color: #111; margin-top: 0; font-weight: 600;">{{ .Title | truncate 80 }}</h3>
+        
+        <p style="color: #E95420; font-size: 0.85rem; font-weight: bold; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.5px;">
+          📅 {{ .Date.Format "02 de Jan, 2006" }} <br> 📝 {{ if .Params.author }}{{ .Params.author }}{{ else }}Ubuntu Bot{{ end }}
+        </p>
+        
+        <div style="color: #555; flex: 1; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 4; -webkit-line-clamp: 3; -webkit-box-orient: vertical; margin-bottom: 1.5rem; line-height: 1.6;">
+          {{ .Summary | plainify | truncate 150 }}
+        </div>
+        
+        <div style="text-align: right; color: #77216F; font-weight: bold; margin-top: auto;">
+          Leer Noticia &rarr;
+        </div>
+      </a>
+    </div>
+    {{ end }}
+  </div>
+</div>
+{{ end }}

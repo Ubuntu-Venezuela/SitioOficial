@@ -9,6 +9,7 @@ public_folder: "/img/uploads"      # Ruta pública web para leerlas
 
 publish_mode: editorial_workflow
 local_backend: true
+
 collections:
   # 1. NOTICIAS (Blog Oficial de Ubuntu-Ve)
   - name: "noticias"
@@ -17,13 +18,33 @@ collections:
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - {label: "Título", name: "title", widget: "string"}
-      - {label: "Fecha de Publicación", name: "date", widget: "datetime"}
-      - {label: "Imagen de Portada", name: "image", widget: "image", required: false}
-      - {label: "Etiquetas", name: "tags", widget: "list", default: ["comunidad"]}
-      - {label: "Origen", name: "source", widget: "select", options: ["Comunidad Local", "Ubuntu Oficial", "Externo"], default: "Comunidad Local"}
-      - {label: "Cuerpo de la Noticia", name: "body", widget: "markdown"}
-      - {label: "Autor Responsable", name: "author", widget: "string", default: "Ubuntu Venezuela Bot", hint: "Nombre del redactor"}
+      - label: "Título"
+        name: "title"
+        widget: "string"
+      - label: "Fecha de Publicación"
+        name: "date"
+        widget: "datetime"
+      - label: "Imagen de Portada"
+        name: "image"
+        widget: "image"
+        required: false
+      - label: "Etiquetas"
+        name: "tags"
+        widget: "list"
+        default: ["comunidad"]
+      - label: "Origen"
+        name: "source"
+        widget: "select"
+        options: ["Comunidad Local", "Ubuntu Oficial", "Externo"]
+        default: "Comunidad Local"
+      - label: "Cuerpo de la Noticia"
+        name: "body"
+        widget: "markdown"
+      - label: "Autor Responsable"
+        name: "author"
+        widget: "string"
+        default: "Ubuntu Venezuela Bot"
+        hint: "Nombre del redactor"
 
   # 2. DIRECTORIO DE CONFERENCISTAS / MIEMBROS LOCO
   - name: "miembros"
@@ -32,14 +53,38 @@ collections:
     create: true
     slug: "{{slug}}"
     fields:
-      - {label: "Nombre del Miembro", name: "title", widget: "string"}
-      - {label: "Foto de Perfil", name: "image", widget: "image", required: false}
-      - {label: "Rol Profesional / Especialidad", name: "role_bio", widget: "string", hint: "Ej: Ingeniero Cloud, Traductor."}
-      - {label: "Permisos / Rango", name: "member_role", widget: "select", options: ["Admin", "Editor", "Escritor", "Miembro LoCo"], default: "Miembro LoCo"}
-      - {label: "Insignia Oficial de Ubuntu", name: "badge", widget: "select", options: ["Miembro Oficial", "LoCo Contact", "Voluntario", "Invitado Especial", "Conferencista"]}
-      - {label: "Contribuciones Principales", name: "contributions", widget: "list", required: false, hint: "Proyectos en los que ayuda en Ubuntu"}
-      - {label: "GitHub Username", name: "github", widget: "string", required: false}
-      - {label: "Biografía Detallada", name: "body", widget: "markdown"}
+      - label: "Nombre del Miembro"
+        name: "title"
+        widget: "string"
+      - label: "Foto de Perfil"
+        name: "image"
+        widget: "image"
+        required: false
+      - label: "Rol Profesional / Especialidad"
+        name: "role_bio"
+        widget: "string"
+        hint: "Ej: Ingeniero Cloud, Traductor."
+      - label: "Permisos / Rango"
+        name: "member_role"
+        widget: "select"
+        options: ["Admin", "Editor", "Escritor", "Miembro LoCo"]
+        default: "Miembro LoCo"
+      - label: "Insignia Oficial de Ubuntu"
+        name: "badge"
+        widget: "select"
+        options: ["Miembro Oficial", "LoCo Contact", "Voluntario", "Invitado Especial", "Conferencista"]
+      - label: "Contribuciones Principales"
+        name: "contributions"
+        widget: "list"
+        required: false
+        hint: "Proyectos en los que ayuda en Ubuntu"
+      - label: "GitHub Username"
+        name: "github"
+        widget: "string"
+        required: false
+      - label: "Biografía Detallada"
+        name: "body"
+        widget: "markdown"
 
   # 3. EVENTOS OFICIALES DE UBUNTU VENEZUELA
   - name: "eventos"
@@ -48,11 +93,23 @@ collections:
     create: true
     slug: "{{year}}-{{month}}-{{slug}}"
     fields:
-      - {label: "Nombre del Evento", name: "title", widget: "string"}
-      - {label: "Fecha y Hora del Evento", name: "date", widget: "datetime"}
-      - {label: "Lugar / Ubicación", name: "location", widget: "string"}
-      - {label: "URL de Registro Externo (Formspree/Typeform)", name: "registration_url", widget: "string", required: false}
-      - {label: "Banner del Evento", name: "image", widget: "image", required: false}
+      - label: "Nombre del Evento"
+        name: "title"
+        widget: "string"
+      - label: "Fecha y Hora del Evento"
+        name: "date"
+        widget: "datetime"
+      - label: "Lugar / Ubicación"
+        name: "location"
+        widget: "string"
+      - label: "URL de Registro Externo (Formspree/Typeform)"
+        name: "registration_url"
+        widget: "string"
+        required: false
+      - label: "Banner del Evento"
+        name: "image"
+        widget: "image"
+        required: false
       - label: "Conferencistas (Seleccionar Miembros)"
         name: "speakers"
         widget: "relation"
@@ -62,10 +119,24 @@ collections:
         display_fields: ["title", "badge"]
         multiple: true
         required: false
-      - {label: "ID de Texto SVG (Dinamismo)", name: "cert_id", widget: "string", default: "tspan3951", hint: "Por defecto es tspan3951 del script local."}
-      - {label: "Plantilla SVG del Certificado", name: "cert_template", widget: "file", required: false, hint: "Sube tu SVG aquí siguiendo la guía técnica."}
-      - {label: "Lista de Participantes (XLS)", name: "cert_list", widget: "file", required: false, hint: "Sube tu archivo .xls aquí."}
-      - {label: "Cuerpo / Descripción del Evento", name: "body", widget: "markdown"}
+      - label: "ID de Texto SVG (Dinamismo)"
+        name: "cert_id"
+        widget: "string"
+        default: "tspan3951"
+        hint: "Por defecto es tspan3951 del script local."
+      - label: "Plantilla SVG del Certificado"
+        name: "cert_template"
+        widget: "file"
+        required: false
+        hint: "Sube tu SVG aquí siguiendo la guía técnica."
+      - label: "Lista de Participantes (XLS)"
+        name: "cert_list"
+        widget: "file"
+        required: false
+        hint: "Sube tu archivo .xls aquí."
+      - label: "Cuerpo / Descripción del Evento"
+        name: "body"
+        widget: "markdown"
 
   # 4. PATROCINADORES Y ALIADOS
   - name: "patrocinadores"
@@ -74,23 +145,45 @@ collections:
     create: true
     slug: "{{slug}}"
     fields:
-      - {label: "Nombre de la Empresa", name: "title", widget: "string"}
-      - {label: "Logo", name: "image", widget: "image", required: false}
-      - {label: "Sitio Web", name: "website", widget: "string", required: false}
-      - {label: "Orden / Prioridad", name: "weight", widget: "number", default: 10, hint: "Menor número = Más arriba"}
-      - {label: "Descripción de Apoyo", name: "body", widget: "markdown"}
-        multiple: true
+      - label: "Nombre de la Empresa"
+        name: "title"
+        widget: "string"
+      - label: "Logo"
+        name: "image"
+        widget: "image"
         required: false
-      - {label: "Descripción del Evento", name: "body", widget: "markdown"}
+      - label: "Sitio Web"
+        name: "website"
+        widget: "string"
+        required: false
+      - label: "Orden / Prioridad"
+        name: "weight"
+        widget: "number"
+        default: 10
+        hint: "Menor número = Más arriba"
+      - label: "Descripción de Apoyo"
+        name: "body"
+        widget: "markdown"
+        required: false
 
-  # 4. EDICIÓN DE PÁGINAS FIJAS EXISTENTES
+  # 5. EDICIÓN DE PÁGINAS FIJAS EXISTENTES
   - name: "paginas_fijas"
     label: "Páginas Fijas (Institucionales)"
     folder: "content"
     create: false
     extension: "md"
     fields:
-      - {label: "Título", name: "title", widget: "string"}
-      - {label: "Descripción SEO", name: "description", widget: "text", required: false}
-      - {label: "Fondo Decorativo", name: "backgroundType", widget: "select", options: ["light", "dark", "accent", "suru", "suru-topped", "image"]}
-      - {label: "Contenido de la Página", name: "body", widget: "markdown"}
+      - label: "Título"
+        name: "title"
+        widget: "string"
+      - label: "Descripción SEO"
+        name: "description"
+        widget: "text"
+        required: false
+      - label: "Fondo Decorativo"
+        name: "backgroundType"
+        widget: "select"
+        options: ["light", "dark", "accent", "suru", "suru-topped", "image"]
+      - label: "Contenido de la Página"
+        name: "body"
+        widget: "markdown"

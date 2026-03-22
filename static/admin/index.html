@@ -8,7 +8,23 @@
   <link rel="stylesheet" href="cms.css">
 </head>
 <body>
-  <!-- Incluir el script de Decap CMS directamente -->
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <!-- Identity Widget para Inicio de Sesión Amigable (Email/Password/Github) sin programar backend -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+  <!-- Incluir el CMS gráfico Decap -->
+  <script src="https://unpkg.com/decap-cms@^3.1.2/dist/decap-cms.js"></script>
+  
+  <!-- Lógica mágica de redirección después del login exitoso -->
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
 </body>
 </html>

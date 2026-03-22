@@ -39,14 +39,13 @@
         {{ end }}
       </ul>
       <ul class="p-navigation__items">
-        <li class="p-navigation__item--dropdown-toggle" id="link-language">
-          <a class="p-navigation__link" aria-controls="language-menu" style="color: #fff;">Idioma</a>
-          <ul class="p-navigation__dropdown--right" id="language-menu" aria-hidden="true">
-            {{ range .AllTranslations }}
-            <li><a href="{{ .Permalink }}" class="p-navigation__dropdown-item">{{ .Language.LanguageName }}</a></li>
-            {{ end }}
-          </ul>
+        {{ range .Translations }}
+        <li class="p-navigation__item">
+          <a class="p-navigation__link" href="{{ .Permalink }}" style="color: #fff;">
+            🌐 {{ .Language.LanguageName }}
+          </a>
         </li>
+        {{ end }}
       </ul>
     </nav>
   </div>

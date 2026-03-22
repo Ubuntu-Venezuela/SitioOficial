@@ -1,0 +1,85 @@
+{{ define "main" }}
+
+<style>
+  .badge-border-loco { border-color: #E95420 !important; }
+  .badge-border-official { border-color: #77216F !important; }
+  .badge-border-admin { border-color: #333333 !important; }
+  .badge-border-default { border-color: #ccc !important; }
+
+  .badge-tag-loco { background: #E95420; color: #fff; }
+  .badge-tag-official { background: #77216F; color: #fff; }
+  .badge-tag-admin { background: #333333; color: #fff; }
+  .badge-tag-default { background: #eee; color: #333; }
+</style>
+
+<div class="row" style="padding: 4rem 1rem; max-width: 65rem; margin: 0 auto;">
+  
+  {{ $borderClass := "badge-border-default" }}
+  {{ $tagClass := "badge-tag-default" }}
+  {{ if eq .Params.badge "LoCo Contact" }}
+    {{ $borderClass = "badge-border-loco" }}
+    {{ $tagClass = "badge-tag-loco" }}
+  {{ else if eq .Params.badge "Miembro Oficial" }}
+    {{ $borderClass = "badge-border-official" }}
+    {{ $tagClass = "badge-tag-official" }}
+  {{ else if eq .Params.badge "Admin" }}
+    {{ $borderClass = "badge-border-admin" }}
+    {{ $tagClass = "badge-tag-admin" }}
+  {{ end }}
+
+  <!-- Columna Izquierda: Tarjeta de Perfil Fija -->
+  <div class="col-4">
+    <div style="background: #fff; padding: 2.5rem 1.5rem; border-radius: 12px; text-align: center; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 10px 40px rgba(0,0,0,0.04); position: sticky; top: 80px;">
+      
+      {{ $img := .Params.image }}
+      {{ if or (not $img) (eq $img "/img/default-avatar.png") }}
+      <svg class="{{ $borderClass }}" style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover; margin: 0 auto 1.5rem auto; border: 4px solid; padding: 4px; background-color: #f7f7f7;" viewBox="0 0 85 85" xmlns="http://www.w3.org/2000/svg">
+        <path d="M42.5 45c6.5 0 11.5-5 11.5-11.5C54 27 49 22 42.5 22 36 22 31 27 31 33.5c0 6.5 5 11.5 11.5 11.5zm0 5C32.5 50 12 55.5 12 65.5V75h61v-9.5c0-10-20.5-15.5-30.5-15.5z" fill="#ccc"></path>
+      </svg>
+      {{ else }}
+      <img src="{{ $img | safeURL }}" alt="{{ .Title }}" class="{{ $borderClass }}" style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover; margin-bottom: 1.5rem; border: 4px solid; padding: 4px;">
+      {{ end }}
+      
+      <h2 style="margin: 0; color: #111; font-weight: 700; font-size: 1.6rem;">{{ .Title }}</h2>
+      <p style="color: #666; font-size: 1rem; margin-top: 0.5rem; font-style: italic;">{{ .Params.role_bio }}</p>
+      
+      <div style="margin: 1.5rem 0;">
+        <span class="{{ $tagClass }}" style="display: inline-block; padding: 0.4rem 1.2rem; border-radius: 20px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">
+          <i class="p-icon--user" style="filter: brightness(0) invert(1); margin-right: 5px; margin-bottom: -3px;"></i>
+          {{ .Params.badge }} {{ if or (eq .Params.badge "Miembro Oficial") (eq .Params.badge "LoCo Contact") }}de Ubuntu{{ end }}
+        </span>
+      </div>
+      
+      <hr class="p-rule" style="margin: 2rem 0;">
+      
+      {{ if .Params.github }}
+      <a href="https://github.com/{{ .Params.github }}" target="_blank" class="p-button" style="width: 100%; border-color: #333; color: #333;"><i class="p-icon--github"></i> {{ .Site.Params.members_dir.btn_github }}</a>
+      {{ end }}
+    </div>
+  </div>
+  
+  <!-- Columna Derecha: Biografía y Contribuciones -->
+  <div class="col-8" style="padding-left: 2rem;">
+    <a href="/miembros/" style="color: #E95420; text-decoration: none; font-weight: 600; font-size: 0.9rem; text-transform: uppercase;">&larr; {{ .Site.Params.members_dir.back_to_dir }}</a>
+    
+    <h3 style="margin-top: 2.5rem; color: #111; font-weight: 800; font-size: 2rem; border-bottom: 2px solid #eaeaea; padding-bottom: 1rem;">{{ .Site.Params.members_dir.about_prefix }} {{ .Title }}</h3>
+    
+    <div class="p-article" style="font-size: 1.15rem; line-height: 1.8; color: #333; margin-top: 2rem;">
+      {{ .Content }}
+    </div>
+
+    {{ if .Params.contributions }}
+    <div style="background: rgba(233, 84, 32, 0.03); border-radius: 12px; padding: 2.5rem; margin-top: 3rem; border: 1px solid rgba(233, 84, 32, 0.1);">
+      <h3 style="margin-top: 0; color: #E95420; font-weight: 700; font-size: 1.5rem; margin-bottom: 1.5rem;">{{ .Site.Params.members_dir.contributions_title }}</h3>
+      <ul class="p-list--divided" style="margin: 0;">
+        {{ range .Params.contributions }}
+        <li class="p-list__item" style="padding: 1rem 0; color: #444; font-size: 1.1rem; border-color: rgba(0,0,0,0.05);">
+          ✅ <span style="margin-left: 0.5rem;">{{ . }}</span>
+        </li>
+        {{ end }}
+      </ul>
+    </div>
+    {{ end }}
+  </div>
+</div>
+{{ end }}

@@ -65,35 +65,87 @@
       </div>
     </div>
   </section>
-  <section class="p-strip--light">
-    <div class="row">
-      <div class="col-12">
-        <h1>{{i18n "main_kr_loco_title"}}</h1>
-        <p>{{i18n "main_kr_loco_desc"}}</p>
-        <a href="about"><button>{{i18n "main_kr_loco_about"}}</button></a>
-        <div class="row p-divider">
-          <div class="col-4 p-divider__block">
-            <h2><i class="p-icon--comments"></i><i class="p-icon--topic"></i><br>{{i18n "main_kr_loco_community_title"}}</h2>
-            <ul class="p-list--divided">
-              <li class="p-list__item is-ticked"><a href="community">Foro y Chat</a></li>
-              <li class="p-list__item is-ticked"><a href="https://wiki.ubuntu.com/Venezuela">Wiki Ubuntu-Ve</a></li>
-            </ul>
-          </div>
-          <div class="col-4 p-divider__block">
-            <h2><i class="p-icon--user-group"></i><br>{{i18n "main_kr_loco_events_title"}}</h2>
-            <ul class="p-list--divided">
-              <li class="p-list__item is-ticked"><a href="projects">Flisol y Meetups</a></li>
-            </ul>
-          </div>
-          <div class="col-4 p-divider__block">
-            <h2><i class="p-icon--code"></i><br>Proyectos</h2>
-            <ul class="p-list--divided">
-              <li class="p-list__item is-ticked"><a href="projects">Software Libre</a></li>
-            </ul>
-          </div>
-        </div>
+  <!-- SECCIÓN PREMIUM DE COMUNIDAD CON EFECTOS MODERNOS -->
+  <section class="p-strip" style="background: linear-gradient(135deg, #f9f9f9 0%, #ececec 100%); padding: 6rem 0; position: relative; overflow: hidden;">
+    <!-- Elementos decorativos de fondo (Blur Orbs) -->
+    <div style="position: absolute; top: -100px; right: -50px; width: 300px; height: 300px; background: rgba(233, 84, 32, 0.06); border-radius: 50%; filter: blur(50px); pointer-events: none;"></div>
+    <div style="position: absolute; bottom: -100px; left: -50px; width: 400px; height: 400px; background: rgba(119, 33, 111, 0.05); border-radius: 50%; filter: blur(70px); pointer-events: none;"></div>
+
+    <div class="row" style="position: relative; z-index: 1;">
+      <div class="col-12" style="text-align: center; margin-bottom: 3.5rem;">
+        <h2 style="color: #111; font-weight: 700; font-size: 2.5rem; letter-spacing: -0.5px; margin-bottom: 1rem;">{{ .Site.Params.home_features.title }}</h2>
+        <p style="max-width: 750px; margin: 0 auto; color: #555; font-size: 1.15rem; line-height: 1.6;">{{ .Site.Params.home_features.description }}</p>
       </div>
     </div>
+    
+    <div class="row u-equal-height" style="position: relative; z-index: 1; margin: 0 auto; max-width: 76rem;">
+      {{ range .Site.Params.home_features.cards }}
+      <div class="col-3" style="display: flex; padding: 0.5rem;">
+        <a href="{{ .url | safeURL }}" class="modern-feature-card" style="
+          width: 100%;
+          display: flex; 
+          flex-direction: column; 
+          text-decoration: none; 
+          background: #ffffff;
+          border-radius: 16px;
+          border: 1px solid rgba(0,0,0,0.03);
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+          padding: 2.5rem 1.5rem;
+          text-align: center;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+          position: relative;
+          overflow: hidden;
+        ">
+          <!-- Círculo contenedor de Icono con Gradiente Suave -->
+          <div class="modern-icon-wrapper" style="
+            width: 76px; 
+            height: 76px; 
+            border-radius: 50%; 
+            background: linear-gradient(135deg, rgba(233,84,32,0.1) 0%, rgba(233,84,32,0.02) 100%); 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            margin-bottom: 1.5rem;
+            transition: all 0.4s ease;
+          ">
+            <i class="{{ .icon }}" style="font-size: 2.2rem; margin: 0; color: #E95420;"></i>
+          </div>
+          
+          <h3 style="margin: 0; color: #111; font-weight: 600; font-size: 1.25rem;">{{ .title }}</h3>
+          
+          <!-- Línea decorativa inferior que se expande en Hover -->
+          <div class="modern-bottom-accent" style="
+            position: absolute; 
+            bottom: 0; left: 0; 
+            width: 100%; height: 5px; 
+            background: linear-gradient(90deg, #E95420, #77216F); 
+            transform: scaleX(0); 
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); 
+            transform-origin: center;
+          "></div>
+        </a>
+      </div>
+      {{ end }}
+    </div>
+
+    <!-- Estilos de micro-interacciones (Hovers) -->
+    <style>
+      .modern-feature-card:hover {
+        transform: translateY(-8px) scale(1.02) !important;
+        box-shadow: 0 25px 45px rgba(233, 84, 32, 0.12) !important;
+        border-color: rgba(233, 84, 32, 0.15) !important;
+      }
+      .modern-feature-card:hover .modern-icon-wrapper {
+        transform: scale(1.15) !important;
+        background: linear-gradient(135deg, rgba(233,84,32,0.15) 0%, rgba(233,84,32,0.05) 100%) !important;
+        box-shadow: 0 8px 16px rgba(233, 84, 32, 0.15) !important;
+      }
+      .modern-feature-card:hover .modern-bottom-accent {
+        transform: scaleX(1) !important;
+      }
+    </style>
   </section>
 
   <!-- SECCIÓN DE NOTICIAS DE UBUNTU (Importadas o Propias) -->

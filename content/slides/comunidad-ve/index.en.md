@@ -1,13 +1,12 @@
 ---
-title: "UbuCon Korea 2023"
+title: "Ubuntu Venezuela Community"
 backgroundType: suru #light, dark, accent, suru, suru-topped, image
 colorScheme: dark #dark, light
 image: logo.svg
-# backgroundImage: bg.png
 buttons:
-    - label: Learn more
-      url: https://2023.ubuntu-kr.org
+    - label: Join us
+      url: community
 draft: false
-date: 2023-05-20
+date: 2026-03-22
 ---
-Following the success of last year's UbuCon Asia, UbuCon Korea will be held at Sept 9th at Microsoft Korea. With the theme "Ubuntu for Developer Productivity"
+Be part of the local Ubuntu team in Venezuela. Participate in events, help with translations, support, and share with the largest free software community in the country.

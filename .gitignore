@@ -15,3 +15,15 @@ $RECYCLE.BIN/
 
 # NPM
 node_modules
+
+# Agente AI de Desarrollo
+agent.md
+agent.json
+
+# Dependencias del servicio de certificados / cdc (Python / Node)
+venv/
+.venv/
+__pycache__/
+*.pyc
+.env
+logs/

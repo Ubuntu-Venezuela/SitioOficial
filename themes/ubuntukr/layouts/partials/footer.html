@@ -1,49 +1,53 @@
 <!-- CUERPO DEL FOOTER (Gris Carbono) -->
 <footer class="p-strip--dark" style="background-color: #262626; padding: 4rem 0 2rem 0; border-top: 1px solid #333;">
   <div class="row" style="max-width: 72rem; margin: 0 auto; padding: 0 1rem;">
-    <!-- Columna 1: La Comunidad -->
+    <!-- Columna 1 -->
+    {{ with .Site.Params.footer.col1 }}
     <div class="col-3">
-      <h4 style="color: #fff; font-weight: 400; font-size: 1.1rem; margin-bottom: 1.5rem;">La Comunidad</h4>
+      <h4 style="color: #fff; font-weight: 400; font-size: 1.1rem; margin-bottom: 1.5rem;">{{ .title }}</h4>
       <ul class="p-list" style="list-style: none; padding: 0;">
-        <li style="margin-bottom: 0.5rem;"><a href="/about/" style="color: #ccc; text-decoration: none; font-size: 0.9rem;">Sobre nosotros</a></li>
-        <li style="margin-bottom: 0.5rem;"><a href="/miembros/" style="color: #ccc; text-decoration: none; font-size: 0.9rem;">Directorio de Miembros</a></li>
-        <li style="margin-bottom: 0.5rem;"><a href="/sponsors/" style="color: #ccc; text-decoration: none; font-size: 0.9rem;">Aliados y Sponsors</a></li>
-        <li style="margin-bottom: 0.5rem;"><a href="https://wiki.ubuntu.com/VenezuelaTeam" style="color: #ccc; text-decoration: none; font-size: 0.9rem;">Loco Team Wiki</a></li>
+        {{ range .links }}
+        <li style="margin-bottom: 0.5rem;"><a href="{{ .url | safeURL }}" style="color: #ccc; text-decoration: none; font-size: 0.9rem;">{{ .name }}</a></li>
+        {{ end }}
       </ul>
     </div>
+    {{ end }}
 
-    <!-- Columna 2: Soporte y Recursos -->
+    <!-- Columna 2 -->
+    {{ with .Site.Params.footer.col2 }}
     <div class="col-3">
-      <h4 style="color: #fff; font-weight: 400; font-size: 1.1rem; margin-bottom: 1.5rem;">Soporte y Recursos</h4>
+      <h4 style="color: #fff; font-weight: 400; font-size: 1.1rem; margin-bottom: 1.5rem;">{{ .title }}</h4>
       <ul class="p-list" style="list-style: none; padding: 0;">
-        <li style="margin-bottom: 0.5rem;"><a href="/recursos/certificados/" style="color: #ccc; text-decoration: none; font-size: 0.9rem;">Guía de Certificados</a></li>
-        <li style="margin-bottom: 0.5rem;"><a href="https://help.ubuntu.com/" style="color: #ccc; text-decoration: none; font-size: 0.9rem;">Documentación Oficial</a></li>
-        <li style="margin-bottom: 0.5rem;"><a href="https://askubuntu.com" style="color: #ccc; text-decoration: none; font-size: 0.9rem;">Ask Ubuntu</a></li>
-        <li style="margin-bottom: 0.5rem;"><a href="mailto:{{.Site.Params.contact}}" style="color: #ccc; text-decoration: none; font-size: 0.9rem;">Contacto Junta</a></li>
+        {{ range .links }}
+        <li style="margin-bottom: 0.5rem;"><a href="{{ .url | safeURL }}" style="color: #ccc; text-decoration: none; font-size: 0.9rem;">{{ .name }}</a></li>
+        {{ end }}
       </ul>
     </div>
+    {{ end }}
 
-    <!-- Columna 3: Descargar Ubuntu -->
+    <!-- Columna 3 -->
+    {{ with .Site.Params.footer.col3 }}
     <div class="col-3">
-      <h4 style="color: #fff; font-weight: 400; font-size: 1.1rem; margin-bottom: 1.5rem;">Descargar Ubuntu</h4>
+      <h4 style="color: #fff; font-weight: 400; font-size: 1.1rem; margin-bottom: 1.5rem;">{{ .title }}</h4>
       <ul class="p-list" style="list-style: none; padding: 0;">
-        <li style="margin-bottom: 0.5rem;"><a href="https://ubuntu.com/download/desktop" style="color: #ccc; text-decoration: none; font-size: 0.9rem;">Ubuntu Desktop</a></li>
-        <li style="margin-bottom: 0.5rem;"><a href="https://ubuntu.com/download/server" style="color: #ccc; text-decoration: none; font-size: 0.9rem;">Ubuntu Server</a></li>
-        <li style="margin-bottom: 0.5rem;"><a href="https://ubuntu.com/download/cloud" style="color: #ccc; text-decoration: none; font-size: 0.9rem;">Ubuntu Cloud</a></li>
-        <li style="margin-bottom: 0.5rem;"><a href="https://ubuntu.com/download/iot" style="color: #ccc; text-decoration: none; font-size: 0.9rem;">Ubuntu IoT</a></li>
+        {{ range .links }}
+        <li style="margin-bottom: 0.5rem;"><a href="{{ .url | safeURL }}" style="color: #ccc; text-decoration: none; font-size: 0.9rem;">{{ .name }}</a></li>
+        {{ end }}
       </ul>
     </div>
+    {{ end }}
 
-    <!-- Columna 4: Síguenos -->
+    <!-- Columna 4 -->
+    {{ with .Site.Params.footer.col4 }}
     <div class="col-3">
-      <h4 style="color: #fff; font-weight: 400; font-size: 1.1rem; margin-bottom: 1.5rem;">Síguenos</h4>
+      <h4 style="color: #fff; font-weight: 400; font-size: 1.1rem; margin-bottom: 1.5rem;">{{ .title }}</h4>
       <ul class="p-list" style="list-style: none; padding: 0;">
-        <li style="margin-bottom: 0.5rem;"><a href="https://t.me/ubuntuve" style="color: #ccc; text-decoration: none; font-size: 0.9rem;">Telegram</a></li>
-        <li style="margin-bottom: 0.5rem;"><a href="https://twitter.com/{{.Site.Params.twitter}}" style="color: #ccc; text-decoration: none; font-size: 0.9rem;">Twitter (X)</a></li>
-        <li style="margin-bottom: 0.5rem;"><a href="https://lists.ubuntu.com/mailman/listinfo/ubuntu-ve" style="color: #ccc; text-decoration: none; font-size: 0.9rem;">Mailing Lists</a></li>
-        <li style="margin-bottom: 0.5rem;"><a href="https://github.com/{{.Site.Params.github}}" style="color: #ccc; text-decoration: none; font-size: 0.9rem;">GitHub Open Source</a></li>
+        {{ range .links }}
+        <li style="margin-bottom: 0.5rem;"><a href="{{ .url | safeURL }}" style="color: #ccc; text-decoration: none; font-size: 0.9rem;">{{ .name }}</a></li>
+        {{ end }}
       </ul>
     </div>
+    {{ end }}
   </div>
 
   <!-- UBUNTU-VE RADIO PLAYER (Moderno y Centrado) -->
@@ -57,13 +61,13 @@
             </svg>
           </div>
           <div>
-            <h4 style="color: #fff; margin: 0; font-size: 1.1rem; font-weight: 400;">Ubuntu-Ve Radio</h4>
-            <span style="color: #888; font-size: 0.85rem;">En vivo desde la comunidad</span>
+            <h4 style="color: #fff; margin: 0; font-size: 1.1rem; font-weight: 400;">{{ .Site.Params.radio.title }}</h4>
+            <span style="color: #888; font-size: 0.85rem;">{{ .Site.Params.radio.subtitle }}</span>
           </div>
         </div>
         <div style="flex-grow: 1; max-width: 500px;">
           <audio controls style="width: 100%; height: 36px; filter: grayscale(1) invert(1) brightness(0.8);">
-            <source src="https://stream.last.fm/your-stream-url" type="audio/mpeg">
+            <source src="{{ .Site.Params.radio.url | safeURL }}" type="audio/mpeg">
             Tu navegador no soporta el reproductor de audio.
           </audio>
         </div>
@@ -79,11 +83,39 @@
           {{.Site.Params.copyright}}
         </p>
         <div style="display: flex; justify-content: center; gap: 2rem;">
-          <a href="{{.Site.Params.source_repo}}" style="color: #888; font-size: 0.8rem; text-decoration: none;">Código Fuente</a>
-          <a href="https://ubuntu.com/legal" style="color: #888; font-size: 0.8rem; text-decoration: none;">Información Legal</a>
-          <a href="mailto:{{.Site.Params.contact}}" style="color: #888; font-size: 0.8rem; text-decoration: none;">Contacto</a>
+          {{ with .Site.Params.footer.legal }}
+          <a href="{{ .Site.Params.source_repo | default "https://github.com/ubuntu-ve" | safeURL }}" style="color: #888; font-size: 0.8rem; text-decoration: none;">{{ .source }}</a>
+          <a href="{{ .legal_url | safeURL }}" style="color: #888; font-size: 0.8rem; text-decoration: none;">{{ .legal_info }}</a>
+          <a href="mailto:{{ $.Site.Params.contact }}" style="color: #888; font-size: 0.8rem; text-decoration: none;">{{ .contact }}</a>
+          {{ end }}
         </div>
       </div>
     </div>
   </div>
+  <!-- Discourse-Style Mentions Parser (@username to GitHub tags) -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const articles = document.querySelectorAll('.p-article');
+      articles.forEach(article => {
+        // Recorrer los nodos de texto para no romper HTML, <a> o <code>
+        const walker = document.createTreeWalker(article, NodeFilter.SHOW_TEXT, null, false);
+        let node;
+        const replaceNodes = [];
+        while ((node = walker.nextNode())) {
+          if (node.parentNode && node.parentNode.nodeName !== 'A' && node.parentNode.nodeName !== 'CODE' && node.parentNode.nodeName !== 'PRE') {
+            if (/(^|\s)@([a-zA-Z0-9_\-]+)/.test(node.nodeValue)) {
+              replaceNodes.push(node);
+            }
+          }
+        }
+        
+        // Reemplazar textos planos con botones tipo Discourse
+        replaceNodes.forEach(n => {
+          const span = document.createElement('span');
+          span.innerHTML = n.nodeValue.replace(/(^|\s)@([a-zA-Z0-9_\-]+)/g, '$1<a href="https://github.com/$2" target="_blank" style="background-color: #f2f2f2; color: #444; padding: 0.15rem 0.4rem; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.85em; display: inline-flex; align-items: center; border: 1px solid #ddd; margin: 0 0.1rem; line-height: 1;"><svg style="width: 12px; height: 12px; margin-right: 4px; fill: #E95420;" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>@$2</a>');
+          n.parentNode.replaceChild(span, n);
+        });
+      });
+    });
+  </script>
 </footer>

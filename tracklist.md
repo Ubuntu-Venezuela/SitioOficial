@@ -26,49 +26,54 @@ Este archivo rastrea el progreso de la migración de la plantilla base (UK/KR) h
 ### 3. Personalización Visual y Assets
 - [ ] Reemplazar el logo de "Ubuntu Korea/UK" por el logo de **Ubuntu Venezuela** (`static/img/logo.svg`).
 - [ ] Actualizar imágenes de fondo/héroe en `static/` o `content/` con fotos de eventos locales o genéricas de Ubuntu.
-- [ ] Revisar el tema (`themes/ubuntukr`) para detectar textos "quemados" en el HTML de los layouts.
+- [x] Revisar el tema (`themes/ubuntukr`) para detectar textos "quemados" en el HTML de los layouts.
 
 ### 4. Migración de Funciones (Sitio Anterior / Legacy)
-- [ ] **Módulo de Blog/Noticias:** Recrear en Hugo el sistema de noticias (ej: *Felices Navidades 2021*, *Aniversarios*) bajo el directorio `/content/blog/`.
-- [ ] **Módulo de Páginas Institucionales:** Migrar las páginas "Código de Conducta", "Cómo ser miembro", "Contactos Regionales" y "Compromiso Social".
-- [ ] **Gestión de Usuarios Activos:** Crear una página de directorio o "Nuestra Comunidad" para destacar perfiles de usuarios.
+- [x] **Módulo de Blog/Noticias:** Recrear en Hugo el sistema de noticias (ej: *Felices Navidades 2021*, *Aniversarios*) bajo el directorio `/content/noticias/`.
+- [ ] **Diseño Tipo Discourse (Blog/Noticias):** Modificar la vista de Noticias para que luzca y reaccione como el foro limpio de *discourse.ubuntu.com*, orientándolo a hilos, etiquetas y actividad.
+- [x] **Módulo de Páginas Institucionales:** Migrar las páginas "Código de Conducta" y "Compromiso Social".
+- [x] **Cómo Ser Miembro / Ubuntu Membership:** Recrear las secciones de `NuevosMiembros` y `/miembroubuntu` explicando el proceso local y global.
+- [ ] **Firma del Código de Conducta:** En el sitio anterior se usaba `/firma`. Implementar un mecanismo (puede ser Netlify Forms o Supabase) para registrar a quienes firman el CoC de la comunidad.
+- [ ] **Contactos Regionales:** Reemplazar las redirecciones a la Wiki por una página interna dinámica que liste a los contactos por estado.
+- [ ] **Galería Histórica:** El antiguo sitio redirigía a *Picasaweb* (obsoleto). Crear un nuevo layout en Hugo (ej. `layouts/gallery/`) usando una grilla CSS limpia para revivir fotos históricas y de eventos.
+- [ ] **Actas / Reuniones:** Migrar logs de reuniones (`/aggregator/sources/3`) a una nueva taxonomía o sección de actas.
 
-### 5. Backend CMS Headless (Gestor de Contenido Vía Web)
-- [ ] **Integración de Static CMS / Decap CMS:** Crear interfaz gráfica que permita a editores y redactores de Ubuntu Venezuela publicar contenido desde un panel web (`/admin`).
+### 5. Backend CMS Headless y Búsqueda
+- [ ] **Integración de Static CMS / Decap CMS:** Crear interfaz gráfica que permita a editores y redactores publicar contenido desde un panel web (`/admin`). Reemplaza el OpenID antiguo del Drupal.
 - [ ] Configurar flujo de inicio de sesión de autores.
 - [ ] **Colección de Noticias (Blog):** Configurar campos para imágenes de portada, título, fechas y cuerpo del artículo.
-- [ ] **Colección de Miembros y Roles:** Configurar en el CMS la posibilidad de añadir usuarios creando "tarjetas de perfil" con selectores de roles (`badges`) como: "Conferencista", "Contacto Local", "Miembro LoCo". El CMS generará esto en Hugo para mostrar un directorio del equipo.
+- [ ] **Colección de Miembros y Roles:** Configurar en el CMS la posibilidad de añadir usuarios creando "tarjetas de perfil".
+- [ ] **Buscador Estático (Search API):** El Drupal tenía "Formulario de Búsqueda". En Hugo, integrar `Pagefind`, `Fuse.js` o `Lunr.js` para tener un buscador global sin necesidad de un backend tradicional.
 
 ### 6. Sistema Funcional para Usuarios y Eventos
-- [ ] **Sistema de Registro de Eventos:** Como Hugo es estático, integrar un gestor de formularios serverless (Formspree, Netlify Forms o Supabase) que permita a los asistentes llenar un formulario en la web de Ubuntu-Ve y guardar sus datos automáticamente en una base de datos o tabla segura, sin comprometer el servidor principal.
-- [ ] Crear el layout visual (`partials` o `shortcodes`) de "Tarjeta de Evento" con su botón respectivo para incrustar el formulario de registro.
-- [ ] Elaborar la lógica que relaciona Eventos y Conferencistas para renderizar automáticamente perfiles de oradores.
+- [ ] **Sistema de Registro de Eventos:** Interfaz serverless para reemplazar módulos de asistencia de Drupal.
+- [ ] Crear layout visual de "Tarjeta de Evento" y botones para incrustar formularios.
+- [ ] Relacionar Eventos y Conferencistas para renderizar perfiles automáticamente.
 
 ### 7. Automatización de Noticias (RSS / Scraping)
-- [x] **Script Agregador de Noticias:** Desarrollar un script en Python (ej. `fetch_news.py`) que consuma el RSS oficial del Blog de Ubuntu o sitios confiables relacionados.
-- [x] **Generador Markdown:** Hacer que el script procese las noticias y genere archivos `.md` estructurados en la carpeta de Hugo con su fecha, título y enlace a la fuente original.
-- [ ] **Traducción Automática:** (Opcional) Evaluar el uso de una API para traducir automáticamente el extracto si la fuente está en inglés.
-- [ ] Integrar un Cron Job (ej. en GitHub Actions) para que este script se ejecute diariamente o semanalmente y mantenga viva la página de noticias sin intervención manual.
-- [ ] Integrar un Cron Job (ej. en GitHub Actions) para que este script se ejecute diariamente o semanalmente y mantenga viva la página de noticias sin intervención manual.
+- [x] **Script Agregador de Noticias:** Desarrollar un script en Python.
+- [x] **Generador Markdown:** Procesado a archivos `.md` de Hugo.
+- [ ] **Traducción Automática:** (Opcional).
+- [ ] Integrar un Cron Job (ej. en GitHub Actions) para ejecución periódica de `fetch_news.py`.
 
 ### 8. Verificación y Despliegue Configuración Final
-- [ ] Integrar GitHub Actions para despliegue automático hacia GitHub Pages o servidor designado en cada guardado del CMS / Script.
+- [ ] Integrar GitHub Actions para despliegue automático hacia GitHub Pages o servidor designado en cada guardado del CMS.
 - [ ] Ejecutar `hugo` para verificar que el build no tenga errores de preprocesado.
 
 ### 9. Creador de Certificados y Eventos (Integración Python)
-- [ ] Analizar e integrar el script Python/Streamlit independiente del usuario (`cdc` / Generador de certificados rápidos: 3000 en 3min).
-- [ ] No alterar la lógica CORE del generador de certificados existente. Solo crear el puente/interfaz (Web o CLI controlada) para usarlo en flujo de eventos de la comunidad.
-- [ ] **Mailing con Resend:** Diseñar plantillas de correo en Resend para la bienvenida de asistentes y despacho de certificados autogenerados.
+- [ ] Analizar e integrar el script Python/Streamlit (`cdc`).
+- [ ] Mantener interfaz (Web o CLI) simple.
+- [ ] **Mailing con Resend:** Diseñar plantillas de correo.
 
 ### 10. Multimedia y Reproductor de Radio (Ubuntu-Ve Radio)
 - [ ] Desarrollar un "Reproductor Minimalista" global persistente (en todas las vistas del sitio).
-- [ ] Integrar streaming / scraping / API desde Last.fm u otra fuente de origen (ej: Icecast) para mantener viva la Radio de Ubuntu Venezuela.
-- [ ] Soportar compartir la reproducción: podcasts, audios propios y URLs.
+- [x] Integrar player minimalista estático en el Footer.
+- [ ] Soportar compartir la reproducción (metadatos OGG/Icecast).
 
 ### 11. Redes Clásicas y Modernización de Vistas
-- [ ] **Sponsors / Patrocinantes:** Migrar del sitio web heredado la sección completa de sponsors y renderizarla utilizando componentes de "Cards" (tarjetas) de Vanilla Framework, ordenados de mayor a menor aporte.
-- [ ] Integrar un acceso claro o visor embed para el canal **IRC** (la "vieja escuela" debe tener una puerta de entrada directa, quizá un webchat integrado o un enlace que abra un cliente configurado).
-- [ ] Mejorar las tarjetas de la Frontpage (Redirecciones externas a la Wiki, Foro, etc.) para que muestren la iconografía correcta y estén bien espaciadas.
+- [ ] **Sponsors / Patrocinantes:** Migrar la sección en tarjetas (Cards) de Vanilla Framework.
+- [ ] Integrar un acceso claro al canal interactivo (Webchat IRC / Matrix / Telegram).
+- [ ] Mejorar las tarjetas de la Frontpage (Redirecciones a Descargas y Foros, actualizando links muertos como Ubuntu One o Brainstorm por equivalentes modernos).
 
 ---
 *Última actualización: 2026-03-22*

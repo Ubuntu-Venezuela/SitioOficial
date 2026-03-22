@@ -30,6 +30,70 @@ languages:
       main_slide:
         label: Sobre la comunidad
         link: about
+      members_dir:
+        title: "Directorio de Miembros"
+        subtitle: "Conoce a los líderes, voluntarios y colaboradores que hacen posible la comunidad de Ubuntu Venezuela."
+        join_html: "¿Te gustaría unirte a nuestro equipo?"
+        join_url: "/miembro-ubuntu"
+        btn_profile: "Perfil Completo"
+        btn_github: "Perfil de GitHub"
+        back_to_dir: "Volver al Directorio"
+        about_prefix: "Acerca de"
+        contributions_title: "Contribuciones Especiales"
+      home_features:
+        title: "Únete a nuestra comunidad"
+        description: "Ubuntu Venezuela es un grupo de usuarios de Ubuntu conformado por profesionales y entusiastas cuyo objetivo fundamental es extender y dar a conocer el uso de Software Libre en nuestra región."
+        cards:
+          - icon: "p-icon--comments"
+            title: "Foro y Chat"
+            url: "https://t.me/ubuntuve"
+          - icon: "p-icon--topic"
+            title: "Wiki y Documentación"
+            url: "https://wiki.ubuntu.com/VenezuelaTeam"
+          - icon: "p-icon--user-group"
+            title: "Flisol y Meetups"
+            url: "/eventos/"
+          - icon: "p-icon--code"
+            title: "Proyectos Locales"
+            url: "https://github.com/ubuntu-ve"
+      radio:
+        title: "Ubuntu-Ve Radio"
+        subtitle: "En vivo desde la comunidad"
+        url: "https://stream.last.fm/your-stream-url"
+      footer:
+        col1:
+          title: "La Comunidad"
+          links:
+            - { name: "Sobre nosotros", url: "/about/" }
+            - { name: "Directorio de Miembros", url: "/miembros/" }
+            - { name: "Aliados y Sponsors", url: "/sponsors/" }
+            - { name: "Loco Team Wiki", url: "https://wiki.ubuntu.com/VenezuelaTeam" }
+        col2:
+          title: "Soporte y Recursos"
+          links:
+            - { name: "Guía de Certificados", url: "/recursos/certificados/" }
+            - { name: "Documentación Oficial", url: "https://help.ubuntu.com/" }
+            - { name: "Ask Ubuntu", url: "https://askubuntu.com" }
+            - { name: "Contacto Junta", url: "mailto:junta@ubuntu-ve.org" }
+        col3:
+          title: "Descargar Ubuntu"
+          links:
+            - { name: "Ubuntu Desktop", url: "https://ubuntu.com/download/desktop" }
+            - { name: "Ubuntu Server", url: "https://ubuntu.com/download/server" }
+            - { name: "Ubuntu Cloud", url: "https://ubuntu.com/download/cloud" }
+            - { name: "Ubuntu IoT", url: "https://ubuntu.com/download/iot" }
+        col4:
+          title: "Síguenos"
+          links:
+            - { name: "Telegram", url: "https://t.me/ubuntuve" }
+            - { name: "Twitter (X)", url: "https://twitter.com/ubuntu_ve" }
+            - { name: "Mailing Lists", url: "https://lists.ubuntu.com/mailman/listinfo/ubuntu-ve" }
+            - { name: "GitHub Open Source", url: "https://github.com/ubuntu-ve" }
+        legal:
+          source: "Código Fuente"
+          legal_info: "Información Legal"
+          legal_url: "https://ubuntu.com/legal"
+          contact: "Contacto"
     menu:
       main:
       - identifier: community
@@ -114,6 +178,70 @@ languages:
       main_slide:
         label: About the community
         link: about
+      members_dir:
+        title: "Members Directory"
+        subtitle: "Meet the leaders, volunteers, and contributors that make the Ubuntu Venezuela community possible."
+        join_html: "Would you like to join our team?"
+        join_url: "/miembro-ubuntu"
+        btn_profile: "Full Profile"
+        btn_github: "GitHub Profile"
+        back_to_dir: "Back to Directory"
+        about_prefix: "About"
+        contributions_title: "Special Contributions"
+      home_features:
+        title: "Join our community"
+        description: "Ubuntu Venezuela is an Ubuntu user group comprised of professionals and enthusiasts whose fundamental goal is to expand and promote the use of Free Software in our region."
+        cards:
+          - icon: "p-icon--comments"
+            title: "Forum and Chat"
+            url: "https://t.me/ubuntuve"
+          - icon: "p-icon--topic"
+            title: "Wiki and Documentation"
+            url: "https://wiki.ubuntu.com/VenezuelaTeam"
+          - icon: "p-icon--user-group"
+            title: "Flisol and Meetups"
+            url: "/eventos/"
+          - icon: "p-icon--code"
+            title: "Local Projects"
+            url: "https://github.com/ubuntu-ve"
+      radio:
+        title: "Ubuntu-Ve Radio"
+        subtitle: "Live from the community"
+        url: "https://stream.last.fm/your-stream-url"
+      footer:
+        col1:
+          title: "The Community"
+          links:
+            - { name: "About us", url: "/about/" }
+            - { name: "Members Directory", url: "/miembros/" }
+            - { name: "Partners & Sponsors", url: "/sponsors/" }
+            - { name: "Loco Team Wiki", url: "https://wiki.ubuntu.com/VenezuelaTeam" }
+        col2:
+          title: "Support & Resources"
+          links:
+            - { name: "Certificates Guide", url: "/recursos/certificados/" }
+            - { name: "Official Documentation", url: "https://help.ubuntu.com/" }
+            - { name: "Ask Ubuntu", url: "https://askubuntu.com" }
+            - { name: "Board Contact", url: "mailto:junta@ubuntu-ve.org" }
+        col3:
+          title: "Download Ubuntu"
+          links:
+            - { name: "Ubuntu Desktop", url: "https://ubuntu.com/download/desktop" }
+            - { name: "Ubuntu Server", url: "https://ubuntu.com/download/server" }
+            - { name: "Ubuntu Cloud", url: "https://ubuntu.com/download/cloud" }
+            - { name: "Ubuntu IoT", url: "https://ubuntu.com/download/iot" }
+        col4:
+          title: "Follow Us"
+          links:
+            - { name: "Telegram", url: "https://t.me/ubuntuve" }
+            - { name: "Twitter (X)", url: "https://twitter.com/ubuntu_ve" }
+            - { name: "Mailing Lists", url: "https://lists.ubuntu.com/mailman/listinfo/ubuntu-ve" }
+            - { name: "GitHub Open Source", url: "https://github.com/ubuntu-ve" }
+        legal:
+          source: "Source Code"
+          legal_info: "Legal Information"
+          legal_url: "https://ubuntu.com/legal"
+          contact: "Contact"
     menu:
       main:
       - identifier: community
