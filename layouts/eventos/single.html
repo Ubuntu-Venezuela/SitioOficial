@@ -1,0 +1,78 @@
+{{ define "main" }}
+<div class="p-strip--suru">
+  <div class="row">
+    <div class="col-8">
+      <h1>{{ .Title }}</h1>
+      <p class="p-heading--5" style="color: #666;">📅 {{ .Params.date.Format "02 de Enero, 2006" }} | 📍 {{ .Params.location }}</p>
+    </div>
+  </div>
+</div>
+
+<div class="p-strip">
+  <div class="row">
+    <div class="col-8">
+      <!-- Cuerpo Principal del Evento -->
+      {{ if .Params.image }}
+      <img src="{{ .Params.image }}" alt="Banner Evento" class="u-sv3" style="width: 100%; border-radius: 4px;">
+      {{ end }}
+
+      <div class="p-article">
+        {{ .Content }}
+      </div>
+
+      <!-- Botón de Registro si está habilitado en el CMS -->
+      {{ if .Params.registration_url }}
+      <hr class="u-sv3">
+      <div class="p-notification--information">
+        <div class="p-notification__content">
+          <h4 class="p-notification__title">Registro Abierto</h4>
+          <p class="p-notification__message">Asegura tu participación en este evento registrándote a continuación.</p>
+          <a href="{{ .Params.registration_url }}" target="_blank" class="p-button--positive">Inscribirse Ahora</a>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+
+    <div class="col-4">
+      <aside class="p-card--highlighted">
+        <h3 class="p-heading--5 p-card__content">Panelistas / Oradores</h3>
+        <hr class="u-sv1">
+        
+        <!-- Aquí evaluamos los conferencistas elegidos en el CMS y cruzamos la data -->
+        {{ if .Params.speakers }}
+          {{ $speakersList := .Params.speakers }}
+          
+          <!-- Recorrer todos los archivos markdown de miembros y buscar a los seleccionados -->
+          {{ range where .Site.Pages "Section" "miembros" }}
+            {{ if in $speakersList .LinkTitle }}
+            
+            <div class="p-card__content u-align-text--center" style="margin-top: 1.5rem;">
+              {{ if .Params.image }}
+                <img src="{{ .Params.image }}" alt="{{ .Title }}" style="width: 80px; height: 80px; object-fit: cover; border-radius: 50%;">
+              {{ end }}
+              <h5 class="p-heading--5" style="margin-top: 10px; margin-bottom: 2px;">{{ .Title }}</h5>
+              <p style="font-size: 0.85rem; color: #555;">{{ .Params.role_bio }}</p>
+              
+              {{ if eq .Params.badge "Miembro Oficial" }}
+                <span class="p-badge--positive" style="font-size: 0.75rem;">Miembro Oficial</span>
+              {{ else if eq .Params.badge "LoCo Contact" }}
+                <span class="p-badge--information" style="font-size: 0.75rem;">LoCo Contact</span>
+              {{ else }}
+                <span class="p-badge" style="font-size: 0.75rem;">{{ .Params.badge }}</span>
+              {{ end }}
+
+              <p style="font-size: 0.8rem; margin-top: 10px;"><a href="{{ .Permalink }}">Ver Perfil</a></p>
+            </div>
+            
+            {{ end }}
+          {{ end }}
+        {{ else }}
+          <div class="p-card__content">
+            <p>Oradores por anunciarse.</p>
+          </div>
+        {{ end }}
+      </aside>
+    </div>
+  </div>
+</div>
+{{ end }}

@@ -1,0 +1,49 @@
+{{ define "main" }}
+<div class="p-strip--suru-topped">
+  <div class="row">
+    <div class="col-8">
+      <h1>Comunidad Ubuntu Venezuela</h1>
+      <p>Conoce al gran equipo de voluntarios, conferencistas y contactos locales que hacen posible promover la misión de Canonical y el Software Libre en Venezuela.</p>
+    </div>
+  </div>
+</div>
+
+<div class="p-strip is-shallow">
+  <div class="row">
+    {{ range .Pages }}
+    <div class="col-4 p-card--highlighted" style="margin-bottom: 2rem;">
+      <div class="p-card__content">
+        {{ if .Params.image }}
+        <img class="p-card__image" src="{{ .Params.image }}" alt="Foto de {{ .Title }}" style="border-radius: 50%; max-width: 100px; display: block; margin: 0 auto 1rem;">
+        {{ end }}
+        
+        <h3 class="p-heading--4" style="text-align: center;">{{ .Title }}</h3>
+        <p style="text-align: center; font-weight: bold; color: #777;">{{ .Params.role_bio }}</p>
+        
+        <div style="text-align: center; margin-bottom: 1rem;">
+          {{ if eq .Params.badge "Miembro Oficial" }}
+            <span class="p-badge--positive" aria-label="Miembro Oficial de Ubuntu">Miembro Oficial</span>
+          {{ else if eq .Params.badge "LoCo Contact" }}
+            <span class="p-badge--information" aria-label="LoCo Contact">LoCo Contact</span>
+          {{ else if eq .Params.badge "Conferencista" }}
+            <span class="p-badge--negative" aria-label="Conferencista">Conferencista</span>
+          {{ else }}
+            <span class="p-badge" aria-label="Voluntario">Voluntario / Colaborador</span>
+          {{ end }}
+        </div>
+
+        {{ if .Params.github }}
+          <p style="text-align: center;">
+            <a href="https://github.com/{{ .Params.github }}" target="_blank" class="p-button--base">GitHub</a>
+          </p>
+        {{ end }}
+
+        <hr class="u-sv1">
+        <p>{{ .Summary }}</p>
+        <a class="p-button--brand u-align-text--center" style="display: block;" href="{{ .Permalink }}">Ver Perfil Completo</a>
+      </div>
+    </div>
+    {{ end }}
+  </div>
+</div>
+{{ end }}
