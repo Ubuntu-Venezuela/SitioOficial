@@ -56,10 +56,16 @@ collections:
       - label: "Conferencistas (Seleccionar Miembros)"
         name: "speakers"
         widget: "relation"
-        collection: "miembros" # Aquí se engancha con la colección 2
+        collection: "miembros"
         value_field: "title"
         search_fields: ["title"]
         display_fields: ["title", "badge"]
+        multiple: true
+        required: false
+      - {label: "ID de Texto SVG (Dinamismo)", name: "cert_id", widget: "string", default: "tspan3951", hint: "Por defecto es tspan3951 del script local."}
+      - {label: "Plantilla SVG del Certificado", name: "cert_template", widget: "file", required: false, hint: "Sube tu SVG aquí siguiendo la guía técnica."}
+      - {label: "Lista de Participantes (XLS)", name: "cert_list", widget: "file", required: false, hint: "Sube tu archivo .xls aquí."}
+      - {label: "Cuerpo / Descripción del Evento", name: "body", widget: "markdown"}
 
   # 4. PATROCINADORES Y ALIADOS
   - name: "patrocinadores"
