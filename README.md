@@ -4,7 +4,7 @@
 ![Hugo](https://img.shields.io/badge/Hugo-FF4088?style=for-the-badge&logo=hugo&logoColor=white)
 ![Status](https://img.shields.io/badge/Estado-Operativo-success?style=for-the-badge)
 
-EsEste es el repositorio oficial del sitio web de la comunidad **Ubuntu Venezuela (Ubuntu-Ve)**. El sitio está construido con [Hugo](https://gohugo.io) y utiliza el [Vanilla Framework](https://vanillaframework.io) para mantener la estética oficial de la marca Ubuntu.
+Este es el repositorio oficial del sitio web de la comunidad **Ubuntu Venezuela (Ubuntu-Ve)**. El sitio está construido con [Hugo](https://gohugo.io) y utiliza el [Vanilla Framework](https://vanillaframework.io) para mantener la estética oficial de la marca Ubuntu.
 ## Vistas del Proyecto
 
 Aquí puedes ver el estado actual del diseño y la funcionalidad del portal:
@@ -24,7 +24,7 @@ Aquí puedes ver el estado actual del diseño y la funcionalidad del portal:
 
 El sistema ha sido evolucionado para ser una plataforma de gestión comunitaria completa:
 
--   **Bot de Noticias Automatizado:** Las noticias oficiales se importan directamente simulando un hilo de Discourse. El bot obtiene, traduce y publica noticias de Ubuntu diariamente sin necesidad de intervencion manual pesada, operando bajo un tono serio, tecnico e institucional (sin usar emojis) para mantener un feed de calidad.
+-   **Bot de Noticias Automatizado:** Las noticias oficiales se importan directamente simulando un hilo de Discourse. El bot obtiene, traduce y publica noticias de Ubuntu diariamente sin necesidad de intervencion manual pesada, operando bajo un tono serio, tecnico e institucional,  para mantener un feed de calidad.
 -   **Verificación de Perfil de Miembros (SSO Canonical):** La visualizacion de miembros de la comunidad se genera mediante un motor que consulta en Backend a Discourse y Launchpad. 
     1. Si la API de Discourse reporta al usuario como `ubuntumember`, recibe la insignia Morada de Miembro Oficial de Canonical.
     2. Si no es Oficial, pero la API de Launchpad reporta que ha firmado el Codigo de Conducta Internacional, recibe la insignia Naranja de Activista CDC.
