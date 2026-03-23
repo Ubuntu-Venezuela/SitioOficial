@@ -15,8 +15,9 @@ Aquí puedes ver el estado actual del diseño y la funcionalidad del portal:
   <img src="screenshot/members_sso.jpeg" width="30%" alt="Verificación SSO Miembros" />
 </p>
 <p align="center">
-  <img src="screenshot/WhatsApp Image 2026-03-22 at 12.13.48 AM.jpeg" width="45%" alt="Sección de Aliados" />
-  <img src="screenshot/WhatsApp Image 2026-03-22 at 1.40.01 AM.jpeg" width="45%" alt="Detalle de Evento" />
+  <img src="screenshot/about_page.jpeg" width="30%" alt="Página About Ubuntu-Ve" />
+  <img src="screenshot/WhatsApp Image 2026-03-22 at 12.13.48 AM.jpeg" width="30%" alt="Sección de Aliados" />
+  <img src="screenshot/WhatsApp Image 2026-03-22 at 1.40.01 AM.jpeg" width="30%" alt="Detalle de Evento" />
 </p>
 
 ## Características Destacadas (Features)
