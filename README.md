@@ -11,8 +11,8 @@ Aquí puedes ver el estado actual del diseño y la funcionalidad del portal:
 
 <p align="center">
   <img src="screenshot/WhatsApp Image 2026-03-21 at 11.38.51 PM.jpeg" width="30%" alt="Dashboard Local" />
-  <img src="screenshot/WhatsApp Image 2026-03-21 at 11.39.19 PM.jpeg" width="30%" alt="UI Admin" />
-  <img src="screenshot/WhatsApp Image 2026-03-22 at 1.40.16 AM.jpeg" width="30%" alt="Visualización de Noticias" />
+  <img src="screenshot/news_discourse.jpeg" width="30%" alt="Timeline de Noticias Discourse" />
+  <img src="screenshot/members_sso.jpeg" width="30%" alt="Verificación SSO Miembros" />
 </p>
 <p align="center">
   <img src="screenshot/WhatsApp Image 2026-03-22 at 12.13.48 AM.jpeg" width="45%" alt="Sección de Aliados" />
@@ -23,12 +23,14 @@ Aquí puedes ver el estado actual del diseño y la funcionalidad del portal:
 
 El sistema ha sido evolucionado para ser una plataforma de gestión comunitaria completa:
 
--   **Bot de Noticias Automatizado:** Script interno que obtiene, traduce y publica noticias oficiales de Ubuntu diariamente sin emojis, manteniendo un tono serio e institucional.
+-   **Bot de Noticias Automatizado:** Las noticias oficiales se importan directamente simulando un hilo de Discourse. El bot obtiene, traduce y publica noticias de Ubuntu diariamente sin necesidad de intervencion manual pesada, operando bajo un tono serio, tecnico e institucional (sin usar emojis) para mantener un feed de calidad.
+-   **Verificación de Perfil de Miembros (SSO Canonical):** La visualizacion de miembros de la comunidad se genera mediante un motor que consulta en Backend a Discourse y Launchpad. 
+    1. Si la API de Discourse reporta al usuario como `ubuntumember`, recibe la insignia Morada de Miembro Oficial de Canonical.
+    2. Si no es Oficial, pero la API de Launchpad reporta que ha firmado el Codigo de Conducta Internacional, recibe la insignia Naranja de Activista CDC.
+    3. Si un miembro no porta placa alguna e incluso no le carga una foto, normalmente se debe a que el ID suministrado en su Markdown de perfil no coincide de forma exacta con su username en la plataforma externa, o nunca ha iniciado sesion activamente en ella.
 -   **CMS con Workflow Editorial:** Panel administrativo (Decap CMS) con cola de aprobación. Los editores crean borradores y el Administrador aprueba antes de publicar.
 -   **Generador Masivo de Certificados:** Motor Python integrado de alto rendimiento capaz de procesar 3,000 certificados en menos de 3 minutos (vía SVG a PDF).
--   **Radio Ubuntu-Ve:** Reproductor de audio minimalista persistente en todas las vistas con soporte para streaming (Last.fm/Icecast).
 -   **Directorio de Aliados:** Sección dinámica de patrocinadores con tarjetas resaltadas y enlaces directos a sus sitios web.
--   **Guía para Organizadores:** Asistente técnico para la creación de eventos y gestión de IDs de certificados (tspan3951).
 
 ## Inicio Rápido
 

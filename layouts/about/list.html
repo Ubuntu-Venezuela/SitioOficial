@@ -1,0 +1,99 @@
+{{ define "main" }}
+
+<main>
+  <!-- Cabecera Hero -->
+  <section class="main-strip p-strip--suru" style="padding: 4rem 1rem;">
+      <div class="row">
+        <div class="col-8">
+          <h1 style="color: #111;">{{.Title}}</h1>
+          <p style="color: #555; font-size: 1.15rem; line-height: 1.6;">
+            Ubuntu Venezuela es una comunidad local o "LoCo Team" respaldada oficialmente por Canonical y el Ubuntu Community Council. Nuestro objetivo primario es promulgar el uso masivo del Software Libre, las tecnologías abiertas y la distribución Ubuntu a lo largo y ancho del territorio venezolano, fomentando un crecimiento colaborativo, pacífico y técnico.
+          </p>
+        </div>
+        <div class="col-4">
+          <img src="{{ .RelPermalink }}{{.Params.image}}" alt="Logo Ubuntu Venezuela" style="max-width: 250px;">
+        </div>
+      </div>
+  </section>
+
+  <!-- Seccion Redes -->
+  <section class="p-strip--light">
+    <div class="row u-vertically-center">
+      <div class="col-8">
+        <h2>Plataformas y Soporte en Línea</h2>
+        <p style="font-size: 1.1rem; color: #555;">
+          No descansamos en nuestra labor de brindar soporte al usuario hispanohablante. Contamos con una rica red de plataformas digitales desde donde cualquier usuario novato o experto puede involucrarse, publicar sus desarrollos, buscar soluciones técnicas, o charlar llanamente en nuestra sala.
+        </p>
+        <a href="https://discourse.ubuntu.com" target="_blank"><button class="p-button">Foro Discourse Oficial</button></a>
+        <a href="https://t.me/ubuntuve" target="_blank"><button class="p-button">Chat Oficial en Telegram</button></a>
+        <a href="https://wiki.ubuntu.com/VenezuelaTeam" target="_blank"><button class="p-button">Documentación Wiki</button></a>
+      </div>
+      <div class="col-4">
+          <img src="{{ .RelPermalink }}community.svg" alt="Comunidad en red">
+        </div>
+    </div>
+  </section>
+
+  <!-- Seccion Acciones Fisicas y Matriz -->
+  <section class="p-strip--accent">
+    <div class="row u-vertically-center">
+      <div class="col-12">
+        <h2 style="color: white;">Nuestra Ruta de Acción</h2>
+        <p style="color: rgba(255,255,255,0.9); font-size: 1.1rem;">Nuestra comunidad se mantiene viva tanto en los bits como en los encuentros cara a cara. A lo largo de los años hemos participado activamente organizando congresos y eventos regionales clave para la adopción técnica del país.</p>
+        
+        <ul class="p-matrix">
+          <li class="p-matrix__item">
+            <div class="p-matrix__content">
+              <img src="/about/conferencia_ve.jpg" alt="Conferencias" style="width: 100%; height: 200px; object-fit: cover; border-radius: 4px; margin-bottom: 1rem;">
+              <h3 class="p-matrix__title">Encuentros y FLISOL</h3>
+              <div class="p-matrix__desc">
+                <p>
+                  Formamos parte fundamental de la organización nacional del Festival Latinoamericano de Instalación de Software Libre (FLISoL), apoyando activamente a múltiples sedes geográficas con logística, ponentes expertos y material discográfico en cada edición anual.
+                </p>
+              </div>
+            </div>
+          </li>
+          
+          <li class="p-matrix__item">
+            <div class="p-matrix__content">
+              <img src="/about/comunidad_ve.jpg" alt="Colaboraciones" style="width: 100%; height: 200px; object-fit: cover; border-radius: 4px; margin-bottom: 1rem;">
+              <h3 class="p-matrix__title">Colaboración Abierta</h3>
+              <div class="p-matrix__desc">
+                <p>
+                  Todos los rincones de Ubuntu Venezuela son transparentes. Operamos de manera descentralizada con la mentalidad meritocrática de la humanidad "Ubuntu: soy porque nosotros somos". Cualquier persona con motivación puede tomar roles de liderazgo técnico.
+                </p>
+              </div>
+            </div>
+          </li>
+          
+          <li class="p-matrix__item">
+            <div class="p-matrix__content">
+              <img src="/about/proyectos_ve.jpg" alt="Proyectos y Traducciones" style="width: 100%; height: 200px; object-fit: cover; border-radius: 4px; margin-bottom: 1rem;">
+              <h3 class="p-matrix__title">Aporte de Código y Cultura</h3>
+              <p class="p-matrix__desc">
+                No solo enseñamos a instalar, motivamos a crear. Numerosos miembros de la comunidad local han dedicado sus carreras a rastrear fallos "Bug Hunting", desarrollar paquetes nativos y traducir miles de cadenas de código al idioma español para Ubuntu Global.
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seccion Equipo -->
+  <section class="p-strip--light">
+    <div class="row u-vertically-center">
+      <div class="col-12" style="text-align: center;">
+        <hr class="p-rule">
+        <h2>Unirse y Contactar a la Junta</h2>
+        <p style="max-width: 600px; margin: 0 auto 2rem auto; font-size: 1.1rem;">
+          Estamos siempre buscando manos nuevas para la labor titánica del conocimiento libre. Conoce quiénes conforman nuestra alineación actual de miembros globales y LoCo comprobados, o escríbenos para formalizar tu participación técnica en Launchpad.
+        </p>
+        <a href="/miembros"><button class="p-button">Ver Directorio de Miembros</button></a>
+        <a href="https://wiki.ubuntu.com/VenezuelaTeam/NuevosMiembros" target="_blank"><button class="p-button">Guía para Nuevos Integrantes</button></a>
+        <a href="mailto:junta@ubuntu.org.ve"><button class="p-button">Contacto Directo</button></a>
+      </div>
+    </div>
+  </section>
+</main>
+{{ end }}

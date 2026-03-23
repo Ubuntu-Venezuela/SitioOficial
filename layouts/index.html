@@ -1,0 +1,219 @@
+{{ define "main" }}
+
+{{ $allPages := .Site.Pages }}
+{{ range .Site.Home.Translations }}
+{{ $allPages = $allPages | lang.Merge .Site.Pages }}
+{{ end }}
+
+{{ $regularPages := .Site.RegularPages }}
+{{ range .Site.Home.Translations }}
+{{ $regularPages = $regularPages | lang.Merge .Site.RegularPages }}
+{{ end }}
+
+<main>
+  <section class="p-strip--suru main-slide main-strip">
+    <div class="row">
+      <div class="col-8 left-section">
+        <h1>{{.Site.Title}}</h1>
+        <p>{{.Site.Params.description}}</p>
+        <a href="{{.Site.Params.main_slide.link}}"><button>{{.Site.Params.main_slide.label}}</button></a>
+      </div>
+      <div class="col-4 right-section">
+        <img src='{{ "/img/UbuntuKrCircleTag.svg" | relURL }}' style="width: 200px;" alt="" />
+      </div>
+    </div>
+  </section>
+  {{ $slides := (where $regularPages "Section" "slides") }}
+  {{ range $slides }}
+  <section class="p-strip--{{.Params.backgroundType}} main-slide main-strip">
+    <div class="row">
+      <div class="col-8 left-section">
+        <h1>{{.Title}}</h1>
+        <p>{{ .Content }}</p>
+        {{ range .Params.buttons }}
+        <a href="{{ .RelPermalink }}{{.url}}"><button>{{.label}}</button></a>
+        {{ end }}
+      </div>
+      <div class="col-4 right-section">
+        <img src="{{ .RelPermalink }}{{.Params.image}}" alt="">
+      </div>
+    </div>
+  </section>
+  {{ end }}
+  <div class="row">
+    <footer class="p-article-pagination">
+      <a class="p-article-pagination__link--previous" onclick="prevSlide()">
+        <span class="p-article-pagination__label">{{ i18n "prev" }}</span>
+      </a>
+      <a class="p-article-pagination__link--next" onclick="nextSlide()">
+        <span class="p-article-pagination__label">{{ i18n "next" }}</span>
+      </a>
+    </footer>
+  </div>
+  <section class="p-strip">
+    <div class="row">
+      <div class="col-8">
+        <h1>{{i18n "main_ubuntu_title"}}</h1>
+        <p>
+          {{i18n "main_ubuntu_desc"}}
+        </p>
+        <a href="download"><button class="p-button has-icon"><i
+              class="p-icon--begin-downloading"></i><span>Download</span></button></a>
+      </div>
+      <div class="col-4">
+        <img src="{{ "/img/ubuntu_platforms.svg" | relURL }}" alt="">
+      </div>
+    </div>
+  </section>
+  <!-- SECCIÓN PREMIUM DE COMUNIDAD CON EFECTOS MODERNOS -->
+  <section class="p-strip" style="background: linear-gradient(135deg, #f9f9f9 0%, #ececec 100%); padding: 6rem 0; position: relative; overflow: hidden;">
+    <!-- Elementos decorativos de fondo (Blur Orbs) -->
+    <div style="position: absolute; top: -100px; right: -50px; width: 300px; height: 300px; background: rgba(233, 84, 32, 0.06); border-radius: 50%; filter: blur(50px); pointer-events: none;"></div>
+    <div style="position: absolute; bottom: -100px; left: -50px; width: 400px; height: 400px; background: rgba(119, 33, 111, 0.05); border-radius: 50%; filter: blur(70px); pointer-events: none;"></div>
+
+    <div class="row" style="position: relative; z-index: 1;">
+      <div class="col-12" style="text-align: center; margin-bottom: 3.5rem;">
+        <h2 style="color: #111; font-weight: 700; font-size: 2.5rem; letter-spacing: -0.5px; margin-bottom: 1rem;">{{ .Site.Params.home_features.title }}</h2>
+        <p style="max-width: 750px; margin: 0 auto; color: #555; font-size: 1.15rem; line-height: 1.6;">{{ .Site.Params.home_features.description }}</p>
+      </div>
+    </div>
+    
+    <div class="row u-equal-height" style="position: relative; z-index: 1; margin: 0 auto; max-width: 76rem;">
+      {{ range .Site.Params.home_features.cards }}
+      <div class="col-3" style="display: flex; padding: 0.5rem;">
+        <a href="{{ .url | safeURL }}" class="modern-feature-card" style="
+          width: 100%;
+          display: flex; 
+          flex-direction: column; 
+          text-decoration: none; 
+          background: #ffffff;
+          border-radius: 16px;
+          border: 1px solid rgba(0,0,0,0.03);
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+          padding: 2.5rem 1.5rem;
+          text-align: center;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+          position: relative;
+          overflow: hidden;
+        ">
+          <!-- Círculo contenedor de Icono con Gradiente Suave -->
+          <div class="modern-icon-wrapper" style="
+            width: 76px; 
+            height: 76px; 
+            border-radius: 50%; 
+            background: linear-gradient(135deg, rgba(233,84,32,0.1) 0%, rgba(233,84,32,0.02) 100%); 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            margin-bottom: 1.5rem;
+            transition: all 0.4s ease;
+          ">
+            <i class="{{ .icon }}" style="font-size: 2.2rem; margin: 0; color: #E95420;"></i>
+          </div>
+          
+          <h3 style="margin: 0; color: #111; font-weight: 600; font-size: 1.25rem;">{{ .title }}</h3>
+          
+          <!-- Línea decorativa inferior que se expande en Hover -->
+          <div class="modern-bottom-accent" style="
+            position: absolute; 
+            bottom: 0; left: 0; 
+            width: 100%; height: 5px; 
+            background: linear-gradient(90deg, #E95420, #77216F); 
+            transform: scaleX(0); 
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); 
+            transform-origin: center;
+          "></div>
+        </a>
+      </div>
+      {{ end }}
+    </div>
+
+    <!-- Estilos de micro-interacciones (Hovers) -->
+    <style>
+      .modern-feature-card:hover {
+        transform: translateY(-8px) scale(1.02) !important;
+        box-shadow: 0 25px 45px rgba(233, 84, 32, 0.12) !important;
+        border-color: rgba(233, 84, 32, 0.15) !important;
+      }
+      .modern-feature-card:hover .modern-icon-wrapper {
+        transform: scale(1.15) !important;
+        background: linear-gradient(135deg, rgba(233,84,32,0.15) 0%, rgba(233,84,32,0.05) 100%) !important;
+        box-shadow: 0 8px 16px rgba(233, 84, 32, 0.15) !important;
+      }
+      .modern-feature-card:hover .modern-bottom-accent {
+        transform: scaleX(1) !important;
+      }
+    </style>
+  </section>
+
+  <!-- SECCIÓN DE NOTICIAS DE UBUNTU (Importadas o Propias) -->
+  <section class="p-strip">
+    <div class="row">
+      <div class="col-12">
+        <h2 class="p-heading--3">Noticias Recientes de Ubuntu</h2>
+        <div class="row u-equal-height">
+          {{ $all_news := (where .Site.RegularPages "Section" "noticias") }}
+          {{ $news_count := len $all_news }}
+          {{ $col_class := "col-4" }}
+          {{ if gt $news_count 3 }}
+            {{ $col_class = "col-3" }}
+          {{ end }}
+          
+          {{ range first 4 (sort $all_news "Date" "desc") }}
+          <div class="{{ $col_class }}">
+            <div class="p-card--highlighted" style="height: 100%; display: flex; flex-direction: column; border-top: 4px solid #e95420;">
+              <h3 class="p-card__title" style="min-height: 90px;">{{ .Title | truncate 75 }}</h3>
+              <div class="p-card__content" style="flex: 1;">
+                <p style="font-size: 0.95rem; line-height: 1.5; color: #111; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 4; line-clamp: 4; -webkit-box-orient: vertical;">
+                  {{ .Summary | plainify | truncate 160 }}
+                </p>
+              </div>
+              <hr class="p-rule">
+              <div class="p-card__content" style="padding-top: 0;">
+                <a href="{{ .RelPermalink }}" class="p-button--neutral" style="width: 100%; text-align: center;">Leer Noticia</a>
+              </div>
+            </div>
+          </div>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCION DE CAPTURAS/PREVIEW (Para portafolio o demostracion del repo) -->
+  <section class="p-strip--accent" style="padding: 4rem 0;">
+    <div class="row">
+      <div class="col-12" style="text-align: center; margin-bottom: 2rem;">
+        <h2 style="color: white; margin-bottom: 0.5rem;">Previsualización del Sistema Integrado</h2>
+        <p style="color: rgba(255,255,255,0.8); font-size: 1.1rem; max-width: 700px; margin: 0 auto;">Visualiza la robustez de nuestra integración nativa con APIs de Canonical.</p>
+      </div>
+      
+      <!-- Grid de 2 imagenes -->
+      <div class="col-6" style="padding: 10px;">
+        <div style="background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+          <img src="/screenshot/members_sso.jpeg" alt="Dashboard SSO" style="width: 100%; display: block;" onerror="this.onerror=null; this.src='/img/logo.png';">
+          <div style="padding: 1rem; text-align: center; color: #333; font-weight: bold; font-size: 0.9rem;">Verificación SSO Miembros</div>
+        </div>
+      </div>
+      <div class="col-6" style="padding: 10px;">
+        <div style="background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+          <img src="/screenshot/news_discourse.jpeg" alt="Timeline Noticias" style="width: 100%; display: block;" onerror="this.onerror=null; this.src='/img/logo.png';">
+          <div style="padding: 1rem; text-align: center; color: #333; font-weight: bold; font-size: 0.9rem;">Bot y Timeline Discourse</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Login CMS (Acceso para Editores) -->
+  <footer class="p-strip--light">
+    <div class="row">
+      <div class="col-12 text-center" style="text-align: center; padding: 40px 0;">
+        <hr class="p-rule">
+        <a href="/admin/" class="p-button--neutral"> <i class="p-icon--settings"></i> Panel Administrativo (Editores)</a>
+      </div>
+    </div>
+  </footer>
+</main>
+{{ end }}

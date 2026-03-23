@@ -82,6 +82,16 @@ collections:
         name: "github"
         widget: "string"
         required: false
+      - label: "Discourse User"
+        name: "discourse"
+        widget: "string"
+        required: false
+        hint: "Usuario de Ubuntu Discourse para Badges"
+      - label: "Launchpad User"
+        name: "launchpad"
+        widget: "string"
+        required: false
+        hint: "Tu ID para cargar Karma y firmar el CDC."
       - label: "Biografía Detallada"
         name: "body"
         widget: "markdown"

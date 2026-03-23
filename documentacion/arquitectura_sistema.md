@@ -32,5 +32,9 @@ Puesto que Hugo es un generador de páginas pre-creadas, no procesa sesiones PHP
  
 De esta forma, conservamos la estabilidad del sitio pero podemos añadir infinitas características dinámicas montando "APIs invisibles" con servicios Serverless.
 
+### 1.3. Validación Server-Side con APIs Externas (SSO / Launchpad)
+Para evitar los fallos y bloqueos CORS de efectuar consultas en JavaScript, características dinámicas pesadas como la **Verificación de Miembros de la Comunidad / CoC** se leen en tiempo de compilación. Hugo actúa como cliente de APIs externas (Discourse y Launchpad). 
+*Para más detalles sobre este validador dinámico de perfiles, consulte: [`integracion_sso_canonical.md`](integracion_sso_canonical.md).*
+
 ---
 *Nota: Este documento debe ser actualizado cada vez que se agregue una capa nueva u ocurra un cambio relevante en la forma en que el sitio gestiona información.*

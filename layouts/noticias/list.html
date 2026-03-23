@@ -1,0 +1,186 @@
+{{ define "main" }}
+<div class="row" style="padding: 2rem 1rem;">
+  <style>
+    /* Estilos globales para el timeline estilo Discourse Ubuntu */
+    .discourse-topic-list {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: auto;
+      margin-top: 1rem;
+      font-family: 'Ubuntu', sans-serif;
+    }
+    .discourse-topic-list th {
+      border-bottom: 2px solid #e9e9e9;
+      color: #666;
+      font-weight: 400;
+      font-size: 0.9rem;
+      padding: 10px 5px;
+      text-align: left;
+    }
+    .discourse-topic-list td {
+      border-bottom: 1px solid #e9e9e9;
+      padding: 6px 5px; /* Reducido de 12px para eliminar espacios en blanco */
+      vertical-align: middle; /* Cambiado a middle para compactar mejor */
+    }
+    .discourse-topic-list tr:hover td {
+      background-color: #fafbfc;
+    }
+    .discourse-title {
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: #111;
+      text-decoration: none;
+      word-wrap: break-word;
+      line-height: 1.3;
+      display: inline-block;
+      margin-bottom: 2px; /* Reducido para mayor compresión */
+    }
+    .discourse-title:hover {
+      color: #000;
+      text-decoration: underline;
+    }
+    .discourse-tag {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.75rem; /* similar a discourse category badge */
+      font-weight: 500;
+      padding: 2px 6px;
+      background-color: #F7F7F7;
+      color: #333;
+      margin-right: 6px;
+      margin-top: 2px;
+    }
+    .discourse-badge-bullet {
+       display: inline-block; 
+       width: 8px; height: 8px; 
+       margin-right: 5px;
+    }
+    .discourse-author-group {
+      display: flex;
+      justify-content: center;
+      gap: 4px;
+    }
+    .discourse-avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 0.75rem;
+      font-weight: bold;
+    }
+    .discourse-avatar img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .stat-number {
+      color: #666;
+      font-size: 0.95rem;
+    }
+    .stat-activity {
+      color: #666;
+      font-size: 0.9rem;
+      text-decoration: none;
+    }
+  </style>
+
+  <div class="col-12" style="margin-bottom: 1rem;">
+    <!-- Replica superior similar a la portada de Discourse Ubuntu -->
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; border-bottom: 1px solid #e9e9e9; padding-bottom: 1rem;">
+       <div>
+         <h1 style="color: #111; font-weight: 300; font-size: 2.2rem; margin-bottom: 0;">Discusiones y Noticias Locales</h1>
+       </div>
+       <div>
+         <a href="#" style="background-color: #E95420; color: white; border: none; padding: 10px 16px; font-weight: 500; font-size: 0.9rem; cursor: pointer; text-decoration: none;"><i class="p-icon--plus"></i> Nueva Noticia</a>
+       </div>
+    </div>
+  </div>
+  
+  <div class="col-12">
+    <table class="discourse-topic-list">
+      <thead>
+        <tr>
+          <th style="width: 60%;">Topic</th>
+          <th style="width: 15%; text-align: center;">Usuarios</th>
+          <th style="width: 10%; text-align: center;">Respuestas</th>
+          <th style="width: 10%; text-align: center;">Vistas</th>
+          <th style="width: 5%; text-align: right;">Actividad</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{ range .Pages.ByDate.Reverse }}
+        <tr>
+          <!-- Columna: Title + Tags -->
+          <td>
+            <a href="{{ .Permalink }}" class="discourse-title">{{ .Title }}</a>
+            <div style="display: flex; flex-wrap: wrap; gap: 4px; margin-top: 2px;">
+              <!-- Categoria "News" simulando el badge cuadrado de discourse -->
+              <span class="discourse-tag">
+                <span class="discourse-badge-bullet" style="background-color: #E95420;"></span>
+                Noticias
+              </span>
+              <!-- Tags -->
+              {{ range .Params.tags }}
+                <span class="discourse-tag">
+                  <span class="discourse-badge-bullet" style="background-color: #77216F;"></span>
+                  {{ . }}
+                </span>
+              {{ end }}
+            </div>
+          </td>
+          
+          <!-- Columna: Avatars -->
+          <td style="text-align: center;">
+            <div class="discourse-author-group">
+              {{ $author := .Params.author | default "Ubuntu Bot" }}
+              {{ $colors := slice "#E95420" "#77216F" "#2C001E" "#333333" "#00A15E" "#0073B4" }}
+              {{ $colorIndex := mod (len $author) (len $colors) }}
+              {{ $bgColor := index $colors $colorIndex }}
+              
+              <!-- Foto real o Letra capital -->
+              {{ if .Params.image }}
+                <div class="discourse-avatar" title="{{ $author }}">
+                  <img src="{{ .Params.image }}" alt="{{ $author }}" loading="lazy" onerror="this.onerror=null; this.src='/img/default-avatar.png';">
+                </div>
+              {{ else }}
+                <div class="discourse-avatar" style="background-color: {{ $bgColor }};" title="{{ $author }}">
+                    {{ substr $author 0 1 | upper }}
+                </div>
+              {{ end }}
+            </div>
+          </td>
+          
+          <!-- Columna: Posts -->
+          <td style="text-align: center;">
+             <span class="stat-number">
+               {{ $mockReplies := mod .Date.Day 15 | add 1 }}
+               {{ $mockReplies }}
+             </span>
+          </td>
+
+          <!-- Columna: Views -->
+          <td style="text-align: center;">
+             <span class="stat-number">
+               <!-- Simular vistas -->
+               {{ $v := add (mul .Date.Day 4) (len .Summary) }}
+               {{ if gt $v 1000 }}{{ div $v 1000 }}k{{ else }}{{ $v }}{{ end }}
+             </span>
+          </td>
+          
+          <!-- Columna: Activity (Date) -->
+          <td style="text-align: right;">
+            <a href="{{ .Permalink }}" class="stat-activity" title="{{ .Date.Format "02 de Enero de 2006" }}">
+              {{ .Date.Format "Jan '06" }}
+            </a>
+          </td>
+        </tr>
+        {{ end }}
+      </tbody>
+    </table>
+  </div>
+</div>
+{{ end }}

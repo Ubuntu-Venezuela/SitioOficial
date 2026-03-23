@@ -1,5 +1,40 @@
 {{ define "main" }}
 
+{{/* SERVER-SIDE CANONICAL SSO VERIFICATION FOR SINGLE PROFILE */}}
+{{ $isOfficialVerified := false }}
+{{ $hasCoc := false }}
+{{ $lpKarma := 0 }}
+{{ $lpMugshot := "" }}
+{{ $discourseBadges := slice }}
+
+{{ $targetUser := or .Params.discourse .Params.launchpad .Params.github }}
+
+{{ if $targetUser }}
+  {{ $apiUrl := printf "https://discourse.ubuntu.com/u/%s.json" $targetUser }}
+  {{ $res := resources.GetRemote $apiUrl }}
+  {{ if and $res (not $res.Err) }}
+    {{ $data := $res.Content | unmarshal }}
+    {{ if $data.user }}
+      {{ if or (eq $data.user.primary_group_name "ubuntumembers") (eq $data.user.flair_name "ubuntumembers") }}
+        {{ $isOfficialVerified = true }}
+        {{ $hasCoc = true }}
+      {{ end }}
+      {{ if $data.badges }}{{ $discourseBadges = $data.badges }}{{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ if .Params.launchpad }}
+  {{ $lpUrl := printf "https://api.launchpad.net/1.0/~%s" .Params.launchpad }}
+  {{ $resLp := resources.GetRemote $lpUrl }}
+  {{ if and $resLp (not $resLp.Err) }}
+    {{ $lpData := $resLp.Content | unmarshal }}
+    {{ if $lpData.is_ubuntu_coc_signer }}{{ $hasCoc = true }}{{ end }}
+    {{ if $lpData.karma }}{{ $lpKarma = $lpData.karma }}{{ end }}
+    {{ if $lpData.mugshot_link }}{{ $lpMugshot = $lpData.mugshot_link }}{{ else if $lpData.logo_link }}{{ $lpMugshot = $lpData.logo_link }}{{ end }}
+  {{ end }}
+{{ end }}
+
 <style>
   .badge-border-loco { border-color: #E95420 !important; }
   .badge-border-official { border-color: #77216F !important; }
@@ -16,15 +51,18 @@
   
   {{ $borderClass := "badge-border-default" }}
   {{ $tagClass := "badge-tag-default" }}
-  {{ if eq .Params.badge "LoCo Contact" }}
-    {{ $borderClass = "badge-border-loco" }}
-    {{ $tagClass = "badge-tag-loco" }}
-  {{ else if eq .Params.badge "Miembro Oficial" }}
+  
+  {{ if $isOfficialVerified }}
     {{ $borderClass = "badge-border-official" }}
     {{ $tagClass = "badge-tag-official" }}
-  {{ else if eq .Params.badge "Admin" }}
-    {{ $borderClass = "badge-border-admin" }}
-    {{ $tagClass = "badge-tag-admin" }}
+  {{ else }}
+    {{ if eq .Params.badge "LoCo Contact" }}
+      {{ $borderClass = "badge-border-loco" }}
+      {{ $tagClass = "badge-tag-loco" }}
+    {{ else if eq .Params.badge "Admin" }}
+      {{ $borderClass = "badge-border-admin" }}
+      {{ $tagClass = "badge-tag-admin" }}
+    {{ end }}
   {{ end }}
 
   <!-- Columna Izquierda: Tarjeta de Perfil Fija -->
@@ -32,12 +70,16 @@
     <div style="background: #fff; padding: 2.5rem 1.5rem; border-radius: 12px; text-align: center; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 10px 40px rgba(0,0,0,0.04); position: sticky; top: 80px;">
       
       {{ $img := .Params.image }}
+      {{ if and $lpMugshot (or (not $img) (eq $img "/img/default-avatar.png")) }}
+         {{ $img = $lpMugshot }}
+      {{ end }}
+
       {{ if or (not $img) (eq $img "/img/default-avatar.png") }}
       <svg class="{{ $borderClass }}" style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover; margin: 0 auto 1.5rem auto; border: 4px solid; padding: 4px; background-color: #f7f7f7;" viewBox="0 0 85 85" xmlns="http://www.w3.org/2000/svg">
         <path d="M42.5 45c6.5 0 11.5-5 11.5-11.5C54 27 49 22 42.5 22 36 22 31 27 31 33.5c0 6.5 5 11.5 11.5 11.5zm0 5C32.5 50 12 55.5 12 65.5V75h61v-9.5c0-10-20.5-15.5-30.5-15.5z" fill="#ccc"></path>
       </svg>
       {{ else }}
-      <img src="{{ $img | safeURL }}" alt="{{ .Title }}" class="{{ $borderClass }}" style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover; margin-bottom: 1.5rem; border: 4px solid; padding: 4px;">
+      <img src="{{ $img | safeURL }}" alt="{{ .Title }}" class="{{ $borderClass }}" onerror="this.onerror=null; this.src='/img/default-avatar.png';" style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover; margin-bottom: 1.5rem; border: 4px solid; padding: 4px;">
       {{ end }}
       
       <h2 style="margin: 0; color: #111; font-weight: 700; font-size: 1.6rem;">{{ .Title }}</h2>
@@ -45,16 +87,25 @@
       
       <div style="margin: 1.5rem 0;">
         <span class="{{ $tagClass }}" style="display: inline-block; padding: 0.4rem 1.2rem; border-radius: 20px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">
-          <i class="p-icon--user" style="filter: brightness(0) invert(1); margin-right: 5px; margin-bottom: -3px;"></i>
-          {{ .Params.badge }} {{ if or (eq .Params.badge "Miembro Oficial") (eq .Params.badge "LoCo Contact") }}de Ubuntu{{ end }}
+          {{ if $isOfficialVerified }}
+            <i class="p-icon--success" style="filter: brightness(0) invert(1); margin-right: 5px; margin-bottom: -3px;"></i> {{ .Site.Params.members_dir.validator_canonical }}
+          {{ else if $hasCoc }}
+            <i class="p-icon--user" style="filter: brightness(0) invert(1); margin-right: 5px; margin-bottom: -3px;"></i> {{ .Site.Params.members_dir.cdc_signed }}
+          {{ else }}
+            <i class="p-icon--user" style="filter: brightness(0) invert(1); margin-right: 5px; margin-bottom: -3px;"></i>
+            {{ .Params.badge }} {{ if or (eq .Params.badge "Miembro Oficial") (eq .Params.badge "LoCo Contact") }}de Ubuntu{{ end }}
+          {{ end }}
         </span>
       </div>
       
-      <hr class="p-rule" style="margin: 2rem 0;">
-      
-      {{ if .Params.github }}
-      <a href="https://github.com/{{ .Params.github }}" target="_blank" class="p-button" style="width: 100%; border-color: #333; color: #333;"><i class="p-icon--github"></i> {{ .Site.Params.members_dir.btn_github }}</a>
-      {{ end }}
+      <div style="display: flex; justify-content: space-evenly; flex-wrap: wrap; gap: 0.5rem; border-top: 1px solid #eaeaea; padding-top: 1.5rem;">
+        {{ if .Params.launchpad }}
+        <a href="https://launchpad.net/~{{ .Params.launchpad }}" target="_blank" class="p-button" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;"><i class="p-icon--help" style="margin-bottom:-2px;"></i> Launchpad</a>
+        {{ end }}
+        {{ if .Params.github }}
+        <a href="https://github.com/{{ .Params.github }}" target="_blank" class="p-button" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;"><i class="p-icon--github" style="margin-bottom:-2px;"></i> GitHub</a>
+        {{ end }}
+      </div>
     </div>
   </div>
   
@@ -67,6 +118,37 @@
     <div class="p-article" style="font-size: 1.15rem; line-height: 1.8; color: #333; margin-top: 2rem;">
       {{ .Content }}
     </div>
+
+    <!-- SERVER SIDE DYNAMIC BADGES AND CDC INFO BLOCK -->
+    {{ if or $isOfficialVerified $hasCoc (gt (len $discourseBadges) 0) (gt $lpKarma 0) }}
+    <div style="margin-top: 2rem; border-top: 1px dashed #ccc; padding-top: 2rem;">
+      {{ if $isOfficialVerified }}
+        <div style="background-color: rgba(119, 33, 111, 0.05); border-left: 4px solid #77216F; padding: 1rem; border-radius: 4px; margin-bottom: 2rem; display: flex; align-items: center;">
+            <i class="p-icon--success" style="filter: invert(0.2) sepia(1) saturate(5) hue-rotate(270deg); margin-right: 0.8rem; transform: scale(1.3);"></i>
+            <span style="color: #111; font-size: 1.05rem; font-weight: 500;">{{ .Site.Params.members_dir.sso_msg }}</span>
+        </div>
+      {{ else if $hasCoc }}
+        <div style="background-color: rgba(233, 84, 32, 0.05); border-left: 4px solid #E95420; padding: 1rem; border-radius: 4px; margin-bottom: 2rem; display: flex; align-items: center;">
+            <i class="p-icon--success" style="filter: invert(0.2) sepia(1) saturate(5) hue-rotate(-20deg); margin-right: 0.8rem; transform: scale(1.3);"></i>
+            <span style="color: #111; font-size: 1.05rem; font-weight: 500;">{{ .Site.Params.members_dir.cdc_msg }}</span>
+        </div>
+      {{ end }}
+
+      {{ if gt (len $discourseBadges) 0 }}
+      <h3 style="margin-top: 0; color: #E95420; font-weight: 700; font-size: 1.5rem; margin-bottom: 1rem;">{{ .Site.Params.members_dir.official_awards }}</h3>
+      <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+        {{ range first 6 $discourseBadges }}
+          {{ if .name }}
+            <span style="background: rgba(233, 84, 32, 0.05); border: 1px solid rgba(233, 84, 32, 0.15); border-radius: 6px; font-size: 0.85rem; color: #E95420; padding: 6px 12px; font-weight: 600; text-transform: uppercase;" title="{{ $.Site.Params.members_dir.award_title }}">🏆 {{ .name }}</span>
+          {{ end }}
+        {{ end }}
+        {{ if gt $lpKarma 0 }}
+            <span style="background: rgba(119, 33, 111, 0.05); border: 1px solid rgba(119, 33, 111, 0.15); border-radius: 6px; font-size: 0.85rem; color: #77216F; padding: 6px 12px; font-weight: 800; text-transform: uppercase;" title="Puntos de prestigio en la red">⚡ {{ .Site.Params.members_dir.karma_label }} {{ $lpKarma }}</span>
+        {{ end }}
+      </div>
+      {{ end }}
+    </div>
+    {{ end }}
 
     {{ if .Params.contributions }}
     <div style="background: rgba(233, 84, 32, 0.03); border-radius: 12px; padding: 2.5rem; margin-top: 3rem; border: 1px solid rgba(233, 84, 32, 0.1);">

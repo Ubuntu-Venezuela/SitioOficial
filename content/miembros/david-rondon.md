@@ -8,5 +8,7 @@ contributions:
   - "Pruebas exhaustivas de versiones Alpha/Beta"
   - "Coordinación regional de meetups de instalación"
 github: ""
+launchpad: "emerling"
+discourse: "emerling"
 ---
 David es un entusiasta imparable de la filosofía abierta y la inclusión digital. Haber sido reconocido como **Miembro Oficial de Ubuntu** certifica su inmenso aporte humanitario y técnico para llevar computadoras con Xubuntu/Lubuntu a escuelas, y su incansable reporte de bugs (*bug hunting*) que ha mejorado la calidad de los sabores oficiales de Ubuntu a lo largo de los años.
