@@ -7,13 +7,12 @@
     <link rel="icon" type="image/png" sizes="16x16" href='{{ "/img/favicon/favicon-16x16.png" | relURL }}'>
 
 
-    {{- $options := (dict "includePaths" (slice "node_modules") "transpiler" "dartsass") -}}
-    {{ $style := resources.Get "sass/theme.scss" | resources.ToCSS $options | resources.Minify | resources.Fingerprint }}
+    {{ $style := resources.Get "css/theme.css" }}
     <title>{{ .Title }} | {{ .Site.Title }}</title>
     <!--  Open Graph Protocol -->
     <meta property="og:site_name" content="{{ .Site.Title }}" />
     <meta property="og:title" content="{{ .Title }}" />
 
-    <!--   SASS Stylesheets -->
-    <link rel="stylesheet" href="{{ $style.Permalink }}">
+    <!--   Stylesheets -->
+    <link rel="stylesheet" href="{{ $style.RelPermalink }}">
 </head>

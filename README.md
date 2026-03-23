@@ -1,4 +1,4 @@
-# Ubuntu Venezuela - Sitio Oficial (Yari-AI v6.2.0)
+# Ubuntu Venezuela - Sitio Oficial
 
 ![Ubuntu Logo](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)
 ![Hugo](https://img.shields.io/badge/Hugo-FF4088?style=for-the-badge&logo=hugo&logoColor=white)
@@ -22,7 +22,7 @@ Aquí puedes ver el estado actual del diseño y la funcionalidad del portal:
 
 ## Características Destacadas (Features)
 
-El sistema ha sido evolucionado para ser una plataforma de gestión comunitaria completa:
+El sistema aun esta en desarrollo, pero ya cuenta con:
 
 -   **Bot de Noticias Automatizado:** Las noticias oficiales se importan directamente simulando un hilo de Discourse. El bot obtiene, traduce y publica noticias de Ubuntu diariamente sin necesidad de intervencion manual pesada, operando bajo un tono serio, tecnico e institucional,  para mantener un feed de calidad.
 -   **Verificación de Perfil de Miembros (SSO Canonical):** La visualizacion de miembros de la comunidad se genera mediante un motor que consulta en Backend a Discourse y Launchpad. 

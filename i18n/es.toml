@@ -1,0 +1,115 @@
+[next]
+other = "Siguiente"
+[prev]
+other = "Anterior"
+
+[main_ubuntu_title]
+other = "La distribución Linux más utilizada"
+[main_ubuntu_desc]
+other = """
+Ubuntu es una de las distribuciones Linux más utilizadas del mundo.
+Es conocida por ser un escritorio Linux fácil de usar y una distribución de servidor robusta y sencilla de configurar.
+Ubuntu está optimizado para diversos dispositivos y entornos como Escritorio, Laptop, Servidor, Nube, Internet de las Cosas, Raspberry Pi y mucho más.
+"""
+
+[main_kr_loco_title]
+other = "LoCo Team verificado (Local Community)"
+[main_kr_loco_desc]
+other = """
+La Comunidad de Ubuntu Venezuela es un LoCo Team verificado oficialmente por el Ubuntu Community Council.
+Brindamos foros localizados, documentación en español, y organizamos diversos seminarios y conferencias en el territorio nacional.
+También organizamos grupos de estudio y proyectos de investigación/desarrollo sobre Ubuntu y software libre.
+"""
+[main_kr_loco_about]
+other = "Sobre la comunidad"
+[main_kr_loco_community_title]
+other = "Comunidad y Documentación"
+[main_kr_loco_events_title]
+other = "Eventos y Colaboraciones"
+[main_kr_loco_events_events]
+other = "Seminarios, Talleres, Conferencias"
+[main_kr_loco_collaborate]
+other = "Colaboración con otras comunidades FOSS"
+[main_kr_loco_ubucon]
+other = "UbuCon"
+[main_kr_loco_global]
+other = "Intercambio con comunidades Globales"
+[main_kr_loco_research_title]
+other = "Actividades de Investigación y Desarrollo"
+[main_kr_loco_research_projects]
+other = "Grupos de Estudio / Proyectos"
+[main_kr_loco_research_l10n]
+other = "Localización (Traducción)"
+
+[about_online_title]
+other = "Conoce gente en línea y encuentra información"
+[about_online_desc]
+other = "Conoce a personas de la comunidad en canales como Telegram, Foros y Wiki oficial."
+[about_networking_title]
+other = "Networking e Investigación"
+[about_networking_desc]
+other = "Organizamos diversas actividades sobre Ubuntu. Conoce gente y comparte tu experiencia más allá de la pantalla." 
+[about_networking_events_title]
+other = "Seminarios, Talleres y Conferencias"
+[about_networking_events_desc]
+other = """
+Organizamos conferencias periódicas para compartir conocimientos sobre Ubuntu,
+y talleres para capacitar a las personas en tecnologías abiertas.
+"""
+[about_networking_events_button]
+other = "Ver cronograma de eventos"
+
+[about_exchange_title]
+other = "Intercambio con comunidades nacionales e internacionales"
+[about_exchange_desc]
+other = """
+Colaboramos con comunidades locales de software libre y grupos de usuarios regionales.
+Participamos en eventos globales como el FLISOL y la UbuCon.
+"""
+
+[about_projects_title]
+other = "Grupos de estudio, Proyectos y Contribuciones"
+[about_projects_desc]
+other = """
+Organizamos grupos de estudio sobre tecnologías relacionadas con Ubuntu y contribuimos activamente a la localización del sistema al español.
+"""
+
+[about_organizing_title]
+other = "Participa como Organizador"
+[about_organizing_desc]
+other = """
+Entusiastas de Ubuntu, Linux y el código abierto participan activamente como organizadores.
+Si te interesa unirte al equipo de organización ¡Involúcrate hoy mismo!
+"""
+[about_organizers_ko]
+other = "Sobre nuestros organizadores"
+[about_organizers_en]
+other = "Sobre nuestros organizadores"
+[about_organizers_list]
+other = "Lista de Organizadores"
+[about_organizers_join]
+other = "¿Quieres ser Organizador?"
+
+[forums_discourse]
+other = "Foros (Discourse)"
+[fb_groups]
+other = "Redes Sociales"
+[wiki]
+other = "Wiki"
+[tutorials]
+other = "Tutoriales"
+[chat]
+other = "Chat"
+[mailing_list]
+other = "Lista de Correo"
+[group_studies_projects]
+other = "Grupos de estudio / Proyectos"
+[translate_ubuntu]
+other = "Traducir Ubuntu"
+
+[footer_contact]
+other = "Contacto (Email)"
+[footer_src_repo]
+other = "Código Fuente en GitHub"
+[privacy_policy]
+other = "Política de privacidad"

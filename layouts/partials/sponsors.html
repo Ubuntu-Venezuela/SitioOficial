@@ -1,0 +1,31 @@
+{{ $allPages := .Site.Pages }}
+{{ range .Site.Home.Translations }}
+{{ $allPages = $allPages | lang.Merge .Site.Pages }}
+{{ end }}
+
+{{ $regularPages := .Site.RegularPages }}
+{{ range .Site.Home.Translations }}
+{{ $regularPages = $regularPages | lang.Merge .Site.RegularPages }}
+{{ end }}
+
+<section class="p-strip">
+    <div class="row">
+      <div class="col-12">
+        <h1>Nuestros Aliados</h1>
+        <p>
+          Diversas empresas, instituciones y organizaciones apoyan a la comunidad de Ubuntu Venezuela de múltiples formas, ayudándonos a realizar actividades más dinámicas y de mayor impacto.
+        </p>
+        <a href="{{ "sponsors" | relLangURL }}"><button class="p-button has-icon"><i class="p-icon--information"></i><span>Ver lista de aliados</span></button></a>
+        <div class="p-logo-section">
+          <div class="p-logo-section__items">
+          {{ $sponsors := (where $regularPages "Section" "sponsors") }}
+          {{ range $sponsors }}
+            <div class="p-logo-section__item"><a href="{{ .RelPermalink }}">
+            <img class="p-logo-section__logo" src="{{ .RelPermalink }}{{.Params.image }}" alt="{{.Title}}">
+            </a></div>
+          {{ end }}
+          </div>
+        </div>
+      </div>
+    </div>
+</section>

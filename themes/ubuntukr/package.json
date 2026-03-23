@@ -4,6 +4,7 @@
     "devDependencies": {}
   },
   "dependencies": {
+    "sass-embedded": "^1.98.0",
     "vanilla-framework": "^3.4.0"
   },
   "name": "ubuntukr",
