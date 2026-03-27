@@ -5,6 +5,12 @@
     
     <h1 style="margin-top: 2rem; color: #111; font-weight: 800; font-size: 2.5rem; line-height: 1.2; letter-spacing: -0.5px;">{{ .Title }}</h1>
     
+    {{ if .Params.thumbnail }}
+    <div style="margin: 2rem 0; width: 100%; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+      <img src="{{ .Params.thumbnail }}" alt="{{ .Title }}" style="width: 100%; height: auto; display: block;">
+    </div>
+    {{ end }}
+    
     <p style="color: #777; font-size: 0.95rem; margin-top: 1.5rem; padding-bottom: 2rem; border-bottom: 1px solid #eaeaea;">
       Publicado el <strong>{{ .Date.Format "02 de Enero de 2006" }}</strong> por 
       <span style="color: #E95420; font-weight: bold;">{{ if .Params.author }}{{ .Params.author }}{{ else }}Ubuntu Bot{{ end }}</span>

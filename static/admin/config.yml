@@ -11,14 +11,14 @@ publish_mode: editorial_workflow
 local_backend: true
 
 collections:
-  # 1. NOTICIAS (Blog Oficial de Ubuntu-Ve)
-  - name: "noticias"
-    label: "Noticias y Novedades"
+  # 1. PLANETA UBUNTU (Noticias y Blog Comunitario)
+  - name: "planeta-ubuntu"
+    label: "Planeta Ubuntu (Noticias)"
     folder: "content/noticias"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - label: "Título"
+      - label: "Título de la Entrada"
         name: "title"
         widget: "string"
       - label: "Fecha de Publicación"
@@ -28,23 +28,22 @@ collections:
         name: "image"
         widget: "image"
         required: false
-      - label: "Etiquetas"
+      - label: "Etiquetas / #Hashtags"
         name: "tags"
         widget: "list"
-        default: ["comunidad"]
-      - label: "Origen"
+        default: ["paraguachoa"]
+      - label: "Tipo de Entrada"
         name: "source"
         widget: "select"
-        options: ["Comunidad Local", "Ubuntu Oficial", "Externo"]
+        options: ["Comunidad Local", "Planeta Ubuntu", "Importación Bot"]
         default: "Comunidad Local"
-      - label: "Cuerpo de la Noticia"
+      - label: "Contenido (Markdown)"
         name: "body"
         widget: "markdown"
-      - label: "Autor Responsable"
+      - label: "Publicado por"
         name: "author"
         widget: "string"
         default: "Ubuntu Venezuela Bot"
-        hint: "Nombre del redactor"
 
   # 2. DIRECTORIO DE CONFERENCISTAS / MIEMBROS LOCO
   - name: "miembros"
@@ -176,24 +175,46 @@ collections:
         widget: "markdown"
         required: false
 
-  # 5. EDICIÓN DE PÁGINAS FIJAS EXISTENTES
-  - name: "paginas_fijas"
-    label: "Páginas Fijas (Institucionales)"
-    folder: "content"
+  # 6. CONFIGURACIÓN GLOBAL (Home, Radio y Planeta)
+  - name: "config"
+    label: "Configuración Global"
+    delete: false
     create: false
-    extension: "md"
-    fields:
-      - label: "Título"
-        name: "title"
-        widget: "string"
-      - label: "Descripción SEO"
-        name: "description"
-        widget: "text"
-        required: false
-      - label: "Fondo Decorativo"
-        name: "backgroundType"
-        widget: "select"
-        options: ["light", "dark", "accent", "suru", "suru-topped", "image"]
-      - label: "Contenido de la Página"
-        name: "body"
-        widget: "markdown"
+    files:
+      - name: "home"
+        label: "Ajustes del Sitio y Radio"
+        file: "config.yaml"
+        fields:
+          - label: "Título del Sitio"
+            name: "title"
+            widget: "string"
+          - label: "Configuración de Radio (Streaming)"
+            name: "params.radio"
+            widget: "object"
+            fields:
+              - label: "Título de la Radio"
+                name: "title"
+                widget: "string"
+              - label: "Subtítulo"
+                name: "subtitle"
+                widget: "string"
+              - label: "URL del Stream"
+                name: "url"
+                widget: "string"
+          - label: "Sección Comunidad (Página Principal)"
+            name: "params.home_features"
+            widget: "object"
+            fields:
+              - label: "Título Principal"
+                name: "title"
+                widget: "string"
+              - label: "Descripción"
+                name: "description"
+                widget: "text"
+              - label: "Tarjetas de Acceso Rápido"
+                name: "cards"
+                widget: "list"
+                fields:
+                  - {label: "Icono (p-icon--*)", name: "icon", widget: "string"}
+                  - {label: "Título", name: "title", widget: "string"}
+                  - {label: "URL Destino", name: "url", widget: "string"}

@@ -107,9 +107,13 @@ languages:
           contact: "Contacto"
     menu:
       main:
+      - identifier: planeta
+        name: Planeta Ubuntu
+        url: noticias
+        weight: 5
       - identifier: community
         name: Comunidad
-        weight: 1
+        weight: 10
       - identifier: members
         parent: community
         name: Directorio de Miembros

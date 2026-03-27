@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ubuntu Venezuela - Administrador de Contenidos</title>
   <!-- Estilos de Ubuntu-Ve paleta de colores -->
-  <link rel="stylesheet" href="cms.css">
+  <link rel="stylesheet" href="cms.css?v=1.1">
 </head>
 <body>
   <!-- Identity Widget para Inicio de Sesión Amigable (Email/Password/Github) sin programar backend -->
@@ -14,17 +14,32 @@
   <!-- Incluir el CMS gráfico Decap -->
   <script src="https://unpkg.com/decap-cms@^3.1.2/dist/decap-cms.js"></script>
   
-  <!-- Lógica mágica de redirección después del login exitoso -->
+  <!-- Inyección de estilos Discourse para el Dashboard -->
+  <style id="cms-custom-style">
+    /* Solo inyectamos lo más crítico aquí, el resto sigue en cms.css o lo forzamos con JS */
+  </style>
   <script>
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.on("init", user => {
-        if (!user) {
-          window.netlifyIdentity.on("login", () => {
-            document.location.href = "/admin/";
-          });
-        }
-      });
+    // Forzar estilos estilo Discourse después de que cargue el CMS
+    function injectDiscourseStyle() {
+      const style = document.createElement('style');
+      style.textContent = `
+        /* DISCOURSE UI CLONE - ESPECIFICIDAD MÁXIMA */
+        #nc-root nav[class*="AppHeader"] { background-color: #fff !important; border-bottom: 2px solid #eee !important; box-shadow: none !important; }
+        #nc-root aside[class*="Sidebar"] { background-color: #fff !important; border-right: 1px solid #eee !important; }
+        #nc-root .e1t18l340 { padding: 10px 20px !important; margin: 0 !important; color: #646464 !important; position: relative !important; font-size: 14px !important; }
+        #nc-root .sidebar-active, #nc-root [class*="sidebarNavLinkActive"] { background-color: #f1f1f1 !important; color: #222 !important; border-left: 5px solid #E95420 !important; font-weight: bold !important; }
+        #nc-root .ei8nkzc1 { background-color: #E95420 !important; border-radius: 4px !important; color: #fff !important; font-weight: 600 !important; padding: 8px 16px !important; }
+        #nc-root .effeus47 { border: none !important; border-bottom: 1px solid #eee !important; padding: 15px !important; border-radius: 0 !important; background: #fff !important; box-shadow: none !important; }
+        #nc-root .effeus47 h2 { color: #0088cc !important; font-size: 16px !important; }
+        #nc-root .e1t18l340::before { content: "●"; margin-right: 10px; opacity: 0.7; }
+      `;
+      document.head.appendChild(style);
     }
+    
+    // Esperar a que el CMS arranque para inyectar
+    window.addEventListener('load', () => {
+      setTimeout(injectDiscourseStyle, 1500); // Un pequeño retraso para asegurar que Emotion terminó
+    });
   </script>
 </body>
 </html>

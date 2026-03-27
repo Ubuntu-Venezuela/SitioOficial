@@ -26,3 +26,35 @@ setInterval(nextSlide, 5000);
 </script>
 
 {{ template "_internal/google_analytics.html" . }}
+
+<!-- Search Engine (Pagefind) -->
+<script src="/pagefind/pagefind-ui.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+        new PagefindUI({ 
+            element: "#search", 
+            showImages: true,
+            translations: {
+                placeholder: "Buscar en la comunidad...",
+                clear_search: "Limpiar",
+                load_more: "Ver más resultados",
+                search_label: "Buscar",
+                filters_label: "Filtros",
+                zero_results: "No se encontraron resultados para [SEARCH_TERM]",
+                many_results: "[COUNT] resultados para [SEARCH_TERM]",
+                one_result: "[COUNT] resultado para [SEARCH_TERM]",
+                alt_search: "No hay resultados para [SEARCH_TERM]. Mostrando resultados para [DIFFERENT_TERM] en su lugar",
+                search_suggestion: "No hay resultados para [SEARCH_TERM]. Prueba uno de los siguientes términos:",
+                searching: "Buscando..."
+            }
+        });
+    });
+
+    // Close with ESC
+    window.addEventListener('keydown', function(event) {
+        if (event.key === "Escape") {
+            const overlay = document.getElementById('search-overlay');
+            if (overlay) overlay.style.display = 'none';
+        }
+    });
+</script>

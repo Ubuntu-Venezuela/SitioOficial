@@ -4,7 +4,7 @@
     <a href="/" style="color: #666; font-size: 0.85rem; text-decoration: none; font-weight: 300;">Canonical Ubuntu</a>
     <div style="display: flex; gap: 1.5rem;">
       <a href="https://ubuntu.com" style="color: #666; font-size: 0.85rem; text-decoration: none;">All Canonical</a>
-      <a href="/admin/" style="color: #666; font-size: 0.85rem; text-decoration: none;">Sign in</a>
+      <a href="/admin/" style="color: #ccc; font-size: 0.85rem; text-decoration: none; font-weight: 500;">Panel de Control</a>
     </div>
   </div>
 </nav>
@@ -35,8 +35,13 @@
               </ul>
               {{ end }}
             </li>
-          {{ end }}
         {{ end }}
+      {{ end }}
+        <li class="p-navigation__item">
+          <a class="p-navigation__link" href="javascript:void(0)" id="search-toggle" style="color: #fff;" onclick="document.getElementById('search-overlay').style.display='flex'">
+            <i class="p-icon--search"></i> Buscar
+          </a>
+        </li>
       </ul>
       <ul class="p-navigation__items">
         {{ range .Translations }}
@@ -78,3 +83,12 @@
     </nav>
   </div>
 </nav>
+
+<!-- SEARCH OVERLAY (Full screen, centered) -->
+<div id="search-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.85); z-index: 9999; flex-direction: column; align-items: center; padding-top: 10vh; backdrop-filter: blur(5px); transition: all 0.3s ease;">
+  <div style="width: 90%; max-width: 800px; position: relative; background: #fff; padding: 2rem; border-radius: 12px; box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
+    <a href="javascript:void(0)" onclick="document.getElementById('search-overlay').style.display='none'" style="position: absolute; top: 1rem; right: 1.5rem; font-size: 2rem; color: #666; text-decoration: none; line-height: 1;">&times;</a>
+    <h2 style="color: #E95420; font-weight: 700; border-bottom: 2px solid #E95420; padding-bottom: 0.5rem; margin-bottom: 1.5rem;">Buscador Comunitario</h2>
+    <div id="search" style="min-height: 200px;"></div>
+  </div>
+</div>
