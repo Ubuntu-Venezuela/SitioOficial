@@ -1,0 +1,220 @@
+backend:
+  name: github
+  repo: Ubuntu-Venezuela/SitioOficial # Repositorio donde guarda el CMS
+  branch: main # Rama a la que hace commit
+  site_domain: ubuntu-ve.org
+
+media_folder: "static/img/uploads" # Carpeta donde subirán las imágenes
+public_folder: "/img/uploads"      # Ruta pública web para leerlas
+
+publish_mode: editorial_workflow
+local_backend: true
+
+collections:
+  # 1. PLANETA UBUNTU (Noticias y Blog Comunitario)
+  - name: "planeta-ubuntu"
+    label: "Planeta Ubuntu (Noticias)"
+    folder: "content/noticias"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - label: "Título de la Entrada"
+        name: "title"
+        widget: "string"
+      - label: "Fecha de Publicación"
+        name: "date"
+        widget: "datetime"
+      - label: "Imagen de Portada"
+        name: "image"
+        widget: "image"
+        required: false
+      - label: "Etiquetas / #Hashtags"
+        name: "tags"
+        widget: "list"
+        default: ["paraguachoa"]
+      - label: "Tipo de Entrada"
+        name: "source"
+        widget: "select"
+        options: ["Comunidad Local", "Planeta Ubuntu", "Importación Bot"]
+        default: "Comunidad Local"
+      - label: "Contenido (Markdown)"
+        name: "body"
+        widget: "markdown"
+      - label: "Publicado por"
+        name: "author"
+        widget: "string"
+        default: "Ubuntu Venezuela Bot"
+
+  # 2. DIRECTORIO DE CONFERENCISTAS / MIEMBROS LOCO
+  - name: "miembros"
+    label: "Comunidad / Conferencistas"
+    folder: "content/miembros"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - label: "Nombre del Miembro"
+        name: "title"
+        widget: "string"
+      - label: "Foto de Perfil"
+        name: "image"
+        widget: "image"
+        required: false
+      - label: "Rol Profesional / Especialidad"
+        name: "role_bio"
+        widget: "string"
+        hint: "Ej: Ingeniero Cloud, Traductor."
+      - label: "Permisos / Rango"
+        name: "member_role"
+        widget: "select"
+        options: ["Admin", "Editor", "Escritor", "Miembro LoCo"]
+        default: "Miembro LoCo"
+      - label: "Insignia Oficial de Ubuntu"
+        name: "badge"
+        widget: "select"
+        options: ["Miembro Oficial", "LoCo Contact", "Voluntario", "Invitado Especial", "Conferencista"]
+      - label: "Contribuciones Principales"
+        name: "contributions"
+        widget: "list"
+        required: false
+        hint: "Proyectos en los que ayuda en Ubuntu"
+      - label: "GitHub Username"
+        name: "github"
+        widget: "string"
+        required: false
+      - label: "Discourse User"
+        name: "discourse"
+        widget: "string"
+        required: false
+        hint: "Usuario de Ubuntu Discourse para Badges"
+      - label: "Launchpad User"
+        name: "launchpad"
+        widget: "string"
+        required: false
+        hint: "Tu ID para cargar Karma y firmar el CDC."
+      - label: "Biografía Detallada"
+        name: "body"
+        widget: "markdown"
+
+  # 3. EVENTOS OFICIALES DE UBUNTU VENEZUELA
+  - name: "eventos"
+    label: "Eventos y Meetups"
+    folder: "content/eventos"
+    create: true
+    slug: "{{year}}-{{month}}-{{slug}}"
+    fields:
+      - label: "Nombre del Evento"
+        name: "title"
+        widget: "string"
+      - label: "Fecha y Hora del Evento"
+        name: "date"
+        widget: "datetime"
+      - label: "Lugar / Ubicación"
+        name: "location"
+        widget: "string"
+      - label: "URL de Registro Externo (Formspree/Typeform)"
+        name: "registration_url"
+        widget: "string"
+        required: false
+      - label: "Banner del Evento"
+        name: "image"
+        widget: "image"
+        required: false
+      - label: "Conferencistas (Seleccionar Miembros)"
+        name: "speakers"
+        widget: "relation"
+        collection: "miembros"
+        value_field: "title"
+        search_fields: ["title"]
+        display_fields: ["title", "badge"]
+        multiple: true
+        required: false
+      - label: "ID de Texto SVG (Dinamismo)"
+        name: "cert_id"
+        widget: "string"
+        default: "tspan3951"
+        hint: "Por defecto es tspan3951 del script local."
+      - label: "Plantilla SVG del Certificado"
+        name: "cert_template"
+        widget: "file"
+        required: false
+        hint: "Sube tu SVG aquí siguiendo la guía técnica."
+      - label: "Lista de Participantes (XLS)"
+        name: "cert_list"
+        widget: "file"
+        required: false
+        hint: "Sube tu archivo .xls aquí."
+      - label: "Cuerpo / Descripción del Evento"
+        name: "body"
+        widget: "markdown"
+
+  # 4. PATROCINADORES Y ALIADOS
+  - name: "patrocinadores"
+    label: "Sponsors y Aliados"
+    folder: "content/sponsors"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - label: "Nombre de la Empresa"
+        name: "title"
+        widget: "string"
+      - label: "Logo"
+        name: "image"
+        widget: "image"
+        required: false
+      - label: "Sitio Web"
+        name: "website"
+        widget: "string"
+        required: false
+      - label: "Orden / Prioridad"
+        name: "weight"
+        widget: "number"
+        default: 10
+        hint: "Menor número = Más arriba"
+      - label: "Descripción de Apoyo"
+        name: "body"
+        widget: "markdown"
+        required: false
+
+  # 6. CONFIGURACIÓN GLOBAL (Home, Radio y Planeta)
+  - name: "config"
+    label: "Configuración Global"
+    delete: false
+    create: false
+    files:
+      - name: "home"
+        label: "Ajustes del Sitio y Radio"
+        file: "config.yaml"
+        fields:
+          - label: "Título del Sitio"
+            name: "title"
+            widget: "string"
+          - label: "Configuración de Radio (Streaming)"
+            name: "params.radio"
+            widget: "object"
+            fields:
+              - label: "Título de la Radio"
+                name: "title"
+                widget: "string"
+              - label: "Subtítulo"
+                name: "subtitle"
+                widget: "string"
+              - label: "URL del Stream"
+                name: "url"
+                widget: "string"
+          - label: "Sección Comunidad (Página Principal)"
+            name: "params.home_features"
+            widget: "object"
+            fields:
+              - label: "Título Principal"
+                name: "title"
+                widget: "string"
+              - label: "Descripción"
+                name: "description"
+                widget: "text"
+              - label: "Tarjetas de Acceso Rápido"
+                name: "cards"
+                widget: "list"
+                fields:
+                  - {label: "Icono (p-icon--*)", name: "icon", widget: "string"}
+                  - {label: "Título", name: "title", widget: "string"}
+                  - {label: "URL Destino", name: "url", widget: "string"}
