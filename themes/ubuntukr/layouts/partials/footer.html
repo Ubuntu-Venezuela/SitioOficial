@@ -7,7 +7,7 @@
       <h4 style="color: #fff; font-weight: 400; font-size: 1.1rem; margin-bottom: 1.5rem;">{{ .title }}</h4>
       <ul class="p-list" style="list-style: none; padding: 0;">
         {{ range .links }}
-        <li style="margin-bottom: 0.5rem;"><a href="{{ .url | safeURL }}" style="color: #ccc; text-decoration: none; font-size: 0.9rem;">{{ .name }}</a></li>
+        <li style="margin-bottom: 0.5rem;"><a href="{{ .url | relURL }}" style="color: #ccc; text-decoration: none; font-size: 0.9rem;">{{ .name }}</a></li>
         {{ end }}
       </ul>
     </div>
@@ -19,7 +19,7 @@
       <h4 style="color: #fff; font-weight: 400; font-size: 1.1rem; margin-bottom: 1.5rem;">{{ .title }}</h4>
       <ul class="p-list" style="list-style: none; padding: 0;">
         {{ range .links }}
-        <li style="margin-bottom: 0.5rem;"><a href="{{ .url | safeURL }}" style="color: #ccc; text-decoration: none; font-size: 0.9rem;">{{ .name }}</a></li>
+        <li style="margin-bottom: 0.5rem;"><a href="{{ .url | relURL }}" style="color: #ccc; text-decoration: none; font-size: 0.9rem;">{{ .name }}</a></li>
         {{ end }}
       </ul>
     </div>
@@ -31,7 +31,7 @@
       <h4 style="color: #fff; font-weight: 400; font-size: 1.1rem; margin-bottom: 1.5rem;">{{ .title }}</h4>
       <ul class="p-list" style="list-style: none; padding: 0;">
         {{ range .links }}
-        <li style="margin-bottom: 0.5rem;"><a href="{{ .url | safeURL }}" style="color: #ccc; text-decoration: none; font-size: 0.9rem;">{{ .name }}</a></li>
+        <li style="margin-bottom: 0.5rem;"><a href="{{ .url | relURL }}" style="color: #ccc; text-decoration: none; font-size: 0.9rem;">{{ .name }}</a></li>
         {{ end }}
       </ul>
     </div>
@@ -43,7 +43,7 @@
       <h4 style="color: #fff; font-weight: 400; font-size: 1.1rem; margin-bottom: 1.5rem;">{{ .title }}</h4>
       <ul class="p-list" style="list-style: none; padding: 0;">
         {{ range .links }}
-        <li style="margin-bottom: 0.5rem;"><a href="{{ .url | safeURL }}" style="color: #ccc; text-decoration: none; font-size: 0.9rem;">{{ .name }}</a></li>
+        <li style="margin-bottom: 0.5rem;"><a href="{{ .url | relURL }}" style="color: #ccc; text-decoration: none; font-size: 0.9rem;">{{ .name }}</a></li>
         {{ end }}
       </ul>
     </div>
@@ -86,7 +86,7 @@
           {{ with .Site.Params.footer.legal }}
           <a href="{{ .Site.Params.source_repo | default "https://github.com/ubuntu-ve" | safeURL }}" style="color: #888; font-size: 0.8rem; text-decoration: none;">{{ .source }}</a>
           <a href="{{ .legal_url | safeURL }}" style="color: #888; font-size: 0.8rem; text-decoration: none;">{{ .legal_info }}</a>
-          <a href="/admin/" style="color: #E95420; font-size: 0.8rem; text-decoration: none; font-weight: 600;">Administración</a>
+          <a href="{{ "admin/" | relURL }}" style="color: #E95420; font-size: 0.8rem; text-decoration: none; font-weight: 600;">Administración</a>
           <a href="mailto:{{ $.Site.Params.contact }}" style="color: #888; font-size: 0.8rem; text-decoration: none;">{{ .contact }}</a>
           {{ end }}
         </div>

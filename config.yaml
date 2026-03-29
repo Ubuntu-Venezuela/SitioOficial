@@ -29,12 +29,12 @@ languages:
         Ubuntu y Canonical son marcas registradas de Canonical Ltd.
       main_slide:
         label: Sobre la comunidad
-        link: about
+        link: "about/"
       members_dir:
         title: "Directorio de Miembros"
         subtitle: "Conoce a los líderes, voluntarios y colaboradores que hacen posible la comunidad de Ubuntu Venezuela."
         join_html: "¿Te gustaría unirte a nuestro equipo?"
-        join_url: "/miembro-ubuntu"
+        join_url: "miembro-ubuntu/"
         btn_profile: "Perfil Completo"
         btn_github: "Perfil de GitHub"
         back_to_dir: "Volver al Directorio"
@@ -63,7 +63,7 @@ languages:
             url: "https://wiki.ubuntu.com/VenezuelaTeam"
           - icon: "p-icon--user-group"
             title: "Flisol y Meetups"
-            url: "/eventos/"
+            url: "eventos/"
           - icon: "p-icon--code"
             title: "Proyectos Locales"
             url: "https://github.com/ubuntu-ve"
@@ -109,7 +109,7 @@ languages:
       main:
       - identifier: planeta
         name: Planeta Ubuntu
-        url: noticias
+        url: "noticias/"
         weight: 5
       - identifier: community
         name: Comunidad
@@ -117,17 +117,17 @@ languages:
       - identifier: members
         parent: community
         name: Directorio de Miembros
-        url: miembros
+        url: "miembros/"
         weight: 10
       - identifier: events
         parent: community
         name: Eventos y Meetups
-        url: eventos
+        url: "eventos/"
         weight: 11
       - identifier: sponsors
         parent: community
         name: Aliados y Sponsors
-        url: sponsors
+        url: "sponsors/"
         weight: 12
       - identifier: resources
         name: Recursos
@@ -135,7 +135,7 @@ languages:
       - identifier: certs
         parent: resources
         name: Guía de Certificados
-        url: recursos/certificados
+        url: "recursos/certificados/"
         weight: 20
       - identifier: wiki
         parent: resources
@@ -192,12 +192,12 @@ languages:
         Ubuntu and Canonical are registered trademarks of Canonical Ltd.
       main_slide:
         label: About the community
-        link: about
+        link: "about/"
       members_dir:
         title: "Members Directory"
         subtitle: "Meet the leaders, volunteers, and contributors that make the Ubuntu Venezuela community possible."
         join_html: "Would you like to join our team?"
-        join_url: "/miembro-ubuntu"
+        join_url: "miembro-ubuntu/"
         btn_profile: "Full Profile"
         btn_github: "GitHub Profile"
         back_to_dir: "Back to Directory"
@@ -226,7 +226,7 @@ languages:
             url: "https://wiki.ubuntu.com/VenezuelaTeam"
           - icon: "p-icon--user-group"
             title: "Flisol and Meetups"
-            url: "/eventos/"
+            url: "eventos/"
           - icon: "p-icon--code"
             title: "Local Projects"
             url: "https://github.com/ubuntu-ve"
@@ -276,17 +276,17 @@ languages:
       - identifier: members
         parent: community
         name: Members Directory
-        url: miembros
+        url: "miembros/"
         weight: 10
       - identifier: events
         parent: community
         name: Events and Meetups
-        url: eventos
+        url: "eventos/"
         weight: 11
       - identifier: sponsors
         parent: community
         name: Partners and Sponsors
-        url: sponsors
+        url: "sponsors/"
         weight: 12
       - identifier: resources
         name: Resources
@@ -294,7 +294,7 @@ languages:
       - identifier: certs
         parent: resources
         name: Certificates Guide
-        url: recursos/certificados
+        url: "recursos/certificados/"
         weight: 20
       - identifier: wiki
         parent: resources
