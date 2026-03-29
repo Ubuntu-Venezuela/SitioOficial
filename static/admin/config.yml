@@ -2,8 +2,6 @@ backend:
   name: github
   repo: Ubuntu-Venezuela/SitioOficial # Repositorio donde guarda el CMS
   branch: main # Rama a la que hace commit
-  site_domain: ubuntu-ve.org
-
 media_folder: "static/img/uploads" # Carpeta donde subirán las imágenes
 public_folder: "/img/uploads"      # Ruta pública web para leerlas
 
