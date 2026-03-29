@@ -1,0 +1,10 @@
+[build]
+  # Configuración para que Netlify compile automáticamente con Hugo
+  command = "hugo --gc --minify"
+  publish = "public"
+
+[build.environment]
+  # Versión exacta de Hugo Extendida para soportar procesamiento de temas (Dart-Sass)
+  HUGO_VERSION = "0.124.1"
+  HUGO_ENV = "production"
+  HUGO_ENABLEGITINFO = "true"
