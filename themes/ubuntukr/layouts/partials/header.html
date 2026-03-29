@@ -4,7 +4,6 @@
     <a href="/" style="color: #666; font-size: 0.85rem; text-decoration: none; font-weight: 300;">Canonical Ubuntu</a>
     <div style="display: flex; gap: 1.5rem;">
       <a href="https://ubuntu.com" style="color: #666; font-size: 0.85rem; text-decoration: none;">All Canonical</a>
-      <a href="/admin/" style="color: #ccc; font-size: 0.85rem; text-decoration: none; font-weight: 500;">Panel de Control</a>
     </div>
   </div>
 </nav>
@@ -14,7 +13,7 @@
   <div class="p-navigation__row" style="max-width: 72rem; margin: 0 auto; padding: 0 1rem; border: none; display: flex; justify-content: space-between;">
     <div class="p-navigation__banner" style="background: none; border: none; padding: 0;">
       <a class="p-navigation__banner-item" href="{{ .Site.LanguagePrefix | relURL }}" style="padding: 0.5rem 0; display: flex; align-items: center;">
-        <img src="/img/logo_text_ubuntu_ve_fixed.png" alt="Ubuntu Venezuela" style="height: 38px; filter: brightness(0) invert(1);">
+        <img src="{{ "img/logo_text_ubuntu_ve_fixed.png" | relURL }}" alt="Ubuntu Venezuela" style="height: 38px; filter: brightness(0) invert(1);">
       </a>
       <a href="#navigation" class="p-navigation__toggle--open" title="menu">Menú</a>
       <a href="#navigation-closed" class="p-navigation__toggle--close" title="cerrar menú">Cerrar menú</a>
@@ -60,7 +59,7 @@
 <nav class="p-navigation" style="background-color: #333; border-bottom: 1px solid #111; min-height: 56px; width: 100%;">
   <div class="p-navigation__row" style="max-width: 72rem; margin: 0 auto; padding: 0 1rem; border: none;">
     <div class="p-navigation__banner" style="background: none; padding: 0; display: flex; align-items: stretch; border: none;">
-      <a class="p-navigation__link" href="/" style="display: flex; align-items: center; gap: 1rem; padding: 0.8rem 1.5rem; background-color: #E95420; color: #fff; text-decoration: none; align-self: stretch;">
+      <a class="p-navigation__link" href="{{ "/" | relURL }}" style="display: flex; align-items: center; gap: 1rem; padding: 0.8rem 1.5rem; background-color: #E95420; color: #fff; text-decoration: none; align-self: stretch;">
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="#fff">
           <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 2.2c5.412 0 9.8 4.388 9.8 9.8s-4.388 9.8-9.8 9.8-9.8-4.388-9.8-9.8 4.388-9.8 9.8-9.8zm0 2.4c-4.087 0-7.4 3.313-7.4 7.4s3.313 7.4 7.4 7.4 7.4-3.313 7.4-7.4-3.313-7.4-7.4-7.4z"/>
         </svg>
@@ -70,14 +69,14 @@
     <nav class="p-navigation__nav">
       <ul class="p-navigation__items" style="margin-left: 2rem;">
         {{ if or (in .RelPermalink "/eventos/") (eq .Type "eventos") }}
-          <li class="p-navigation__item"><a class="p-navigation__link" style="color: #ccc;" href="/eventos/">Próximos Meetups</a></li>
-          <li class="p-navigation__item"><a class="p-navigation__link" style="color: #ccc;" href="/recursos/certificados/">Certificados</a></li>
+          <li class="p-navigation__item"><a class="p-navigation__link" style="color: #ccc;" href="{{ "eventos/" | relURL }}">Próximos Meetups</a></li>
+          <li class="p-navigation__item"><a class="p-navigation__link" style="color: #ccc;" href="{{ "recursos/certificados/" | relURL }}">Certificados</a></li>
         {{ else if or (in .RelPermalink "/miembros/") (eq .Type "miembros") }}
-          <li class="p-navigation__item"><a class="p-navigation__link" style="color: #ccc;" href="/miembros/">Directorio</a></li>
-          <li class="p-navigation__item"><a class="p-navigation__link" style="color: #ccc;" href="/about/">Comunidad</a></li>
+          <li class="p-navigation__item"><a class="p-navigation__link" style="color: #ccc;" href="{{ "miembros/" | relURL }}">Directorio</a></li>
+          <li class="p-navigation__item"><a class="p-navigation__link" style="color: #ccc;" href="{{ "about/" | relURL }}">Comunidad</a></li>
         {{ else }}
-          <li class="p-navigation__item"><a class="p-navigation__link" style="color: #ccc;" href="/about/">La comunidad</a></li>
-          <li class="p-navigation__item"><a class="p-navigation__link" style="color: #ccc;" href="/recursos/certificados/">Recursos</a></li>
+          <li class="p-navigation__item"><a class="p-navigation__link" style="color: #ccc;" href="{{ "about/" | relURL }}">La comunidad</a></li>
+          <li class="p-navigation__item"><a class="p-navigation__link" style="color: #ccc;" href="{{ "recursos/certificados/" | relURL }}">Recursos</a></li>
         {{ end }}
       </ul>
     </nav>
