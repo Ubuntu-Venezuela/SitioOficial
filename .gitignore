@@ -27,3 +27,7 @@ __pycache__/
 *.pyc
 .env
 logs/
+tmp/
+!/.github/workflows/
+# Evitar que los cambios locales del bot se mezclen con el core
+# content/noticias/*.md # (Depende si queremos que el primer push los lleve)

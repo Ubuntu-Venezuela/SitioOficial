@@ -193,19 +193,19 @@
       <!-- Grid de 3 imagenes -->
       <div class="col-4" style="padding: 10px;">
         <div style="background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
-          <img src="/screenshot/members_sso.jpeg" alt="Dashboard SSO" style="width: 100%; display: block;" onerror="this.onerror=null; this.src='/img/logo.png';">
+          <img src="{{ "screenshot/members_sso.jpeg" | relURL }}" alt="Dashboard SSO" style="width: 100%; display: block;" onerror="this.onerror=null; this.src='img/logo.png';">
           <div style="padding: 1rem; text-align: center; color: #333; font-weight: bold; font-size: 0.8rem;">Verificación SSO Miembros</div>
         </div>
       </div>
       <div class="col-4" style="padding: 10px;">
         <div style="background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
-          <img src="/screenshot/news_discourse.jpeg" alt="Timeline Noticias" style="width: 100%; display: block;" onerror="this.onerror=null; this.src='/img/logo.png';">
+          <img src="{{ "screenshot/news_discourse.jpeg" | relURL }}" alt="Timeline Noticias" style="width: 100%; display: block;" onerror="this.onerror=null; this.src='img/logo.png';">
           <div style="padding: 1rem; text-align: center; color: #333; font-weight: bold; font-size: 0.8rem;">Bot y Timeline Discourse</div>
         </div>
       </div>
       <div class="col-4" style="padding: 10px;">
         <div style="background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
-          <img src="/screenshot/about_page.jpeg" alt="Pagina About" style="width: 100%; display: block;" onerror="this.onerror=null; this.src='/img/logo.png';">
+          <img src="{{ "screenshot/about_page.jpeg" | relURL }}" alt="Pagina About" style="width: 100%; display: block;" onerror="this.onerror=null; this.src='img/logo.png';">
           <div style="padding: 1rem; text-align: center; color: #333; font-weight: bold; font-size: 0.8rem;">Nueva Vista 'Sobre Nosotros'</div>
         </div>
       </div>
@@ -217,7 +217,7 @@
     <div class="row">
       <div class="col-12 text-center" style="text-align: center; padding: 40px 0;">
         <hr class="p-rule">
-        <a href="/admin/" class="p-button--neutral"> <i class="p-icon--settings"></i> Panel Administrativo (Editores)</a>
+        <a href="{{ "admin/" | relURL }}" class="p-button--neutral"> <i class="p-icon--settings"></i> Panel Administrativo (Editores)</a>
       </div>
     </div>
   </footer>

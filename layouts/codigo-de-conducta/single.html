@@ -1,0 +1,168 @@
+{{ define "main" }}
+
+<main>
+  <!-- HERO SECTION -->
+  <section class="p-strip--dark" style="background-color: #262626; padding: 3rem 0 2rem;">
+    <div class="row" style="max-width: 72rem; margin: 0 auto; padding: 0 1rem;">
+      <div class="col-8">
+        <h1 style="color: #fff; font-weight: 100;">{{ .Title }}</h1>
+        <p style="color: #ccc; font-size: 1.1rem; line-height: 1.7;">
+          {{ .Params.description }}
+        </p>
+      </div>
+      <div class="col-4" style="display: flex; align-items: center; justify-content: center;">
+        <svg style="height: 120px; width: auto; opacity: 0.9;" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="128" cy="128" r="125" fill="none" stroke="#E95420" stroke-width="6"/>
+          <circle cx="128" cy="128" r="42" fill="none" stroke="#fff" stroke-width="3" opacity="0.4"/>
+          <circle cx="128" cy="70" r="18" fill="#E95420"/>
+          <circle cx="78" cy="157" r="18" fill="#fff"/>
+          <circle cx="178" cy="157" r="18" fill="#E95420" opacity="0.7"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUÉ ES EL CÓDIGO DE CONDUCTA -->
+  <section class="p-strip" style="background: #fff; padding: 3rem 0;">
+    <div class="row" style="max-width: 72rem; margin: 0 auto; padding: 0 1rem;">
+      <div class="col-12">
+        <h2 style="color: #111; font-weight: 100; margin-bottom: 1.5rem;">Nuestros Valores y Compromiso</h2>
+      </div>
+      <div class="col-8">
+        <p style="color: #333; line-height: 1.8; font-size: 1rem;">
+          El <strong>Código de Conducta de Ubuntu</strong> es un documento fundamental que establece los valores y principios que rigen el comportamiento dentro de la comunidad Ubuntu a nivel mundial. Creado por <strong>Canonical</strong>, define las expectativas de respeto, colaboración y profesionalismo para todos los participantes.
+        </p>
+        <p style="color: #333; line-height: 1.8; font-size: 1rem;">
+          Firmar el Código de Conducta es un paso esencial para participar activamente en la comunidad. <strong>Es tu compromiso público</strong> con los valores de Ubuntu: humanidad, respeto y trabajo en equipo.
+        </p>
+
+        <div style="background: #f7f7f7; border-left: 4px solid #E95420; padding: 1.5rem; border-radius: 0 4px 4px 0; margin: 2rem 0;">
+          <h3 style="color: #111; font-weight: 300; font-size: 1.2rem; margin-bottom: 1rem;">Nuestros Principios Fundamentales</h3>
+          <ol style="color: #333; line-height: 2; padding-left: 1.5rem;">
+            <li><strong>Sé considerado:</strong> Nuestro trabajo se utilizará y afectará a otras personas.</li>
+            <li><strong>Sé respetuoso:</strong> El desacuerdo no es excusa para la falta de respeto ni para la mala educación.</li>
+            <li><strong>Sé colaborativo:</strong> La colaboración y el trabajo en equipo son el núcleo de nuestro éxito.</li>
+            <li><strong>Cuando no estés de acuerdo, consúltalo:</strong> Resolvemos las discrepancias con madurez.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="col-4">
+        <div style="background: #f7f7f7; border-radius: 4px; padding: 1.5rem; border: 1px solid #d9d9d9;">
+          <h4 style="color: #111; font-weight: 400; font-size: 1rem; margin-bottom: 1rem;">¿Por qué firmar?</h4>
+          <ul style="list-style: none; padding: 0; margin: 0;">
+            <li style="display: flex; align-items: flex-start; gap: 0.8rem; margin-bottom: 1rem; color: #333; font-size: 0.9rem; line-height: 1.5;">
+              <span style="color: #E95420; font-size: 1.2rem; flex-shrink: 0;">✓</span>
+              Formaliza tu membresía como Ubuntu Member
+            </li>
+            <li style="display: flex; align-items: flex-start; gap: 0.8rem; margin-bottom: 1rem; color: #333; font-size: 0.9rem; line-height: 1.5;">
+              <span style="color: #E95420; font-size: 1.2rem; flex-shrink: 0;">✓</span>
+              Acredita tu compromiso con los valores de la comunidad
+            </li>
+            <li style="display: flex; align-items: flex-start; gap: 0.8rem; margin-bottom: 1rem; color: #333; font-size: 0.9rem; line-height: 1.5;">
+              <span style="color: #E95420; font-size: 1.2rem; flex-shrink: 0;">✓</span>
+              Queda registrado en tu perfil de Launchpad
+            </li>
+            <li style="display: flex; align-items: flex-start; gap: 0.8rem; margin-bottom: 1rem; color: #333; font-size: 0.9rem; line-height: 1.5;">
+              <span style="color: #E95420; font-size: 1.2rem; flex-shrink: 0;">✓</span>
+              Es un requisito para contribuir oficialmente
+            </li>
+          </ul>
+        </div>
+        <div style="margin-top: 1.5rem; background: #f7f7f7; border-radius: 4px; padding: 1.5rem; border: 1px solid #d9d9d9;">
+          <h4 style="color: #111; font-weight: 400; font-size: 1rem; margin-bottom: 0.8rem;">Código de Conducta oficial</h4>
+          <p style="color: #666; font-size: 0.85rem; line-height: 1.5; margin-bottom: 1rem;">
+            Puedes leer el documento original completo en el sitio de Ubuntu.
+          </p>
+          <a href="https://ubuntu.com/community/ethos/code-of-conduct" target="_blank" style="color: #E95420; font-size: 0.9rem; text-decoration: none; font-weight: 400;">
+            Leer en ubuntu.com →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN DE DESCARGA -->
+  <section class="p-strip--dark" style="background-color: #333; padding: 3rem 0; border-top: 1px solid #444; border-bottom: 1px solid #444;">
+    <div class="row" style="max-width: 72rem; margin: 0 auto; padding: 0 1rem;">
+      <div class="col-12" style="text-align: center;">
+        <h2 style="color: #fff; font-weight: 100; margin-bottom: 0.8rem;">Firma el Código de Conducta</h2>
+        <p style="color: #ccc; font-size: 1rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+          Nuestro asistente te guía paso a paso por todo el proceso. Solo descarga, ejecuta, y el wizard se encargará de todo.
+        </p>
+      </div>
+      <div class="col-12">
+        <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 4px; padding: 2rem; max-width: 700px; margin: 0 auto;">
+          <div style="display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;">
+            <div style="flex-shrink: 0;">
+              <div style="background: #E95420; width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="#fff">
+                  <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                </svg>
+              </div>
+            </div>
+            <div style="flex: 1;">
+              <h3 style="color: #fff; font-weight: 300; font-size: 1.1rem; margin-bottom: 0.4rem;">Asistente de Firma — v3.2</h3>
+              <p style="color: #888; font-size: 0.85rem; margin: 0;">
+                Python script multiplataforma &bull; Windows, Linux y macOS &bull; Interfaz visual guiada
+              </p>
+              <p style="color: #666; font-size: 0.75rem; margin-top: 0.4rem; font-style: italic;">
+                Basado en el trabajo original de <a href="https://ubuntu.co" style="color: #888; text-decoration: underline;">Ubuntu Colombia</a>. Fork mejorado por Ubuntu Venezuela.
+              </p>
+            </div>
+            <div>
+              <a href="/ubuntu-coc-wizard.py" download class="p-button--positive" style="background-color: #E95420; color: #fff; border: none; padding: 0.7rem 1.5rem; border-radius: 4px; font-size: 0.9rem; font-weight: 400; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; white-space: nowrap; cursor: pointer;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="#fff">
+                  <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                </svg>
+                Descargar Asistente
+              </a>
+            </div>
+          </div>
+          <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1);">
+            <h4 style="color: #ccc; font-weight: 400; font-size: 0.9rem; margin-bottom: 1rem;">¿Cómo funciona?</h4>
+            <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+              <div style="flex: 1; min-width: 150px;">
+                <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.4rem;">
+                  <span style="background: #E95420; color: #fff; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 700; flex-shrink: 0;">1</span>
+                  <span style="color: #ccc; font-size: 0.85rem;">Descarga el script</span>
+                </div>
+              </div>
+              <div style="flex: 1; min-width: 150px;">
+                <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.4rem;">
+                  <span style="background: #E95420; color: #fff; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 700; flex-shrink: 0;">2</span>
+                  <span style="color: #ccc; font-size: 0.85rem;">Ejecuta con Python 3</span>
+                </div>
+              </div>
+              <div style="flex: 1; min-width: 150px;">
+                <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.4rem;">
+                  <span style="background: #E95420; color: #fff; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 700; flex-shrink: 0;">3</span>
+                  <span style="color: #ccc; font-size: 0.85rem;">Sigue los pasos del wizard</span>
+                </div>
+              </div>
+              <div style="flex: 1; min-width: 150px;">
+                <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.4rem;">
+                  <span style="background: #0E8420; color: #fff; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 700; flex-shrink: 0;">✓</span>
+                  <span style="color: #ccc; font-size: 0.85rem;">¡CDC firmado!</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN REPORTE -->
+  <section class="p-strip" style="background: #fff; padding: 2.5rem 0;">
+    <div class="row" style="max-width: 72rem; margin: 0 auto; padding: 0 1rem; text-align: center;">
+      <div class="col-12">
+        <p style="color: #333; font-size: 0.95rem; line-height: 1.7;">
+          Si experimentas o eres testigo de un comportamiento que viola estas normas dentro de los espacios (digitales o físicos) de Ubuntu Venezuela, por favor contáctanos directamente a 
+          <a href="mailto:junta@ubuntu-ve.org" style="color: #E95420; text-decoration: none; font-weight: 400;">junta@ubuntu-ve.org</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+</main>
+
+{{ end }}

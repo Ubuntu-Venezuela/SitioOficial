@@ -10,205 +10,187 @@
 </div>
 
 <style>
-  .miembros-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-    gap: 1.2rem;
-    padding-bottom: 4rem;
-    max-width: 76rem;
-    margin: 0 auto;
-    align-items: stretch;
-  }
-  .miembro-card {
-    background: #fff;
-    border-radius: 6px;
-    border: 1px solid rgba(0,0,0,0.08);
-    box-shadow: 0 3px 6px rgba(0,0,0,0.02);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    position: relative;
-    transition: all 0.2s ease;
-    height: 100%;
-  }
-  .miembro-card:hover {
-    box-shadow: 0 8px 18px rgba(233, 84, 32, 0.1);
-    border-color: rgba(233, 84, 32, 0.3);
-    transform: translateY(-2px);
-  }
-  .card-top-content {
-    padding: 1.2rem 0.6rem 0.2rem 0.6rem;
-    text-align: center;
-    flex-shrink: 0;
-    min-height: 220px;
-    background: linear-gradient(180deg, #fdfdfd 0%, #ffffff 100%);
-  }
-  .card-summary-wrapper {
-    padding: 0.4rem 0.6rem;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-  }
-  .badge-ribbon {
-    position: absolute; top: 0; left: 0; width: 100%; height: 5px; z-index: 2;
-  }
-  .badge-ribbon-loco { background: #E95420; }
-  .badge-ribbon-official { background: #77216F; }
-  .badge-ribbon-admin { background: #333333; }
-  .badge-ribbon-default { background: #ccc; }
-
-  .badge-tag-loco { background: #E95420; color: #fff; }
-  .badge-tag-official { background: #77216F; color: #fff; }
-  .badge-tag-admin { background: #333333; color: #fff; }
-  .badge-tag-default { background: #eee; color: #444; }
-
-  .miembro-avatar {
-    width: 65px; height: 65px; border-radius: 50%; object-fit: cover;
-    margin: 0 auto; display: block; background: #fafafa; border: 2px solid #eaeaea;
-  }
+  .miembros-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; padding-bottom: 4rem; max-width: 76rem; margin: 0 auto; }
+  .miembro-card { background: #fff; border-radius: 6px; border: 1px solid #d9d9d9; display: flex; flex-direction: column; overflow: hidden; position: relative; transition: all 0.2s ease; height: 350px; width: 100%; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+  .miembro-card:hover { border-color: #E95420; box-shadow: 0 4px 12px rgba(233, 84, 32, 0.1); transform: translateY(-2px); }
+  .badge-ribbon { position: absolute; top: 0; left: 0; width: 100%; height: 4px; z-index: 2; }
+  .badge-ribbon-official { background: #77216f; }
+  .badge-ribbon-coc      { background: #e95420; }
+  .badge-ribbon-default  { background: #d9d9d9; }
   
-  .discourse-badge {
-    background: rgba(233, 84, 32, 0.08); border: 1px solid rgba(233, 84, 32, 0.15); 
-    border-radius: 3px; font-size: 0.55rem; color: #E95420; 
-    padding: 1px 4px; font-weight: 700; text-transform: uppercase;
-    display: inline-block; margin: 1px;
-  }
+  /* Standard model segments */
+  .card-section-top { padding: 1.2rem 0.6rem 0.5rem 0.6rem; text-align: center; height: 110px; flex-shrink: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .avatar-wrap { position: relative; width: 64px; height: 64px; margin-bottom: 0.5rem; }
+  .miembro-avatar { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; border: 1px solid #eee; background: #fff; }
+  .avatar-flair { position: absolute; bottom: 0; right: 0; width: 20px; height: 20px; border-radius: 50%; border: 2px solid #fff; background: #E95420; display: flex; align-items: center; justify-content: center; }
   
-  .card-summary-text {
-    color: #555; font-size: 0.75rem; line-height: 1.4; text-align: left; 
-    background: #fafafa; padding: 0.5rem; border-radius: 4px; 
-    margin: 0; flex: 1; display: -webkit-box; -webkit-line-clamp: 3; line-clamp: 3;
-    -webkit-box-orient: vertical; overflow: hidden;
-  }
-
-  .card-footer-btn {
-    width: 100%; text-align: center; color: #fff; font-weight: 600; 
-    font-size: 0.75rem; padding: 0.35rem; border-radius: 3px; 
-    text-transform: uppercase; letter-spacing: 0.5px; display: block;
-    text-decoration: none; transition: background 0.2s;
-  }
-  .card-footer-btn:hover { filter: brightness(1.1); color: #fff; }
+  .card-section-info { height: 45px; padding: 0 0.6rem; text-align: center; flex-shrink: 0; overflow: hidden; }
+  .card-name { margin: 0; font-weight: 700; color: #111; font-size: 0.95rem; line-height: 1.1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .card-role { color: #666; font-size: 0.7rem; font-style: italic; margin: 0.1rem 0 0 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  
+  .card-section-badges { height: 65px; padding: 0.2rem 0.6rem; text-align: center; flex-shrink: 0; overflow: hidden; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+  .badge-tag { display: inline-flex; align-items: center; gap: 3px; padding: 1px 6px; border-radius: 2px; font-size: 0.5rem; font-weight: 800; text-transform: uppercase; }
+  .badge-tag-official { background: #77216f; color: #fff; }
+  .badge-tag-coc      { background: #e95420; color: #fff; }
+  .badge-tag-default  { background: #f2f2f2; color: #666; }
+  
+  .badges-container { height: 32px; display: flex; gap: 2px; justify-content: center; flex-wrap: wrap; margin-top: 0.2rem; overflow: hidden; align-content: flex-start; }
+  .discourse-badge { background: #fdf2ee; border: 1px solid #f9d8cc; border-radius: 2px; font-size: 0.45rem; color: #e95420; padding: 0 3px; font-weight: 700; text-transform: uppercase; margin: 1px; }
+  .discourse-badge.silver { background: #f5edf4; border-color: #dfcedc; color: #77216f; }
+  
+  .card-section-bio { height: 55px; padding: 0.5rem 1rem; flex-shrink: 0; overflow: hidden; background: #fafafa; border-top: 1px solid #f0f0f0; border-bottom: 1px solid #f0f0f0; display: flex; align-items: center; justify-content: center; }
+  .card-summary-text { color: #555; font-size: 0.68rem; line-height: 1.35; margin: 0; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; font-style: italic; text-align: center; }
+  
+  .card-section-footer { flex-grow: 1; padding: 0.6rem; display: flex; flex-direction: column; gap: 0.5rem; justify-content: center; align-items: center; }
+  .card-footer-btn { width: 90%; text-align: center; color: #fff; font-weight: 700; font-size: 0.65rem; padding: 0.4rem; border-radius: 3px; text-transform: uppercase; letter-spacing: 0.5px; text-decoration: none; }
+  .btn-member { background-color: #77216F !important; }
+  .btn-coc    { background-color: #E95420 !important; }
+  .social-icons-row { display: flex; justify-content: center; align-items: center; gap: 1rem; height: 20px; width: 100%; }
+  .social-link { color: #999; text-decoration: none; display: flex; align-items: center; justify-content: center; width: 20px; height: 20px; }
+  .social-link:hover { color: #E95420; }
+  .social-link i { font-size: 14px; width: 14px; }
 </style>
 
 <div class="miembros-grid">
   {{ range .Pages }}
-  
-  {{/* FETCH LAUNCHPAD OR DISCOURSE (Native Server-Side Verification) */}}
-  {{ $isOfficialVerified := false }}
-  {{ $hasCoc := false }}
-  {{ $lpKarma := 0 }}
-  {{ $lpMugshot := "" }}
-  {{ $discourseBadges := slice }}
-  
-  {{ $targetUser := or .Params.discourse .Params.launchpad .Params.github }}
 
-  {{ if $targetUser }}
-    {{ $apiUrl := printf "https://discourse.ubuntu.com/u/%s.json" $targetUser }}
-    {{ $res := resources.GetRemote $apiUrl }}
-    {{ if and $res (not $res.Err) }}
-      {{ $data := $res.Content | unmarshal }}
-      {{ if $data.user }}
-        {{ if or (eq $data.user.primary_group_name "ubuntumembers") (eq $data.user.flair_name "ubuntumembers") }}
-          {{ $isOfficialVerified = true }}
-          {{ $hasCoc = true }}
-        {{ end }}
-        {{ if $data.badges }}{{ $discourseBadges = $data.badges }}{{ end }}
-      {{ end }}
-    {{ end }}
-  {{ end }}
-  
-  {{ if .Params.launchpad }}
-    {{ $lpUrl := printf "https://api.launchpad.net/1.0/~%s" .Params.launchpad }}
-    {{ $resLp := resources.GetRemote $lpUrl }}
-    {{ if and $resLp (not $resLp.Err) }}
-      {{ $lpData := $resLp.Content | unmarshal }}
-      {{ if $lpData.is_ubuntu_coc_signer }}{{ $hasCoc = true }}{{ end }}
-      {{ if $lpData.karma }}{{ $lpKarma = $lpData.karma }}{{ end }}
-      {{ if $lpData.mugshot_link }}{{ $lpMugshot = $lpData.mugshot_link }}{{ else if $lpData.logo_link }}{{ $lpMugshot = $lpData.logo_link }}{{ end }}
-    {{ end }}
-  {{ end }}
+  {{ $isMember  := false }}
+  {{ $hasCoc    := false }}
+  {{ $lpKarma   := 0 }}
+  {{ $lpImage   := "" }}
+  {{ $dcBadges  := slice }}
+  {{ $dcAvatar  := "" }}
+  {{ $dcBio     := "" }}
+  {{ $flairUrl  := "" }}
+  {{ $dcTitle   := "" }}
 
-  {{ $ribbonClass := "badge-ribbon-default" }}
-  {{ $tagClass := "badge-tag-default" }}
-  
-  {{ if $isOfficialVerified }}
-    {{ $ribbonClass = "badge-ribbon-official" }}
-    {{ $tagClass = "badge-tag-official" }}
-  {{ else if $hasCoc }}
-    {{ $tagClass = "badge-tag-loco" }}
-    {{ if eq .Params.badge "LoCo Contact" }}{{ $ribbonClass = "badge-ribbon-loco" }}{{ end }}
-  {{ else }}
-    {{ if eq .Params.badge "LoCo Contact" }}{{ $ribbonClass = "badge-ribbon-loco" }}{{ $tagClass = "badge-tag-loco" }}
-    {{ else if eq .Params.badge "Admin" }}{{ $ribbonClass = "badge-ribbon-admin" }}{{ $tagClass = "badge-tag-admin" }}{{ end }}
-  {{ end }}
-
-  <div class="miembro-card">
-    <div class="badge-ribbon {{ $ribbonClass }}"></div>
-    
-    <div class="card-top-content">
-      {{ $img := .Params.image }}
-      {{ if and $lpMugshot (or (not $img) (eq $img "/img/default-avatar.png")) }}
-         {{ $img = $lpMugshot }}
-      {{ end }}
-      
-      <div style="margin-bottom: 0.6rem;">
-        {{ if or (not $img) (eq $img "/img/default-avatar.png") }}
-        <svg class="miembro-avatar" viewBox="0 0 85 85" xmlns="http://www.w3.org/2000/svg">
-          <path d="M42.5 45c6.5 0 11.5-5 11.5-11.5C54 27 49 22 42.5 22 36 22 31 27 31 33.5c0 6.5 5 11.5 11.5 11.5zm0 5C32.5 50 12 55.5 12 65.5V75h61v-9.5c0-10-20.5-15.5-30.5-15.5z" fill="#ccc"></path>
-        </svg>
-        {{ else }}
-        <img src="{{ $img | safeURL }}" alt="{{ .Title }}" class="miembro-avatar" onerror="this.onerror=null; this.src='/img/default-avatar.png';">
-        {{ end }}
-      </div>
-      
-      <h3 style="margin: 0; font-weight: 700; color: #111; font-size: 1.05rem; line-height: 1.2;">{{ .Title }}</h3>
-      <p style="color: #666; font-size: 0.75rem; font-style: italic; margin: 0.2rem 0 0.5rem 0;">{{ .Params.role_bio }}</p>
-      
-      <div style="margin-bottom: 0.4rem;">
-        <span class="{{ $tagClass }}" style="display: inline-block; padding: 3px 8px; border-radius: 4px; font-size: 0.55rem; font-weight: 800; text-transform: uppercase;">
-          {{ if $isOfficialVerified }}
-            <i class="p-icon--success" style="filter: brightness(0) invert(1); width: 10px; height: 10px; margin-bottom: -1px; margin-right: 2px;"></i> {{ $.Site.Params.members_dir.canonical_verified }}
-          {{ else if $hasCoc }}
-            <i class="p-icon--user" style="filter: brightness(0) invert(1); width: 10px; height: 10px; margin-bottom: -1px; margin-right: 2px;"></i> {{ $.Site.Params.members_dir.active_cdc }}
-          {{ else if .Params.badge }}
-            <i class="p-icon--user" style="filter: brightness(0) invert(1); width: 10px; height: 10px; margin-bottom: -1px; margin-right: 2px;"></i> {{ .Params.badge }}
+  {{/* === SOURCE 1: DISCOURSE (avatar, badges, bio, flair) === */}}
+  {{ $user := or .Params.discourse .Params.launchpad .Params.github }}
+  {{ if $user }}
+    {{ with resources.GetRemote (printf "https://discourse.ubuntu.com/u/%s.json" $user) (dict "maxAge" "24h") }}
+      {{ if not .Err }}
+        {{ $data := .Content | unmarshal }}
+        {{ with $data.user }}
+          {{ if or (eq .primary_group_name "ubuntumembers") (eq .flair_name "ubuntumembers") }}
+            {{ $isMember = true }}
+            {{ $hasCoc = true }}
           {{ end }}
-        </span>
-      </div>
-
-      <div style="display: flex; gap: 3px; justify-content: center; flex-wrap: wrap;">
-        {{ if gt (len $discourseBadges) 0 }}
-          {{ $count := 0 }}
-          {{ range $discourseBadges }}
-            {{ if and (lt $count 2) .name }}
-              <span class="discourse-badge" title="{{ $.Site.Params.members_dir.award_title }}">{{ .name }}</span>
-              {{ $count = add $count 1 }}
+          {{ if .avatar_template }}
+            {{ $dcAvatar = replace .avatar_template "{size}" "120" }}
+            {{ if not (hasPrefix $dcAvatar "http") }}
+              {{ if hasPrefix $dcAvatar "//" }}
+                {{ $dcAvatar = printf "https:%s" $dcAvatar }}
+              {{ else }}
+                {{ $dcAvatar = printf "https://discourse.ubuntu.com%s" $dcAvatar }}
+              {{ end }}
             {{ end }}
           {{ end }}
-        {{ else if gt $lpKarma 0 }}
-          <span class="discourse-badge" style="color:#77216F; border-color:#77216F;">{{ $.Site.Params.members_dir.karma_label }} {{ $lpKarma }}</span>
+          {{ if .flair_url }}{{ $flairUrl = .flair_url }}{{ if not (hasPrefix $flairUrl "http") }}{{ $flairUrl = printf "https:%s" $flairUrl }}{{ end }}{{ end }}
+          {{ if .bio_excerpt }}{{ $dcBio = .bio_excerpt | plainify }}{{ end }}
+          {{ if .title }}{{ $dcTitle = .title }}{{ end }}
+        {{ end }}
+        {{ if $data.badges }}{{ $dcBadges = $data.badges }}{{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+
+  {{/* === SOURCE 2: LAUNCHPAD USER (CDC signer, karma, mugshot) === */}}
+  {{ if .Params.launchpad }}
+    {{ with resources.GetRemote (printf "https://api.launchpad.net/1.0/~%s" .Params.launchpad) (dict "maxAge" "24h") }}
+      {{ if not .Err }}
+        {{ $lp := .Content | unmarshal }}
+        {{ if $lp.is_ubuntu_coc_signer }}{{ $hasCoc = true }}{{ end }}
+        {{ if $lp.karma }}{{ $lpKarma = $lp.karma }}{{ end }}
+        {{ if $lp.mugshot_link }}{{ $lpImage = $lp.mugshot_link }}{{ else if $lp.logo_link }}{{ $lpImage = $lp.logo_link }}{{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+
+  {{/* === SOURCE 3: LAUNCHPAD TEAM MEMBERSHIP (is Ubuntu Member?) === */}}
+  {{ if and (not $isMember) .Params.launchpad }}
+    {{ with resources.GetRemote (printf "https://api.launchpad.net/1.0/~ubuntumembers/+member/%s" .Params.launchpad) (dict "maxAge" "24h") }}
+      {{ if not .Err }}
+        {{ $membership := .Content | unmarshal }}
+        {{ if eq $membership.status "Approved" }}
+          {{ $isMember = true }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+
+  {{/* === LOGIC: Status, ribbon, tag === */}}
+  {{ $status := "Colaborador" }}
+  {{ $ribbon := "badge-ribbon-default" }}
+  {{ $tagCol := "badge-tag-default" }}
+
+  {{ if and $isMember $hasCoc }}
+    {{ $status = "SSO y CDC" }}
+    {{ $ribbon = "badge-ribbon-official" }}
+    {{ $tagCol = "badge-tag-official" }}
+  {{ else if $isMember }}
+    {{ $status = "Ubuntu Member" }}
+    {{ $ribbon = "badge-ribbon-official" }}
+    {{ $tagCol = "badge-tag-official" }}
+  {{ else if $hasCoc }}
+    {{ $status = "CDC Firmado" }}
+    {{ $ribbon = "badge-ribbon-coc" }}
+    {{ $tagCol = "badge-tag-coc" }}
+  {{ end }}
+
+  {{/* Avatar Priority: custom > discourse > launchpad */}}
+  {{ $img := .Params.image }}
+  {{ $isDef := or (not $img) (eq $img "/img/default-avatar.png") }}
+  {{ if $isDef }}{{ if $dcAvatar }}{{ $img = $dcAvatar }}{{ else if $lpImage }}{{ $img = $lpImage }}{{ end }}{{ end }}
+
+  {{/* Bio: .md content > discourse bio */}}
+  {{ $bio := .Content | plainify | truncate 90 }}
+  {{ if and (eq (len (trim $bio " ")) 0) $dcBio }}{{ $bio = $dcBio | truncate 90 }}{{ end }}
+
+  <div class="miembro-card">
+    <div class="badge-ribbon {{ $ribbon }}"></div>
+    
+    <div class="card-section-top">
+      <div class="avatar-wrap">
+        <img src="{{ $img | safeURL }}" alt="{{ .Title }}" class="miembro-avatar" onerror="this.onerror=null; this.src='/img/default-avatar.png';">
+        {{ if $isMember }}
+          {{ $fIcon := $flairUrl }}
+          {{ if not $fIcon }}{{ $fIcon = "https://ubuntucommunity.s3.dualstack.us-east-2.amazonaws.com/original/3X/f/9/f94871ad7dea3ae2a193f2a099aa669a57cf23ea.png" }}{{ end }}
+          <div class="avatar-flair" title="Ubuntu Member"><img src="{{ $fIcon | safeURL }}" alt="Flair"></div>
         {{ end }}
       </div>
     </div>
 
-    <div class="card-summary-wrapper">
-      <p class="card-summary-text" style="-webkit-line-clamp: 3; line-clamp: 3; display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden;">"{{ .Content | plainify | truncate 80 }}"</p>
+    <div class="card-section-info">
+      <h3 class="card-name">{{ .Title }}</h3>
+      <p class="card-role">{{ if $dcTitle }}{{ $dcTitle }}{{ else }}{{ .Params.role_bio }}{{ end }}</p>
     </div>
 
-    <div style="padding: 0.6rem; border-top: 1px solid rgba(0,0,0,0.04); background: #fafafa; display: flex; flex-direction: column; gap: 0.3rem;">
-      {{ if $isOfficialVerified }}
-        <a href="{{ .Permalink }}" class="card-footer-btn" style="background-color: #77216F;">{{ $.Site.Params.members_dir.profile_official }} &rsaquo;</a>
-      {{ else }}
-        <a href="{{ .Permalink }}" class="card-footer-btn" style="background-color: #E95420;">{{ $.Site.Params.members_dir.btn_profile }} &rsaquo;</a>
-      {{ end }}
+    <div class="card-section-badges">
+      <span class="badge-tag {{ $tagCol }}">
+        {{ if $isMember }}<svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 24 24" fill="#fff"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>{{ end }}
+        {{ $status }}
+      </span>
+      <div class="badges-container">
+        {{ if gt (len $dcBadges) 0 }}
+          {{ $c := 0 }}{{ range $dcBadges }}{{ if and (lt $c 3) .name }}
+            <span class="discourse-badge {{ if or (eq .badge_type_id 2) (eq .badge_type_id 1) }}silver{{ end }}">{{ .name }}</span>
+            {{ $c = add $c 1 }}{{ end }}{{ end }}
+        {{ else if gt $lpKarma 0 }}
+          <span class="discourse-badge silver">Karma {{ $lpKarma }}</span>
+        {{ end }}
+      </div>
+    </div>
 
-      <div style="display: flex; justify-content: space-evenly; align-items: center; padding-top: 0.2rem;">
-        {{ if .Params.github }}
-          <a href="https://github.com/{{ .Params.github }}" target="_blank" style="color: #666; font-size: 0.70rem; font-weight: 500; text-decoration: none;" title="GitHub"><i class="p-icon--github" style="width: 14px; margin-bottom: -4px;"></i> GitHub</a>
-        {{ end }}
-        {{ if .Params.launchpad }}
-          <a href="https://launchpad.net/~{{ .Params.launchpad }}" target="_blank" style="color: #666; font-size: 0.70rem; font-weight: 500; text-decoration: none;" title="Launchpad"><i class="p-icon--help" style="width: 14px; margin-bottom: -4px;"></i> Launchpad</a>
-        {{ end }}
+    <div class="card-section-bio">
+      <p class="card-summary-text">"{{ if $bio }}{{ $bio }}{{ else }}Miembro activo de la comunidad Ubuntu Venezuela...{{ end }}"</p>
+    </div>
+
+    <div class="card-section-footer">
+      <a href="{{ .Permalink }}" class="card-footer-btn {{ if $isMember }}btn-member{{ else }}btn-coc{{ end }}">Ver Perfil &rsaquo;</a>
+      <div class="social-icons-row">
+        {{ if .Params.github }}<a href="https://github.com/{{ .Params.github }}" target="_blank" class="social-link" title="GitHub"><i class="p-icon--github" style="width: 14px;"></i></a>{{ end }}
+        {{ if .Params.launchpad }}<a href="https://launchpad.net/~{{ .Params.launchpad }}" target="_blank" class="social-link" title="Launchpad"><i class="p-icon--help" style="width: 14px;"></i></a>{{ end }}
+        {{ if .Params.discourse }}<a href="https://discourse.ubuntu.com/u/{{ .Params.discourse }}/summary" target="_blank" class="social-link" title="Discourse"><i class="p-icon--user" style="width: 14px;"></i></a>{{ end }}
       </div>
     </div>
   </div>

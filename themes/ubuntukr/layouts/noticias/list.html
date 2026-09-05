@@ -19,6 +19,15 @@
         background: #fff;
         padding: 2rem;
       " onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 15px 30px rgba(233, 84, 32, 0.1)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+        {{ if .Params.thumbnail }}
+        <div style="width: calc(100% + 4rem); margin: -2rem -2rem 1.5rem -2rem; height: 180px; overflow: hidden; border-radius: 4px 4px 0 0;">
+          <img src="{{ .Params.thumbnail }}" alt="{{ .Title }}" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        {{ else }}
+        <div style="width: calc(100% + 4rem); margin: -2rem -2rem 1.5rem -2rem; height: 180px; overflow: hidden; border-radius: 4px 4px 0 0; background: #fdf2f0; display: flex; align-items: center; justify-content: center;">
+          <img src="/img/logo.png" alt="Ubuntu Venezuela" style="width: 80px; height: auto; opacity: 0.3;">
+        </div>
+        {{ end }}
         <h3 class="p-heading--4" style="color: #111; margin-top: 0; font-weight: 600;">{{ .Title | truncate 80 }}</h3>
         
         <p style="color: #E95420; font-size: 0.85rem; font-weight: bold; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.5px;">

@@ -11,7 +11,7 @@
           </p>
         </div>
         <div class="col-4">
-          <img src="{{ .RelPermalink }}{{.Params.image}}" alt="Logo Ubuntu Venezuela" style="max-width: 250px;">
+          <img src="{{ "img/logo_text_ubuntu_ve_fixed.png" | relURL }}" alt="Logo Ubuntu Venezuela" style="max-width: 250px; filter: brightness(0) invert(1);">
         </div>
       </div>
   </section>
@@ -29,7 +29,7 @@
         <a href="https://wiki.ubuntu.com/VenezuelaTeam" target="_blank"><button class="p-button">Documentación Wiki</button></a>
       </div>
       <div class="col-4">
-          <img src="{{ .RelPermalink }}community.svg" alt="Comunidad en red">
+          <img src="{{ "img/ubuntu_platforms.svg" | relURL }}" alt="Comunidad en red">
         </div>
     </div>
   </section>
@@ -44,7 +44,7 @@
         <ul class="p-matrix">
           <li class="p-matrix__item">
             <div class="p-matrix__content">
-              <img src="/about/conferencia_ve.jpg" alt="Conferencias" style="width: 100%; height: 200px; object-fit: cover; border-radius: 4px; margin-bottom: 1rem;">
+              <img src="{{ "img/logo.svg" | relURL }}" alt="Conferencias" style="width: 100%; height: 200px; object-fit: contain; background: #333; border-radius: 4px; margin-bottom: 1rem; padding: 1rem;">
               <h3 class="p-matrix__title">Encuentros y FLISOL</h3>
               <div class="p-matrix__desc">
                 <p>
@@ -56,7 +56,7 @@
           
           <li class="p-matrix__item">
             <div class="p-matrix__content">
-              <img src="/about/comunidad_ve.jpg" alt="Colaboraciones" style="width: 100%; height: 200px; object-fit: cover; border-radius: 4px; margin-bottom: 1rem;">
+              <img src="{{ "img/logo.svg" | relURL }}" alt="Colaboraciones" style="width: 100%; height: 200px; object-fit: contain; background: #333; border-radius: 4px; margin-bottom: 1rem; padding: 1rem;">
               <h3 class="p-matrix__title">Colaboración Abierta</h3>
               <div class="p-matrix__desc">
                 <p>
@@ -68,7 +68,7 @@
           
           <li class="p-matrix__item">
             <div class="p-matrix__content">
-              <img src="/about/proyectos_ve.jpg" alt="Proyectos y Traducciones" style="width: 100%; height: 200px; object-fit: cover; border-radius: 4px; margin-bottom: 1rem;">
+              <img src="{{ "img/logo.svg" | relURL }}" alt="Proyectos y Traducciones" style="width: 100%; height: 200px; object-fit: contain; background: #333; border-radius: 4px; margin-bottom: 1rem; padding: 1rem;">
               <h3 class="p-matrix__title">Aporte de Código y Cultura</h3>
               <p class="p-matrix__desc">
                 No solo enseñamos a instalar, motivamos a crear. Numerosos miembros de la comunidad local han dedicado sus carreras a rastrear fallos "Bug Hunting", desarrollar paquetes nativos y traducir miles de cadenas de código al idioma español para Ubuntu Global.
@@ -89,7 +89,7 @@
         <p style="max-width: 600px; margin: 0 auto 2rem auto; font-size: 1.1rem;">
           Estamos siempre buscando manos nuevas para la labor titánica del conocimiento libre. Conoce quiénes conforman nuestra alineación actual de miembros globales y LoCo comprobados, o escríbenos para formalizar tu participación técnica en Launchpad.
         </p>
-        <a href="/miembros"><button class="p-button">Ver Directorio de Miembros</button></a>
+        <a href="{{ "miembros/" | relURL }}"><button class="p-button">Ver Directorio de Miembros</button></a>
         <a href="https://wiki.ubuntu.com/VenezuelaTeam/NuevosMiembros" target="_blank"><button class="p-button">Guía para Nuevos Integrantes</button></a>
         <a href="mailto:junta@ubuntu.org.ve"><button class="p-button">Contacto Directo</button></a>
       </div>

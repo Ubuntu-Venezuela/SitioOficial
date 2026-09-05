@@ -19,4 +19,4 @@ Guided by the [official Ubuntu Code of Conduct](https://ubuntu.com/community/eth
 
 If you experience or witness behavior that violates these rules within Ubuntu Venezuela's spaces (digital or physical), please contact us directly at **junta@ubuntu-ve.org**.
 
-[Sign the Code of Conduct](#) *(Serverless integration coming soon)*
+[Sign the Code of Conduct](/codigo-de-conducta/) *(Download Wizard - Version 3.2)*

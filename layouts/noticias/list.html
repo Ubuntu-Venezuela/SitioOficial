@@ -114,22 +114,33 @@
       <tbody>
         {{ range .Pages.ByDate.Reverse }}
         <tr>
-          <!-- Columna: Title + Tags -->
-          <td>
-            <a href="{{ .Permalink }}" class="discourse-title">{{ .Title }}</a>
-            <div style="display: flex; flex-wrap: wrap; gap: 4px; margin-top: 2px;">
-              <!-- Categoria "News" simulando el badge cuadrado de discourse -->
-              <span class="discourse-tag">
-                <span class="discourse-badge-bullet" style="background-color: #E95420;"></span>
-                Noticias
-              </span>
-              <!-- Tags -->
-              {{ range .Params.tags }}
-                <span class="discourse-tag">
-                  <span class="discourse-badge-bullet" style="background-color: #77216F;"></span>
-                  {{ . }}
-                </span>
+          <!-- Columna: Title + Tags + Thumbnail -->
+          <td style="display: flex; gap: 1rem; align-items: flex-start; padding: 12px 10px;">
+            <!-- Thumbnail -->
+            <div style="flex-shrink: 0; width: 60px; height: 60px; border-radius: 4px; overflow: hidden; background: #fdf2f0; display: flex; align-items: center; justify-content: center;">
+              {{ if .Params.thumbnail }}
+                <img src="{{ .Params.thumbnail }}" alt="{{ .Title }}" style="width: 100%; height: 100%; object-fit: cover;">
+              {{ else }}
+                <img src="/img/logo.png" alt="Ubuntu Venezuela" style="width: 30px; height: auto; opacity: 0.3;">
               {{ end }}
+            </div>
+            
+            <div style="flex: 1;">
+              <a href="{{ .Permalink }}" class="discourse-title">{{ .Title }}</a>
+              <div style="display: flex; flex-wrap: wrap; gap: 4px; margin-top: 2px;">
+                <!-- Categoria "News" simulando el badge cuadrado de discourse -->
+                <span class="discourse-tag">
+                  <span class="discourse-badge-bullet" style="background-color: #E95420;"></span>
+                  Noticias
+                </span>
+                <!-- Tags -->
+                {{ range .Params.tags }}
+                  <span class="discourse-tag">
+                    <span class="discourse-badge-bullet" style="background-color: #77216F;"></span>
+                    {{ . }}
+                  </span>
+                {{ end }}
+              </div>
             </div>
           </td>
           
