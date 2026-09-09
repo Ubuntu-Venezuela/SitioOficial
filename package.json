@@ -1,0 +1,13 @@
+{
+  "name": "sitio-oficial-ubuntu-ve",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sitio oficial de la comunidad Ubuntu Venezuela (Hugo + Pagefind)",
+  "scripts": {
+    "build": "hugo --gc --minify && npm run pagefind",
+    "pagefind": "pagefind --site public"
+  },
+  "devDependencies": {
+    "pagefind": "^1.5.2"
+  }
+}

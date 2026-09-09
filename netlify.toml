@@ -1,6 +1,6 @@
 [build]
-  # Configuración para que Netlify compile automáticamente con Hugo
-  command = "hugo --gc --minify"
+  # Configuración para que Netlify compile automáticamente con Hugo y genere el índice de búsqueda con Pagefind
+  command = "npm run build"
   publish = "public"
 
 [build.environment]

@@ -65,3 +65,20 @@ Despliegue: Netlify (`netlify.toml`, publish `public`, Hugo 0.124.1)
 - `hugo --gc --minify` sin errores.
 - `slp_lens_status` + `slp-tree`: archivos pasan a certified.
 - Commit con identidad configurada.
+
+## Pendientes del spec (P2/P3) — resueltos 2026-09-09
+
+- [x] P2#10 Capturas en `screenshot/` → publicadas: copiadas a `static/screenshot/`
+  (members_sso.jpeg, news_discourse.jpeg, about_page.jpeg + WhatsApp).
+- [x] P2#12 Búsqueda Pagefind → activada: `package.json` (pagefind ^1.5.2) +
+  `netlify.toml` command `npm run build` (hugo + pagefind --site public).
+- [x] P2#13 mailto erróneo → `layouts/about/list.html` usa `junta@ubuntu-ve.org`.
+- [x] P3#16 Botón "Nueva Noticia" `href="#"` → GitHub issues del repo
+  (`issues/new?title=[Noticia]`, `target="_blank"`).
+- [x] P3#17 Textos coreanos hardcodeados del tema → traducidos al español
+  (`themes/ubuntukr/layouts/sponsors/single.html`,
+  `themes/ubuntukr/layouts/partials/sponsors.html`). `i18n/ko.toml` intacto
+  (diccionario del idioma `ko`, legítimo).
+
+Pendientes abiertos: P1#6 `/eventos/` 404 (falta content + layout), radio
+(depende del área responsable), noticias EN (flujo del bot).
