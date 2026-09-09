@@ -10,7 +10,7 @@
 </div>
 
 <style>
-  .miembros-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.25rem; padding-bottom: 4rem; max-width: 76rem; margin: 0 auto; }
+  .miembros-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 1rem; padding-bottom: 4rem; max-width: 76rem; margin: 0 auto; }
   .miembro-card { background: #fff; border-radius: 10px; border: 1px solid #e3e3e3; display: flex; flex-direction: column; overflow: hidden; position: relative; transition: all 0.2s ease; width: 100%; box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
   .miembro-card:hover { border-color: #E95420; box-shadow: 0 6px 18px rgba(233, 84, 32, 0.12); transform: translateY(-3px); }
   .badge-ribbon { position: absolute; top: 0; left: 0; width: 100%; height: 4px; z-index: 2; }
@@ -18,37 +18,37 @@
   .badge-ribbon-coc      { background: #e95420; }
   .badge-ribbon-default  { background: #d9d9d9; }
 
-  .card-section-top { padding: 1.6rem 1rem 0.6rem; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-  .avatar-wrap { position: relative; width: 88px; height: 88px; margin-bottom: 0.75rem; }
-  .miembro-avatar { width: 88px; height: 88px; border-radius: 50%; object-fit: cover; border: 2px solid #f2f2f2; background: #fff; }
-  .avatar-flair { position: absolute; bottom: 0; right: 0; width: 24px; height: 24px; border-radius: 50%; border: 2px solid #fff; background: #E95420; display: flex; align-items: center; justify-content: center; }
-  .avatar-flair img { width: 14px; height: 14px; object-fit: contain; }
+  .card-section-top { padding: 1.1rem 0.75rem 0.4rem; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .avatar-wrap { position: relative; width: 64px; height: 64px; margin-bottom: 0.5rem; }
+  .miembro-avatar { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; border: 2px solid #f2f2f2; background: #fff; }
+  .avatar-flair { position: absolute; bottom: 0; right: 0; width: 20px; height: 20px; border-radius: 50%; border: 2px solid #fff; background: #E95420; display: flex; align-items: center; justify-content: center; }
+  .avatar-flair img { width: 12px; height: 12px; object-fit: contain; }
 
-  .card-section-info { padding: 0 1rem 0.4rem; text-align: center; }
-  .card-name { margin: 0; font-weight: 700; color: #111; font-size: 1.05rem; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .card-role { color: #666; font-size: 0.78rem; font-style: italic; margin: 0.15rem 0 0 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .card-section-info { padding: 0 0.75rem 0.35rem; text-align: center; }
+  .card-name { margin: 0; font-weight: 700; color: #111; font-size: 0.92rem; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .card-role { color: #666; font-size: 0.7rem; font-style: italic; margin: 0.1rem 0 0 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
-  .card-section-badges { padding: 0.4rem 1rem; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 6px; }
-  .badge-tag { display: inline-flex; align-items: center; gap: 4px; padding: 3px 10px; border-radius: 20px; font-size: 0.62rem; font-weight: 800; text-transform: uppercase; }
+  .card-section-badges { padding: 0.3rem 0.75rem; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 5px; }
+  .badge-tag { display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px; border-radius: 20px; font-size: 0.56rem; font-weight: 800; text-transform: uppercase; }
   .badge-tag-official { background: #77216f; color: #fff; }
   .badge-tag-coc      { background: #e95420; color: #fff; }
   .badge-tag-default  { background: #f2f2f2; color: #666; }
 
-  .badges-container { display: flex; gap: 4px; justify-content: center; flex-wrap: wrap; overflow: hidden; align-content: flex-start; }
-  .discourse-badge { background: #fdf2ee; border: 1px solid #f9d8cc; border-radius: 3px; font-size: 0.55rem; color: #e95420; padding: 1px 6px; font-weight: 700; text-transform: uppercase; margin: 1px; }
+  .badges-container { display: flex; gap: 3px; justify-content: center; flex-wrap: wrap; overflow: hidden; align-content: flex-start; min-height: 14px; }
+  .discourse-badge { background: #fdf2ee; border: 1px solid #f9d8cc; border-radius: 3px; font-size: 0.5rem; color: #e95420; padding: 1px 5px; font-weight: 700; text-transform: uppercase; margin: 1px; }
   .discourse-badge.silver { background: #f5edf4; border-color: #dfcedc; color: #77216f; }
 
-  .card-section-bio { padding: 0.5rem 1rem; background: #fafafa; border-top: 1px solid #f0f0f0; border-bottom: 1px solid #f0f0f0; }
-  .card-summary-text { color: #555; font-size: 0.75rem; line-height: 1.4; margin: 0; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; font-style: italic; text-align: center; }
+  .card-section-bio { padding: 0.4rem 0.75rem; background: #fafafa; border-top: 1px solid #f0f0f0; border-bottom: 1px solid #f0f0f0; }
+  .card-summary-text { color: #555; font-size: 0.7rem; line-height: 1.4; margin: 0; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; font-style: italic; text-align: center; }
 
-  .card-section-footer { flex-grow: 1; padding: 0.75rem 1rem; display: flex; flex-direction: column; gap: 0.6rem; justify-content: center; align-items: center; }
-  .card-footer-btn { width: 100%; text-align: center; color: #fff; font-weight: 700; font-size: 0.7rem; padding: 0.55rem; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.5px; text-decoration: none; }
+  .card-section-footer { flex-grow: 1; padding: 0.6rem 0.75rem; display: flex; flex-direction: column; gap: 0.5rem; justify-content: center; align-items: center; }
+  .card-footer-btn { width: 100%; text-align: center; color: #fff; font-weight: 700; font-size: 0.64rem; padding: 0.45rem; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.5px; text-decoration: none; }
   .btn-member { background-color: #77216F !important; }
   .btn-coc    { background-color: #E95420 !important; }
-  .social-icons-row { display: flex; justify-content: center; align-items: center; gap: 1.2rem; width: 100%; }
-  .social-link { color: #999; text-decoration: none; display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; }
+  .social-icons-row { display: flex; justify-content: center; align-items: center; gap: 1rem; width: 100%; }
+  .social-link { color: #999; text-decoration: none; display: flex; align-items: center; justify-content: center; width: 20px; height: 20px; }
   .social-link:hover { color: #E95420; }
-  .social-link i { font-size: 15px; width: 15px; }
+  .social-link i { font-size: 13px; width: 13px; }
 </style>
 
 <div class="miembros-grid">
