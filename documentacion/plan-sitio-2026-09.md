@@ -73,12 +73,34 @@ Despliegue: Netlify (`netlify.toml`, publish `public`, Hugo 0.124.1)
 - [x] P2#12 Búsqueda Pagefind → activada: `package.json` (pagefind ^1.5.2) +
   `netlify.toml` command `npm run build` (hugo + pagefind --site public).
 - [x] P2#13 mailto erróneo → `layouts/about/list.html` usa `junta@ubuntu-ve.org`.
-- [x] P3#16 Botón "Nueva Noticia" `href="#"` → GitHub issues del repo
-  (`issues/new?title=[Noticia]`, `target="_blank"`).
+- [x] P3#16 Botón "Nueva Noticia" `href="#"` → timeline Discourse del flujo que
+  alimenta el bot (`https://discourse.ubuntu.com/tag/news`, `target="_blank"`).
+  Corrección de feedback 2026-09-09: NO apunta a GitHub issues; usa el mismo
+  flujo de noticias del bot, visible fuera del sitio.
 - [x] P3#17 Textos coreanos hardcodeados del tema → traducidos al español
   (`themes/ubuntukr/layouts/sponsors/single.html`,
   `themes/ubuntukr/layouts/partials/sponsors.html`). `i18n/ko.toml` intacto
   (diccionario del idioma `ko`, legítimo).
 
+## Sponsors y flujo de noticias — corrección de feedback 2026-09-09
+
+- [x] P3#16bis Botón "Nueva Noticia" verificado: el timeline
+  `discourse.ubuntu.com/tag/news` responde 200; el feed del category
+  `c/news/40.rss` que usaba el bot responde 404 (movido).
+- [x] `scripts/fetch_news.py` → feed del bot actualizado a
+  `https://discourse.ubuntu.com/tag/news.rss` (200), misma fuente que el botón.
+- [x] Migración de sponsors REALES de la web actual (`www.ubuntu.org.ve`,
+  Drupal): Turpial (turpial.org.ve), LibreOffice Venezuela
+  (libreoffice.org.ve), Mozilla Venezuela (mozillavenezuela.org) →
+  `content/sponsors/{turpial,libreoffice-ve,mozilla-ve}/index.md` + logos
+  descargados de la web actual. Se descartaron los sponsors coreanos
+  (cloudmate, nhn-dooray, nipa_kr) ya eliminados del historial del repo
+  (hitts 574830c y 9786e73) por no pertenecer a Ubuntu-Ve.
+- [x] `hugo --gc --minify` OK (250 ES / 53 EN), sponsors y botón verificados
+  en `public/`.
+
 Pendientes abiertos: P1#6 `/eventos/` 404 (falta content + layout), radio
-(depende del área responsable), noticias EN (flujo del bot).
+(depende del área responsable), noticias EN (flujo del bot). El Discourse de la
+comunidad (`discourse.ubuntu-ve.org`, DNS 69.60.114.112) no responde desde este
+entorno (timeout); sponsors adicionales que viven en el Discourse/Telegram del
+grupo quedan pendientes de confirmar con el área responsable.

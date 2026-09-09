@@ -13,7 +13,7 @@ ET.register_namespace('content', 'http://purl.org/rss/1.0/modules/content/')
 # Fuentes de noticias (Canonical Blog + Discourse News)
 SOURCES = [
     {"name": "Ubuntu Blog", "url": "https://ubuntu.com/blog/feed", "tag": "canonical"},
-    {"name": "Discourse News", "url": "https://discourse.ubuntu.com/c/news/40.rss", "tag": "discourse"}
+    {"name": "Discourse News", "url": "https://discourse.ubuntu.com/tag/news.rss", "tag": "discourse"}
 ]
 
 OUTPUT_DIR = os.path.join("content", "noticias")
