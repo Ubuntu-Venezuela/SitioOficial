@@ -22,22 +22,20 @@
         </div>
       </div>
   </section>
-  <section class="p-strip">
-    <div class="row">
+  <section class="p-strip"
+    style="padding-top: 2rem;">
+    <div class="row u-equal-height" style="max-width: 76rem; margin: 0 auto;">
       {{ $sponsors := (where .Site.RegularPages "Section" "sponsors") }}
       {{ range sort $sponsors "Weight" "asc" }}
-      <div class="col-4">
-        <div class="p-card--highlighted" style="text-align: center; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
-          <div class="p-card__content">
-            <div style="height: 120px; display: flex; align-items: center; justify-content: center; margin-bottom: 15px;">
-              <img alt="{{.Title}}" style="max-height: 100px; max-width: 100%;" src="{{ .RelPermalink }}{{.Params.image }}">
-            </div>
-            <h4 class="p-heading--4">{{.Title}}</h4>
-            <p class="p-card__content">{{ .Params.description | truncate 100 }}</p>
-          </div>
-          <div class="p-card__content" style="padding-top: 0;">
-            <hr class="p-rule">
-            <a href="{{ .Params.website | default .RelPermalink }}" class="p-button--neutral" target="_blank">Visitar Sitio</a>
+      <div class="col-4" style="display: flex; padding: 0.6rem;">
+        <div class="p-card--highlighted" style="width: 100%; display: flex; flex-direction: column; overflow: hidden; border-radius: 8px;">
+          <a href="{{ .Params.website | default .RelPermalink }}" target="_blank" rel="noopener" style="display: flex; align-items: center; justify-content: center; background: #fff; padding: 2rem 1.5rem; min-height: 180px; text-decoration: none;">
+            <img alt="{{.Title}}" style="max-height: 164px; max-width: 60%; object-fit: contain;" src="{{ .RelPermalink }}{{.Params.image }}">
+          </a>
+          <div class="p-card__content" style="flex: 1; padding: 0.5rem 1.5rem 1.25rem; text-align: center; display: flex; flex-direction: column; justify-content: flex-start;">
+            <h4 class="p-heading--4" style="margin: 0.5rem 0 0.5rem;">{{.Title}}</h4>
+            <p class="p-card__content" style="margin: 0 0 1rem; font-size: 0.9rem; flex: 1;">{{ .Params.description | truncate 120 }}</p>
+            <a href="{{ .Params.website | default .RelPermalink }}" class="p-button" target="_blank" rel="noopener" style="width: 100%; text-align: center;">Visitar sitio</a>
           </div>
         </div>
       </div>

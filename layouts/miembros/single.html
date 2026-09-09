@@ -73,7 +73,24 @@
 
 {{ $img := .Params.image }}
 {{ $isDef := or (not $img) (eq $img "/img/default-avatar.png") }}
-{{ if $isDef }}{{ if $dcAvatar }}{{ $img = $dcAvatar }}{{ else if $lpImage }}{{ $img = $lpImage }}{{ end }}{{ end }}
+{{ if $isDef }}
+  {{ $key := or .Params.discourse .Params.launchpad }}
+  {{ if $key }}
+    {{ $localAvatar := printf "/img/members/%s.png" $key }}
+    {{ if (fileExists (printf "static%s" $localAvatar)) }}
+      {{ $img = $localAvatar }}
+    {{ else }}
+      {{ $remote := "" }}
+      {{ if $dcAvatar }}{{ $remote = $dcAvatar }}{{ else if $lpImage }}{{ $remote = $lpImage }}{{ end }}
+      {{ if $remote }}
+        {{ with resources.GetRemote $remote (dict "maxAge" "720h") }}
+          {{ if not .Err }}{{ $img = .RelPermalink }}{{ end }}
+        {{ end }}
+        {{ if or (not $img) (eq $img "/img/default-avatar.png") }}{{ $img = $remote }}{{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
 
 <style>
   .badge-border-official { border-color: #77216F !important; }

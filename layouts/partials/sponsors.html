@@ -19,9 +19,9 @@
         <div class="p-logo-section">
           <div class="p-logo-section__items">
           {{ $sponsors := (where $regularPages "Section" "sponsors") }}
-          {{ range $sponsors }}
-            <div class="p-logo-section__item"><a href="{{ .RelPermalink }}">
-            <img class="p-logo-section__logo" src="{{ .RelPermalink }}{{.Params.image }}" alt="{{.Title}}">
+          {{ range sort $sponsors "Weight" "asc" }}
+            <div class="p-logo-section__item"><a href="{{ .Params.website | default .Permalink }}" target="_blank" rel="noopener" title="{{.Title}}">
+            <img class="p-logo-section__logo" style="max-height: 80px; object-fit: contain;" src="{{ .RelPermalink }}{{.Params.image }}" alt="{{.Title}}">
             </a></div>
           {{ end }}
           </div>

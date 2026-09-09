@@ -141,3 +141,26 @@ Contacto) sin opciones visibles; URLs muertas hay que arreglarlas, no eliminarla
   ? ahora abre el search-overlay (Pagefind) igual que el nav.
 - [x] hreflang EN: /en correcto (Hugo redirige /en a /en/).
 - [x] Build OK y auditor�a de hrefs internos: todos resuelven a rutas v�lidas.
+
+## G4 - Cards de sponsors y miembros rediseñados + avatares locales (2026-09-09) [x]
+
+Feedback usuario: logos de sponsors demasiado pequeños, "mucho espacio perdido
+en todos los cards", los logos deben ser clickeables, y las fotos de los
+miembros "no se ven".
+
+- [x] Sponsors (list): logo clickeable -> website (target=_blank), zona de logo
+  min-height 180px fondo blanco con max-height:164px + max-width:60% +
+  object-fit:contain, botón "Visitar sitio" ancho completo, fila u-equal-height.
+- [x] Home partial sponsors.html: logos clickeables a .Params.website ordenados
+  por Weight asc, max-height:80px.
+- [x] Miembros (list): avatar 88px (antes 64px) en fondo limpio, sin alturas
+  fijas (eliminados height estrictos de secciones), nombre clickeable,
+  tipografías y badges recalculados, social icons 15px.
+- [x] Miembros avatares 100% locales: descargados a static/img/members/<key>.png
+  (discurso>launchpad mugshot) y servidos con prioridad local > discourse >
+  launchpad > default-avatar en list y single. Evita fallos de GetRemote en
+  build por latencia CDN y dependencias de red.
+- [x] 2 miembros sin perfil (efrain-camps, wuilmer-bolivar) usan
+  /img/default-avatar.png (correcto).
+- [x] Build OK, avatares verificados en public (8 locales + 2 default) y sponsors
+  clickeables en public/sponsors.

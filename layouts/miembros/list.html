@@ -10,45 +10,45 @@
 </div>
 
 <style>
-  .miembros-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; padding-bottom: 4rem; max-width: 76rem; margin: 0 auto; }
-  .miembro-card { background: #fff; border-radius: 6px; border: 1px solid #d9d9d9; display: flex; flex-direction: column; overflow: hidden; position: relative; transition: all 0.2s ease; height: 350px; width: 100%; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
-  .miembro-card:hover { border-color: #E95420; box-shadow: 0 4px 12px rgba(233, 84, 32, 0.1); transform: translateY(-2px); }
+  .miembros-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.25rem; padding-bottom: 4rem; max-width: 76rem; margin: 0 auto; }
+  .miembro-card { background: #fff; border-radius: 10px; border: 1px solid #e3e3e3; display: flex; flex-direction: column; overflow: hidden; position: relative; transition: all 0.2s ease; width: 100%; box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
+  .miembro-card:hover { border-color: #E95420; box-shadow: 0 6px 18px rgba(233, 84, 32, 0.12); transform: translateY(-3px); }
   .badge-ribbon { position: absolute; top: 0; left: 0; width: 100%; height: 4px; z-index: 2; }
   .badge-ribbon-official { background: #77216f; }
   .badge-ribbon-coc      { background: #e95420; }
   .badge-ribbon-default  { background: #d9d9d9; }
-  
-  /* Standard model segments */
-  .card-section-top { padding: 1.2rem 0.6rem 0.5rem 0.6rem; text-align: center; height: 110px; flex-shrink: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-  .avatar-wrap { position: relative; width: 64px; height: 64px; margin-bottom: 0.5rem; }
-  .miembro-avatar { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; border: 1px solid #eee; background: #fff; }
-  .avatar-flair { position: absolute; bottom: 0; right: 0; width: 20px; height: 20px; border-radius: 50%; border: 2px solid #fff; background: #E95420; display: flex; align-items: center; justify-content: center; }
-  
-  .card-section-info { height: 45px; padding: 0 0.6rem; text-align: center; flex-shrink: 0; overflow: hidden; }
-  .card-name { margin: 0; font-weight: 700; color: #111; font-size: 0.95rem; line-height: 1.1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .card-role { color: #666; font-size: 0.7rem; font-style: italic; margin: 0.1rem 0 0 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  
-  .card-section-badges { height: 65px; padding: 0.2rem 0.6rem; text-align: center; flex-shrink: 0; overflow: hidden; display: flex; flex-direction: column; align-items: center; gap: 4px; }
-  .badge-tag { display: inline-flex; align-items: center; gap: 3px; padding: 1px 6px; border-radius: 2px; font-size: 0.5rem; font-weight: 800; text-transform: uppercase; }
+
+  .card-section-top { padding: 1.6rem 1rem 0.6rem; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .avatar-wrap { position: relative; width: 88px; height: 88px; margin-bottom: 0.75rem; }
+  .miembro-avatar { width: 88px; height: 88px; border-radius: 50%; object-fit: cover; border: 2px solid #f2f2f2; background: #fff; }
+  .avatar-flair { position: absolute; bottom: 0; right: 0; width: 24px; height: 24px; border-radius: 50%; border: 2px solid #fff; background: #E95420; display: flex; align-items: center; justify-content: center; }
+  .avatar-flair img { width: 14px; height: 14px; object-fit: contain; }
+
+  .card-section-info { padding: 0 1rem 0.4rem; text-align: center; }
+  .card-name { margin: 0; font-weight: 700; color: #111; font-size: 1.05rem; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .card-role { color: #666; font-size: 0.78rem; font-style: italic; margin: 0.15rem 0 0 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+  .card-section-badges { padding: 0.4rem 1rem; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+  .badge-tag { display: inline-flex; align-items: center; gap: 4px; padding: 3px 10px; border-radius: 20px; font-size: 0.62rem; font-weight: 800; text-transform: uppercase; }
   .badge-tag-official { background: #77216f; color: #fff; }
   .badge-tag-coc      { background: #e95420; color: #fff; }
   .badge-tag-default  { background: #f2f2f2; color: #666; }
-  
-  .badges-container { height: 32px; display: flex; gap: 2px; justify-content: center; flex-wrap: wrap; margin-top: 0.2rem; overflow: hidden; align-content: flex-start; }
-  .discourse-badge { background: #fdf2ee; border: 1px solid #f9d8cc; border-radius: 2px; font-size: 0.45rem; color: #e95420; padding: 0 3px; font-weight: 700; text-transform: uppercase; margin: 1px; }
+
+  .badges-container { display: flex; gap: 4px; justify-content: center; flex-wrap: wrap; overflow: hidden; align-content: flex-start; }
+  .discourse-badge { background: #fdf2ee; border: 1px solid #f9d8cc; border-radius: 3px; font-size: 0.55rem; color: #e95420; padding: 1px 6px; font-weight: 700; text-transform: uppercase; margin: 1px; }
   .discourse-badge.silver { background: #f5edf4; border-color: #dfcedc; color: #77216f; }
-  
-  .card-section-bio { height: 55px; padding: 0.5rem 1rem; flex-shrink: 0; overflow: hidden; background: #fafafa; border-top: 1px solid #f0f0f0; border-bottom: 1px solid #f0f0f0; display: flex; align-items: center; justify-content: center; }
-  .card-summary-text { color: #555; font-size: 0.68rem; line-height: 1.35; margin: 0; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; font-style: italic; text-align: center; }
-  
-  .card-section-footer { flex-grow: 1; padding: 0.6rem; display: flex; flex-direction: column; gap: 0.5rem; justify-content: center; align-items: center; }
-  .card-footer-btn { width: 90%; text-align: center; color: #fff; font-weight: 700; font-size: 0.65rem; padding: 0.4rem; border-radius: 3px; text-transform: uppercase; letter-spacing: 0.5px; text-decoration: none; }
+
+  .card-section-bio { padding: 0.5rem 1rem; background: #fafafa; border-top: 1px solid #f0f0f0; border-bottom: 1px solid #f0f0f0; }
+  .card-summary-text { color: #555; font-size: 0.75rem; line-height: 1.4; margin: 0; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; font-style: italic; text-align: center; }
+
+  .card-section-footer { flex-grow: 1; padding: 0.75rem 1rem; display: flex; flex-direction: column; gap: 0.6rem; justify-content: center; align-items: center; }
+  .card-footer-btn { width: 100%; text-align: center; color: #fff; font-weight: 700; font-size: 0.7rem; padding: 0.55rem; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.5px; text-decoration: none; }
   .btn-member { background-color: #77216F !important; }
   .btn-coc    { background-color: #E95420 !important; }
-  .social-icons-row { display: flex; justify-content: center; align-items: center; gap: 1rem; height: 20px; width: 100%; }
-  .social-link { color: #999; text-decoration: none; display: flex; align-items: center; justify-content: center; width: 20px; height: 20px; }
+  .social-icons-row { display: flex; justify-content: center; align-items: center; gap: 1.2rem; width: 100%; }
+  .social-link { color: #999; text-decoration: none; display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; }
   .social-link:hover { color: #E95420; }
-  .social-link i { font-size: 14px; width: 14px; }
+  .social-link i { font-size: 15px; width: 15px; }
 </style>
 
 <div class="miembros-grid">
@@ -137,10 +137,28 @@
     {{ $tagCol = "badge-tag-coc" }}
   {{ end }}
 
-  {{/* Avatar Priority: custom > discourse > launchpad */}}
+  /* Avatar Priority: local static > discourse > launchpad > default */
   {{ $img := .Params.image }}
   {{ $isDef := or (not $img) (eq $img "/img/default-avatar.png") }}
-  {{ if $isDef }}{{ if $dcAvatar }}{{ $img = $dcAvatar }}{{ else if $lpImage }}{{ $img = $lpImage }}{{ end }}{{ end }}
+  {{ if $isDef }}
+    {{ $key := or .Params.discourse .Params.launchpad }}
+    {{ if $key }}
+      {{ $localAvatar := printf "/img/members/%s.png" $key }}
+      {{ if (fileExists (printf "static%s" $localAvatar)) }}
+        {{ $img = $localAvatar }}
+      {{ else }}
+        {{ $remote := "" }}
+        {{ if $dcAvatar }}{{ $remote = $dcAvatar }}{{ else if $lpImage }}{{ $remote = $lpImage }}{{ end }}
+        {{ if $remote }}
+          {{ with resources.GetRemote $remote (dict "maxAge" "720h") }}
+            {{ if not .Err }}{{ $img = .RelPermalink }}{{ end }}
+          {{ end }}
+          {{ if or (not $img) (eq $img "/img/default-avatar.png") }}{{ $img = $remote }}{{ end }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+  {{ if or (not $img) (eq $img "/img/default-avatar.png") }}{{ $img = "/img/default-avatar.png" }}{{ end }}
 
   {{/* Bio: .md content > discourse bio */}}
   {{ $bio := .Content | plainify | truncate 90 }}
@@ -151,23 +169,23 @@
     
     <div class="card-section-top">
       <div class="avatar-wrap">
-        <img src="{{ $img | safeURL }}" alt="{{ .Title }}" class="miembro-avatar" onerror="this.onerror=null; this.src='/img/default-avatar.png';">
+        <img src="{{ $img | safeURL }}" alt="{{ .Title }}" class="miembro-avatar" loading="lazy" onerror="this.onerror=null; this.src='/img/default-avatar.png';">
         {{ if $isMember }}
           {{ $fIcon := $flairUrl }}
           {{ if not $fIcon }}{{ $fIcon = "https://ubuntucommunity.s3.dualstack.us-east-2.amazonaws.com/original/3X/f/9/f94871ad7dea3ae2a193f2a099aa669a57cf23ea.png" }}{{ end }}
-          <div class="avatar-flair" title="Ubuntu Member"><img src="{{ $fIcon | safeURL }}" alt="Flair"></div>
+          <div class="avatar-flair" title="Ubuntu Member"><img src="{{ $fIcon | safeURL }}" alt="Flair" loading="lazy"></div>
         {{ end }}
       </div>
     </div>
 
     <div class="card-section-info">
-      <h3 class="card-name">{{ .Title }}</h3>
+      <h3 class="card-name"><a href="{{ .Permalink }}" style="text-decoration: none; color: inherit;">{{ .Title }}</a></h3>
       <p class="card-role">{{ if $dcTitle }}{{ $dcTitle }}{{ else }}{{ .Params.role_bio }}{{ end }}</p>
     </div>
 
     <div class="card-section-badges">
       <span class="badge-tag {{ $tagCol }}">
-        {{ if $isMember }}<svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 24 24" fill="#fff"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>{{ end }}
+        {{ if $isMember }}<svg xmlns="http://www.w3.org/2000/svg" width="9" height="9" viewBox="0 0 24 24" fill="#fff"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>{{ end }}
         {{ $status }}
       </span>
       <div class="badges-container">
@@ -188,9 +206,9 @@
     <div class="card-section-footer">
       <a href="{{ .Permalink }}" class="card-footer-btn {{ if $isMember }}btn-member{{ else }}btn-coc{{ end }}">Ver Perfil &rsaquo;</a>
       <div class="social-icons-row">
-        {{ if .Params.github }}<a href="https://github.com/{{ .Params.github }}" target="_blank" class="social-link" title="GitHub"><i class="p-icon--github" style="width: 14px;"></i></a>{{ end }}
-        {{ if .Params.launchpad }}<a href="https://launchpad.net/~{{ .Params.launchpad }}" target="_blank" class="social-link" title="Launchpad"><i class="p-icon--help" style="width: 14px;"></i></a>{{ end }}
-        {{ if .Params.discourse }}<a href="https://discourse.ubuntu.com/u/{{ .Params.discourse }}/summary" target="_blank" class="social-link" title="Discourse"><i class="p-icon--user" style="width: 14px;"></i></a>{{ end }}
+        {{ if .Params.github }}<a href="https://github.com/{{ .Params.github }}" target="_blank" class="social-link" title="GitHub"><i class="p-icon--github" style="width: 15px;"></i></a>{{ end }}
+        {{ if .Params.launchpad }}<a href="https://launchpad.net/~{{ .Params.launchpad }}" target="_blank" class="social-link" title="Launchpad"><i class="p-icon--help" style="width: 15px;"></i></a>{{ end }}
+        {{ if .Params.discourse }}<a href="https://discourse.ubuntu.com/u/{{ .Params.discourse }}/summary" target="_blank" class="social-link" title="Discourse"><i class="p-icon--user" style="width: 15px;"></i></a>{{ end }}
       </div>
     </div>
   </div>
