@@ -9,6 +9,22 @@
   </div>
 </div>
 
+<div class="row">
+  <div class="col-12" style="max-width: 76rem; margin: 0 auto; padding: 0 1rem;">
+    <div class="badges-legend" style="background: #fdf6ef; border: 1px solid #f2d8c4; border-left: 4px solid #e95420; border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 1.5rem;">
+      <h4 style="margin: 0 0 0.4rem; color: #111; font-size: 0.95rem; font-weight: 700;">{{ .Site.Params.members_dir.badges_info_title }}</h4>
+      <p style="margin: 0 0 0.6rem; color: #555; font-size: 0.8rem; line-height: 1.5;">{{ .Site.Params.members_dir.badges_info_intro }}</p>
+      <ul style="margin: 0 0 0.6rem; padding-left: 1.2rem; color: #444; font-size: 0.78rem; line-height: 1.6;">
+        <li><b style="color: #77216f;">{{ .Site.Params.members_dir.ubuntu_sso }}</b> &mdash; <span style="color: #77216f; font-weight: 700;">&#9632;</span> {{ .Site.Params.members_dir.badge_legend_member }}</li>
+        <li><b style="color: #e95420;">{{ .Site.Params.members_dir.cdc_signed }}</b> &mdash; <span style="color: #e95420; font-weight: 700;">&#9632;</span> {{ .Site.Params.members_dir.badge_legend_coc }}</li>
+        <li><b style="color: #666;">Colaborador</b> &mdash; <span style="color: #999; font-weight: 700;">&#9632;</span> {{ .Site.Params.members_dir.badge_legend_collaborator }}</li>
+      </ul>
+      <p style="margin: 0 0 0.4rem; color: #666; font-size: 0.75rem; line-height: 1.5;">{{ .Site.Params.members_dir.badge_legend_flair }}</p>
+      <p style="margin: 0; color: #999; font-size: 0.7rem;">{{ .Site.Params.members_dir.badge_legend_source }}</p>
+    </div>
+  </div>
+</div>
+
 <style>
   .miembros-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 0.85rem; padding-bottom: 2.5rem; max-width: 76rem; margin: 0 auto; }
   .miembro-card { background: #fff; border-radius: 10px; border: 1px solid #e3e3e3; display: flex; flex-direction: column; overflow: hidden; position: relative; transition: all 0.2s ease; width: 100%; box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
@@ -24,7 +40,7 @@
   .avatar-flair { position: absolute; bottom: 0; right: 0; width: 20px; height: 20px; border-radius: 50%; border: 2px solid #fff; background: #E95420; display: flex; align-items: center; justify-content: center; }
   .avatar-flair img { width: 12px; height: 12px; object-fit: contain; }
 
-  .card-section-info { padding: 0 0.75rem 0.35rem; text-align: center; }
+  .card-section-info { padding: 0 0.75rem 0.35rem; text-align: center; min-height: 42px; display: flex; flex-direction: column; justify-content: center; }
   .card-name { margin: 0; font-weight: 700; color: #111; font-size: 0.92rem; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .card-role { color: #666; font-size: 0.7rem; font-style: italic; margin: 0.1rem 0 0 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
@@ -41,11 +57,11 @@
   .card-section-bio { flex: 1; padding: 0.4rem 0.75rem; background: #fafafa; border-top: 1px solid #f0f0f0; border-bottom: 1px solid #f0f0f0; display: flex; align-items: center; }
   .card-summary-text { color: #555; font-size: 0.7rem; line-height: 1.4; margin: 0; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; font-style: italic; text-align: center; }
 
-  .card-section-footer { margin-top: auto; padding: 0.6rem 0.75rem; display: flex; flex-direction: column; gap: 0.5rem; justify-content: center; align-items: center; }
+  .card-section-footer { margin-top: auto; padding: 0.6rem 0.75rem; display: flex; flex-direction: column; gap: 0.5rem; justify-content: center; align-items: center; min-height: 72px; }
   .card-footer-btn { width: 100%; text-align: center; color: #fff; font-weight: 700; font-size: 0.64rem; padding: 0.45rem; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.5px; text-decoration: none; }
   .btn-member { background-color: #77216F !important; }
   .btn-coc    { background-color: #E95420 !important; }
-  .social-icons-row { display: flex; justify-content: center; align-items: center; gap: 1rem; width: 100%; }
+  .social-icons-row { display: flex; justify-content: center; align-items: center; gap: 1rem; width: 100%; min-height: 20px; }
   .social-link { color: #999; text-decoration: none; display: flex; align-items: center; justify-content: center; width: 20px; height: 20px; }
   .social-link:hover { color: #E95420; }
   .social-link i { font-size: 13px; width: 13px; }
