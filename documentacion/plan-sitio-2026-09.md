@@ -99,8 +99,21 @@ Despliegue: Netlify (`netlify.toml`, publish `public`, Hugo 0.124.1)
 - [x] `hugo --gc --minify` OK (250 ES / 53 EN), sponsors y botón verificados
   en `public/`.
 
-Pendientes abiertos: P1#6 `/eventos/` 404 (falta content + layout), radio
-(depende del área responsable), noticias EN (flujo del bot). El Discourse de la
+## P1#6 `/eventos/` 404 — resuelto 2026-09-09
+
+- [x] `layouts/eventos/list.html` nuevo (grilla de tarjetas, orden por fecha desc,
+  fallback en ES y EN).
+- [x] `content/eventos/_index.md` + `_index.en.md`: presentación y CTA de
+  organización de eventos.
+- [x] Evento real de referencia `2023-06-18-feliz-17-aniversario-de-ubuntu-venezuela`
+  (publicado en loco.ubuntu.com, fuente oficial de la web Drupal). Schema CMS de
+  `static/admin/config.yml` respetado: title/date/location/registration_url/
+  image/speakers/cert_id/cert_template/cert_list/body.
+- [x] `hugo --gc --minify` OK (253 ES / 55 EN), `/eventos/` y `/en/eventos/`
+  renderizados.
+
+Pendientes abiertos: radio (depende del área responsable), noticias EN (flujo del
+bot). El Discourse de la
 comunidad (`discourse.ubuntu-ve.org`, DNS 69.60.114.112) no responde desde este
 entorno (timeout); sponsors adicionales que viven en el Discourse/Telegram del
 grupo quedan pendientes de confirmar con el área responsable.
