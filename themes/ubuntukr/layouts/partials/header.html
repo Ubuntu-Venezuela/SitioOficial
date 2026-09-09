@@ -38,7 +38,7 @@
       {{ end }}
         <li class="p-navigation__item">
           <a class="p-navigation__link" href="javascript:void(0)" id="search-toggle" style="color: #fff;" onclick="document.getElementById('search-overlay').style.display='flex'">
-            <i class="p-icon--search"></i> Buscar
+            <i class="p-icon--search"></i> {{ i18n "header_search" }}
           </a>
         </li>
       </ul>
@@ -69,14 +69,14 @@
     <nav class="p-navigation__nav">
       <ul class="p-navigation__items" style="margin-left: 2rem;">
         {{ if or (in .RelPermalink "/eventos/") (eq .Type "eventos") }}
-          <li class="p-navigation__item"><a class="p-navigation__link" style="color: #ccc;" href="{{ "eventos/" | relLangURL }}">Próximos Meetups</a></li>
-          <li class="p-navigation__item"><a class="p-navigation__link" style="color: #ccc;" href="{{ "recursos/certificados/" | relLangURL }}">Certificados</a></li>
+          <li class="p-navigation__item"><a class="p-navigation__link" style="color: #ccc;" href="{{ "eventos/" | relLangURL }}">{{ i18n "action_meetups" }}</a></li>
+          <li class="p-navigation__item"><a class="p-navigation__link" style="color: #ccc;" href="{{ "recursos/certificados/" | relLangURL }}">{{ i18n "action_certificates" }}</a></li>
         {{ else if or (in .RelPermalink "/miembros/") (eq .Type "miembros") }}
-          <li class="p-navigation__item"><a class="p-navigation__link" style="color: #ccc;" href="{{ "miembros/" | relLangURL }}">Directorio</a></li>
-          <li class="p-navigation__item"><a class="p-navigation__link" style="color: #ccc;" href="{{ "about/" | relLangURL }}">Comunidad</a></li>
+          <li class="p-navigation__item"><a class="p-navigation__link" style="color: #ccc;" href="{{ "miembros/" | relLangURL }}">{{ i18n "action_directory" }}</a></li>
+          <li class="p-navigation__item"><a class="p-navigation__link" style="color: #ccc;" href="{{ "about/" | relLangURL }}">{{ i18n "action_community" }}</a></li>
         {{ else }}
-          <li class="p-navigation__item"><a class="p-navigation__link" style="color: #ccc;" href="{{ "about/" | relLangURL }}">La comunidad</a></li>
-          <li class="p-navigation__item"><a class="p-navigation__link" style="color: #ccc;" href="{{ "recursos/certificados/" | relLangURL }}">Recursos</a></li>
+          <li class="p-navigation__item"><a class="p-navigation__link" style="color: #ccc;" href="{{ "about/" | relLangURL }}">{{ i18n "action_community_alt" }}</a></li>
+          <li class="p-navigation__item"><a class="p-navigation__link" style="color: #ccc;" href="{{ "recursos/certificados/" | relLangURL }}">{{ i18n "action_resources" }}</a></li>
         {{ end }}
       </ul>
     </nav>
@@ -87,7 +87,7 @@
 <div id="search-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.85); z-index: 9999; flex-direction: column; align-items: center; padding-top: 10vh; backdrop-filter: blur(5px); transition: all 0.3s ease;">
   <div style="width: 90%; max-width: 800px; position: relative; background: #fff; padding: 2rem; border-radius: 12px; box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
     <a href="javascript:void(0)" onclick="document.getElementById('search-overlay').style.display='none'" style="position: absolute; top: 1rem; right: 1.5rem; font-size: 2rem; color: #666; text-decoration: none; line-height: 1;">&times;</a>
-    <h2 style="color: #E95420; font-weight: 700; border-bottom: 2px solid #E95420; padding-bottom: 0.5rem; margin-bottom: 1.5rem;">Buscador Comunitario</h2>
+    <h2 style="color: #E95420; font-weight: 700; border-bottom: 2px solid #E95420; padding-bottom: 0.5rem; margin-bottom: 1.5rem;">{{ i18n "search_overlay_title" }}</h2>
     <div id="search" style="min-height: 200px;"></div>
   </div>
 </div>

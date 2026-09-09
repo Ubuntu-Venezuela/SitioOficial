@@ -113,3 +113,34 @@ other = "Contacto (Email)"
 other = "Código Fuente en GitHub"
 [privacy_policy]
 other = "Política de privacidad"
+
+[home_news_title]
+other = "Noticias Recientes de Ubuntu"
+[home_read_more]
+other = "Leer Noticia"
+[home_preview_title]
+other = "Previsualización del Sistema Integrado"
+[home_preview_desc]
+other = "Visualiza la robustez de nuestra integración nativa con APIs de Canonical."
+[home_preview_sso]
+other = "Verificación SSO Miembros"
+[home_preview_news]
+other = "Bot y Timeline Discourse"
+[home_preview_about]
+other = "Nueva Vista 'Sobre Nosotros'"
+[header_search]
+other = "Buscar"
+[search_overlay_title]
+other = "Buscador Comunitario"
+[action_meetups]
+other = "Próximos Meetups"
+[action_certificates]
+other = "Certificados"
+[action_directory]
+other = "Directorio"
+[action_community]
+other = "Comunidad"
+[action_community_alt]
+other = "La comunidad"
+[action_resources]
+other = "Recursos"

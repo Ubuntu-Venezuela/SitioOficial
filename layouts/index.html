@@ -16,7 +16,7 @@
       <div class="col-8 left-section">
         <h1>{{.Site.Title}}</h1>
         <p>{{.Site.Params.description}}</p>
-        <a href="{{.Site.Params.main_slide.link}}"><button>{{.Site.Params.main_slide.label}}</button></a>
+        <a href="{{.Site.Params.main_slide.link | relLangURL}}"><button>{{.Site.Params.main_slide.label}}</button></a>
       </div>
       <div class="col-4 right-section">
         <img src='{{ "/img/logo.svg" | relURL }}' style="width: 200px;" alt="" />
@@ -31,7 +31,7 @@
         <h1>{{.Title}}</h1>
         <p>{{ .Content }}</p>
         {{ range .Params.buttons }}
-        <a href="{{ if hasPrefix .url "/" }}{{ .url }}{{ else }}/{{ .url }}{{ end }}"><button>{{.label}}</button></a>
+        <a href="{{ if in .url "://" }}{{ .url }}{{ else }}{{ .url | relLangURL }}{{ end }}"><button>{{.label}}</button></a>
         {{ end }}
       </div>
       <div class="col-4 right-section">
@@ -81,7 +81,7 @@
     <div class="row u-equal-height" style="position: relative; z-index: 1; margin: 0 auto; max-width: 76rem;">
       {{ range .Site.Params.home_features.cards }}
       <div class="col-3" style="display: flex; padding: 0.5rem;">
-        <a href="{{ .url | safeURL }}" class="modern-feature-card" style="
+        <a href="{{ if in .url "://" }}{{ .url | safeURL }}{{ else }}{{ .url | relLangURL }}{{ end }}" class="modern-feature-card" style="
           width: 100%;
           display: flex; 
           flex-direction: column; 
@@ -152,7 +152,7 @@
   <section class="p-strip">
     <div class="row">
       <div class="col-12">
-        <h2 class="p-heading--3">Noticias Recientes de Ubuntu</h2>
+        <h2 class="p-heading--3">{{ i18n "home_news_title" }}</h2>
         <div class="row u-equal-height">
           {{ $all_news := (where .Site.RegularPages "Section" "noticias") }}
           {{ $news_count := len $all_news }}
@@ -172,7 +172,7 @@
               </div>
               <hr class="p-rule">
               <div class="p-card__content" style="padding-top: 0;">
-                <a href="{{ .RelPermalink }}" class="p-button--neutral" style="width: 100%; text-align: center;">Leer Noticia</a>
+                <a href="{{ .RelPermalink }}" class="p-button--neutral" style="width: 100%; text-align: center;">{{ i18n "home_read_more" }}</a>
               </div>
             </div>
           </div>
@@ -186,27 +186,27 @@
   <section class="p-strip--accent" style="padding: 4rem 0;">
     <div class="row">
       <div class="col-12" style="text-align: center; margin-bottom: 2rem;">
-        <h2 style="color: white; margin-bottom: 0.5rem;">Previsualización del Sistema Integrado</h2>
-        <p style="color: rgba(255,255,255,0.8); font-size: 1.1rem; max-width: 700px; margin: 0 auto;">Visualiza la robustez de nuestra integración nativa con APIs de Canonical.</p>
+        <h2 style="color: white; margin-bottom: 0.5rem;">{{ i18n "home_preview_title" }}</h2>
+        <p style="color: rgba(255,255,255,0.8); font-size: 1.1rem; max-width: 700px; margin: 0 auto;">{{ i18n "home_preview_desc" }}</p>
       </div>
       
       <!-- Grid de 3 imagenes -->
       <div class="col-4" style="padding: 10px;">
         <div style="background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
           <img src="{{ "screenshot/members_sso.jpeg" | relURL }}" alt="Dashboard SSO" style="width: 100%; display: block;" onerror="this.onerror=null; this.src='img/logo.png';">
-          <div style="padding: 1rem; text-align: center; color: #333; font-weight: bold; font-size: 0.8rem;">Verificación SSO Miembros</div>
+          <div style="padding: 1rem; text-align: center; color: #333; font-weight: bold; font-size: 0.8rem;">{{ i18n "home_preview_sso" }}</div>
         </div>
       </div>
       <div class="col-4" style="padding: 10px;">
         <div style="background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
           <img src="{{ "screenshot/news_discourse.jpeg" | relURL }}" alt="Timeline Noticias" style="width: 100%; display: block;" onerror="this.onerror=null; this.src='img/logo.png';">
-          <div style="padding: 1rem; text-align: center; color: #333; font-weight: bold; font-size: 0.8rem;">Bot y Timeline Discourse</div>
+          <div style="padding: 1rem; text-align: center; color: #333; font-weight: bold; font-size: 0.8rem;">{{ i18n "home_preview_news" }}</div>
         </div>
       </div>
       <div class="col-4" style="padding: 10px;">
         <div style="background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
           <img src="{{ "screenshot/about_page.jpeg" | relURL }}" alt="Pagina About" style="width: 100%; display: block;" onerror="this.onerror=null; this.src='img/logo.png';">
-          <div style="padding: 1rem; text-align: center; color: #333; font-weight: bold; font-size: 0.8rem;">Nueva Vista 'Sobre Nosotros'</div>
+          <div style="padding: 1rem; text-align: center; color: #333; font-weight: bold; font-size: 0.8rem;">{{ i18n "home_preview_about" }}</div>
         </div>
       </div>
     </div>
