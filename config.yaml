@@ -12,7 +12,7 @@ params:
   github: ubuntu-ve
   launchpad: ubuntu-ve
   #mastodon: https://floss.social/@ubuntu_VE
-  source_repo: https://github.com/ubuntu-ve/ubuntu-ve.github.io
+  source_repo: https://github.com/Ubuntu-Venezuela/SitioOficial
 defaultContentLanguage: es
 languages:
   es:

@@ -18,13 +18,13 @@ find_text = etree.ETXPath("//{%s}tspan[@id='tspan3951']" % (SVGNS))
 
 workbook = xlrd.open_workbook('./speakers/speakers.xls')
 worksheet = workbook.sheet_by_name('Speakers')
-for x in range(1,15,1):
-    id = str(int(worksheet.cell(x,0).value))
+for x in range(1, 15, 1):
+    id = str(int(worksheet.cell(x, 0).value))
     name = ''
-    for y in range(1,4,1):
+    for y in range(1, 4, 1):
         name += worksheet.cell(x, y).value
-	name += ' '
-    name.rstrip()
+        name += ' '
+    name = name.rstrip()
     find_text(xml_data)[0].text = name
     new_svg = etree.tostring(xml_data).decode('utf-8')
     svg_file = './speakers/' + id + '.svg'

@@ -28,6 +28,12 @@ def translate_text(text, target='es'):
         print(f"Error traduciendo: {e}")
         return text
 
+def normalize_url(url):
+    if not url:
+        return ""
+    # Colapsa "//" duplicados después del esquema (ej: https://ubuntu.com//blog/...)
+    return re.sub(r'(https?://[^/]+)/{2,}', r'\1/', url)
+
 def clean_html(raw_html):
     if not raw_html: return ""
     # Remueve etiquetas HTML y decodifica entidades básicas
@@ -35,7 +41,7 @@ def clean_html(raw_html):
     cleantext = re.sub(cleanr, '', raw_html)
     return cleantext.strip()
 
-def extract_image(item, description):
+def extract_image(item, description, content_encoded=""):
     # 1. Intentar con media:content (vía ET con namespace)
     media = item.find('{http://search.yahoo.com/mrss/}content')
     if media is not None and 'url' in media.attrib:
@@ -46,13 +52,18 @@ def extract_image(item, description):
     if enclosure is not None and 'url' in enclosure.attrib:
         return enclosure.attrib['url']
         
-    # 3. Fallback: buscar img en la descripción (estilo robusto)
+    # 3. Fallback: buscar img en content:encoded (cuerpo completo del post)
+    img_tag_match = re.search(r'<img [^>]*src="([^"]+)"', content_encoded)
+    if img_tag_match:
+        return img_tag_match.group(1)
+
+    # 4. Fallback: buscar img en la descripción (estilo robusto)
     # Buscamos la primera URL que parezca una imagen (jpg, png, webp, gif)
     img_match = re.search(r'https?://[^\s<>"]+?\.(?:jpg|jpeg|png|webp|gif)', description)
     if img_match:
         return img_match.group(0)
 
-    # 4. Fallback: buscar img tag
+    # 5. Fallback: buscar img tag en la descripción
     img_tag_match = re.search(r'<img [^>]*src="([^"]+)"', description)
     if img_tag_match:
         return img_tag_match.group(1)
@@ -80,13 +91,15 @@ def fetch_rss():
         # Iterar solo por las últimas 5 publicaciones de cada fuente
         for item in root.findall('./channel/item')[:5]:
             title_en = item.find('title').text
-            link = item.find('link').text
+            link = normalize_url(item.find('link').text)
             pubDate = item.find('pubDate').text
             description_elem = item.find('description')
             description = description_elem.text if description_elem is not None else ""
+            content_elem = item.find('{http://purl.org/rss/1.0/modules/content/}encoded')
+            content_encoded = content_elem.text if content_elem is not None else ""
             
             # Extraer imagen
-            thumbnail = extract_image(item, description)
+            thumbnail = extract_image(item, description, content_encoded)
             
             # Extraer Categorías/Tags del RSS
             tags = [source['tag']]

@@ -5,7 +5,7 @@ colorScheme: dark #dark, light
 image: logo.svg
 buttons:
     - label: Únete a nosotros
-      url: community
+      url: /miembro-ubuntu/
 draft: false
 date: 2026-03-22
 ---

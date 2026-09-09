@@ -31,7 +31,7 @@
         <h1>{{.Title}}</h1>
         <p>{{ .Content }}</p>
         {{ range .Params.buttons }}
-        <a href="{{ .RelPermalink }}{{.url}}"><button>{{.label}}</button></a>
+        <a href="{{ if hasPrefix .url "/" }}{{ .url }}{{ else }}/{{ .url }}{{ end }}"><button>{{.label}}</button></a>
         {{ end }}
       </div>
       <div class="col-4 right-section">
