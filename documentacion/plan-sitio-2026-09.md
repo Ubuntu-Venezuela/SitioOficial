@@ -57,8 +57,13 @@ Despliegue: Netlify (`netlify.toml`, publish `public`, Hugo 0.124.1)
 
 ## F5 â€” Scripts
 
-- `certificado/certificado.py`: TabError L26 + `rstrip` sin asignar.
-- `fetch_news.py`: thumbnails vacÃ­os, doble slash en URLs.
+- [x] `certificado/certificado.py`: TabError L26 + `rstrip` sin asignar â†’
+  ya corregido, compila sin errores (`python -m py_compile`).
+- [x] `fetch_news.py`: thumbnails vacÃ­os, doble slash en URLs â†’
+  `normalize_url()` colapsa `//` duplicados; `extract_image()` usa 5
+  fallbacks (media:content â†’ enclosure â†’ img content:encoded â†’
+  regex jpg/png en descripciÃ³n â†’ img tag). Verificado contra feed real
+  de `discourse.ubuntu.com/tag/news.rss`.
 
 ## F6 â€” VerificaciÃ³n
 
@@ -117,30 +122,30 @@ bot). El Discourse de la
 comunidad (`discourse.ubuntu-ve.org`, DNS 69.60.114.112) no responde desde este
 entorno (timeout); sponsors adicionales que viven en el Discourse/Telegram del
 grupo quedan pendientes de confirmar con el Ã¡rea responsable.
-## G3 — Seguridad panel admin + URLs muertas + dropdowns (2026-09-09) [x] 
+## G3 ï¿½ Seguridad panel admin + URLs muertas + dropdowns (2026-09-09) [x] 
 
 Feedback usuario: el panel administrativo (/admin/, Decap CMS) "se ve y es
-notable" y no debe exponerse asi; menú superior (Comunidad, Recursos, Descarga,
+notable" y no debe exponerse asi; menï¿½ superior (Comunidad, Recursos, Descarga,
 Contacto) sin opciones visibles; URLs muertas hay que arreglarlas, no eliminarlas.
 
-- [x] Seguridad /admin/: eliminados el botón "Panel Administrativo (Editores)"
-  de layouts/index.html y el link "Administración" del footer. /admin/ sigue
-  accesible por URL directa para editores (no oculto, pero sin promoción
-  pública).
-- [x] Dropdowns del menú: la clase .p-navigation__item--dropdown-toggle.is-active
+- [x] Seguridad /admin/: eliminados el botï¿½n "Panel Administrativo (Editores)"
+  de layouts/index.html y el link "Administraciï¿½n" del footer. /admin/ sigue
+  accesible por URL directa para editores (no oculto, pero sin promociï¿½n
+  pï¿½blica).
+- [x] Dropdowns del menï¿½: la clase .p-navigation__item--dropdown-toggle.is-active
   (que muestra el dropdown) solo la togleaba el JS de Vanilla, pero
   /js/ubuntukr.js NO existia (404). Creado
   themes/ubuntukr/static/js/ubuntukr.js con togle click/hover/teclado y cierre al
   hacer click fuera.
-- [x] URL muerta /miembro-ubuntu/ (destino de slides "Únete a nosotros" y
+- [x] URL muerta /miembro-ubuntu/ (destino de slides "ï¿½nete a nosotros" y
   config join_url) no existia: creada content/miembro-ubuntu/ (ES+EN, leaf
-  bundle, reusa people.jpg/logo.png) con el proceso de membresía local y global.
+  bundle, reusa people.jpg/logo.png) con el proceso de membresï¿½a local y global.
 - [x] href="download" relativo en home ? href="/download/" absoluto (slides de
   Ubuntu 26.04 igual).
-- [x] 404: botón "Buscar en el sistema" apuntaba a /search (página inexistente)
+- [x] 404: botï¿½n "Buscar en el sistema" apuntaba a /search (pï¿½gina inexistente)
   ? ahora abre el search-overlay (Pagefind) igual que el nav.
 - [x] hreflang EN: /en correcto (Hugo redirige /en a /en/).
-- [x] Build OK y auditoría de hrefs internos: todos resuelven a rutas válidas.
+- [x] Build OK y auditorï¿½a de hrefs internos: todos resuelven a rutas vï¿½lidas.
 
 ## G4 - Cards de sponsors y miembros rediseÃ±ados + avatares locales (2026-09-09) [x]
 

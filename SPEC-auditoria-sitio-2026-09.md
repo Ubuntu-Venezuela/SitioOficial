@@ -5,10 +5,12 @@
 
 ## Criterios de Aceptación (gate SPEC)
 
-- [ ] P0 resuelto: CNAME correcto (`ubuntu-ve.org`), sin rutas 404 de producción, despliegue único definido (Netlify `public/`).
-- [ ] P1 resuelto: assets de marca/avatares presentes, `/eventos/` funcional, `certificado.py` corre sin TabError, páginas EN no vacías.
-- [ ] P2 resuelto: capturas publicadas desde `static/`, miniaturas de noticias no vacías, buscador operativo, contactos y repo fuente consistentes.
-- [ ] P3 resuelto: sin placeholders muertos, sin textos coreanos, slides EN al día.
+- [x] P0 resuelto: CNAME correcto (`ubuntu-ve.org`), sin rutas 404 de producción, despliegue único definido (Netlify `public/`).
+- [x] P1 resuelto: assets de marca/avatares presentes, `/eventos/` funcional, `certificado.py` corre sin TabError, páginas EN no vacías.
+- [x] P2 resuelto: capturas publicadas desde `static/`, miniaturas de noticias no vacías, buscador operativo, contactos y repo fuente consistentes.
+- [x] P3 resuelto: sin placeholders muertos, sin textos coreanos, slides EN al día.
+- [x] G3 resuelto: panel admin sin enlaces públicos, dropdowns de menú operativos, URLs muertas arregladas.
+- [x] G4 resuelto: cards de sponsors y miembros rediseñados, avatares locales, botones internos con .RelPermalink.
 
 ## Mapa de Prioridades (orden de trabajo)
 
@@ -50,7 +52,27 @@
 
 - `spec`: auditoria-sitio-2026-09
 - `mode`: track
-- `declared`: 27 paths (ver `spec-files.json` en SLP_HOME) — cubre todos los archivos del mapa de prioridades.
+- `declared`: 39 paths — cubre todos los archivos del mapa de prioridades más los creados/modificados durante la auditoría (G3/G4).
+
+### Archivos originales (27 paths)
+Ver `spec-files.json` en SLP_HOME.
+
+### Archivos nuevos fuera del spec original (12 paths)
+| Path | Motivo |
+|------|--------|
+| `content/miembro-ubuntu/index.md` | URL muerta `/miembro-ubuntu/` → leaf bundle nuevo |
+| `content/miembro-ubuntu/index.en.md` | Versión EN del mismo |
+| `content/miembro-ubuntu/logo.png` | Assets copiados de `content/about/` |
+| `content/miembro-ubuntu/people.jpg` | Assets copiados de `content/about/` |
+| `content/sponsors/turpial/index.md` | Migración sponsor real desde Drupal |
+| `content/sponsors/libreoffice-ve/index.md` | Migración sponsor real desde Drupal |
+| `content/sponsors/mozilla-ve/index.md` | Migración sponsor real desde Drupal |
+| `layouts/eventos/list.html` | Listado de eventos nuevo |
+| `layouts/partials/sponsors.html` | Partial de sponsors del home |
+| `package.json` | Pagefind (buscador) |
+| `themes/ubuntukr/static/js/ubuntukr.js` | Dropdowns del menú (antes 404) |
+| `static/img/members/*.png` | Avatares locales de miembros (8 archivos) |
 
 ---
-*Creado: 2026-09-09 — estado de partida: 0/27 certificados, todo `[S] planned`.*
+*Creado: 2026-09-09 — estado inicial: 0/27 certificados, todo `[S] planned`.*
+*Estado actual 2026-09-09: 39/39 paths declarados, todos los criterios P0–G4 resueltos, pendientes de decisión de la comunidad: radio (F1) y traducción EN del bot de noticias (F4).*
