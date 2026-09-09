@@ -25,8 +25,10 @@ Despliegue: Netlify (`netlify.toml`, publish `public`, Hugo 0.124.1)
   `stream.last.fm/your-stream-url`.
   - [ ] HALLAZGO: no existe stream real en el repo ni en el historial git; el dominio
     `ubuntu-ve.org` no respondió al curl (000). La wiki oficial lista
-    `http://www.ubuntu-ve.org/radio`. → BLOQUEADO: necesita URL real del stream
-    de la comunidad (Icecast/Shoutcast .mp3) antes de tocar `config.yaml`.
+    `http://www.ubuntu-ve.org/radio`. → PENDIENTE (decisión 2026-09-09): la
+    configuración de la radio depende del área responsable de la comunidad; hay
+    que preguntar a quienes manejan esa área. No tocar `config.yaml` hasta
+    conseguir la URL real del stream (Icecast/Shoutcast .mp3).
 
 ## F2 — Botón "Únete a nosotros" (no eliminar)
 
@@ -45,6 +47,13 @@ Despliegue: Netlify (`netlify.toml`, publish `public`, Hugo 0.124.1)
 - Rellenar páginas EN vacías: `sponsors/_index.en.md`, `translate/index.en.md`,
   `try/index.en.md` (0 líneas) con contenido real de Ubuntu-Ve.
 - Slides y noticias EN: actualizar y personalizar con datos oficiales.
+  - [x] Slides ubuntu ES/EN → Ubuntu 26.04 LTS "Resolute Raccoon"
+    (versión vigente verificada en releases.ubuntu.com, 2026-09-09).
+  - [ ] Noticias EN (decisión 2026-09-09): NO se traducen/personalizan a mano.
+    Las noticias las monta el bot existente (`scripts/fetch_news.py` +
+    `.github/workflows/fetch_news_cron.yml`), que scrapea las fuentes y genera
+    los archivos; se respeta ese flujo ya creado. Pendiente confirmar si el bot
+    debe generar también versiones EN (hoy los `.en.md` son byte-idénticos al ES).
 
 ## F5 — Scripts
 
