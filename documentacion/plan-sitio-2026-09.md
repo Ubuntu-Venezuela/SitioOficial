@@ -117,3 +117,27 @@ bot). El Discourse de la
 comunidad (`discourse.ubuntu-ve.org`, DNS 69.60.114.112) no responde desde este
 entorno (timeout); sponsors adicionales que viven en el Discourse/Telegram del
 grupo quedan pendientes de confirmar con el Ã¡rea responsable.
+## G3 — Seguridad panel admin + URLs muertas + dropdowns (2026-09-09) [x] 
+
+Feedback usuario: el panel administrativo (/admin/, Decap CMS) "se ve y es
+notable" y no debe exponerse asi; menú superior (Comunidad, Recursos, Descarga,
+Contacto) sin opciones visibles; URLs muertas hay que arreglarlas, no eliminarlas.
+
+- [x] Seguridad /admin/: eliminados el botón "Panel Administrativo (Editores)"
+  de layouts/index.html y el link "Administración" del footer. /admin/ sigue
+  accesible por URL directa para editores (no oculto, pero sin promoción
+  pública).
+- [x] Dropdowns del menú: la clase .p-navigation__item--dropdown-toggle.is-active
+  (que muestra el dropdown) solo la togleaba el JS de Vanilla, pero
+  /js/ubuntukr.js NO existia (404). Creado
+  themes/ubuntukr/static/js/ubuntukr.js con togle click/hover/teclado y cierre al
+  hacer click fuera.
+- [x] URL muerta /miembro-ubuntu/ (destino de slides "Únete a nosotros" y
+  config join_url) no existia: creada content/miembro-ubuntu/ (ES+EN, leaf
+  bundle, reusa people.jpg/logo.png) con el proceso de membresía local y global.
+- [x] href="download" relativo en home ? href="/download/" absoluto (slides de
+  Ubuntu 26.04 igual).
+- [x] 404: botón "Buscar en el sistema" apuntaba a /search (página inexistente)
+  ? ahora abre el search-overlay (Pagefind) igual que el nav.
+- [x] hreflang EN: /en correcto (Hugo redirige /en a /en/).
+- [x] Build OK y auditoría de hrefs internos: todos resuelven a rutas válidas.

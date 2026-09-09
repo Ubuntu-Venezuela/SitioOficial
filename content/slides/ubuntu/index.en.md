@@ -6,7 +6,7 @@ image: mantic.svg
 # backgroundImage: bg.png
 buttons:
     - label: Download
-      url: download
+      url: /download/
 draft: false
 date: 2026-08-27
 ---

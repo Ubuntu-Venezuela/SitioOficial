@@ -5,7 +5,7 @@ colorScheme: dark #dark, light
 image: mantic.svg
 buttons:
     - label: Descargar ahora
-      url: download
+      url: /download/
 draft: false
 date: 2026-08-27
 ---
