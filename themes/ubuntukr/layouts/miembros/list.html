@@ -113,7 +113,7 @@
 
     <!-- Botonera -->
     <div style="padding: 1.2rem; border-top: 1px solid rgba(0,0,0,0.03); background: #fdfdfd; display: flex; flex-direction: column; gap: 0.5rem;">
-      <a href="{{ .Permalink }}" class="p-button--positive u-no-margin--bottom" style="width: 100%; text-align: center; background-color: #E95420; color: #fff; font-weight: 500; font-size: 0.9rem; padding: 0.4rem; letter-spacing: 0.5px;">{{ .Site.Params.members_dir.btn_profile }}</a>
+      <a href="{{ .RelPermalink }}" class="p-button--positive u-no-margin--bottom" style="width: 100%; text-align: center; background-color: #E95420; color: #fff; font-weight: 500; font-size: 0.9rem; padding: 0.4rem; letter-spacing: 0.5px;">{{ .Site.Params.members_dir.btn_profile }}</a>
       {{ if .Params.github }}
       <a href="https://github.com/{{ .Params.github }}" target="_blank" style="display: block; text-align: center; color: #555; text-decoration: none; font-size: 0.85rem; padding: 0.2rem 0; font-weight: 600; transition: color 0.2s;" onmouseover="this.style.color='#111'" onmouseout="this.style.color='#555'">
         <i class="p-icon--github" style="margin-bottom: -4px;"></i> @{{ .Params.github }}

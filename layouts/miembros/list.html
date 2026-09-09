@@ -195,7 +195,7 @@
     </div>
 
     <div class="card-section-info">
-      <h3 class="card-name"><a href="{{ .Permalink }}" style="text-decoration: none; color: inherit;">{{ .Title }}</a></h3>
+      <h3 class="card-name"><a href="{{ .RelPermalink }}" style="text-decoration: none; color: inherit;">{{ .Title }}</a></h3>
       <p class="card-role">{{ if $dcTitle }}{{ $dcTitle }}{{ else }}{{ .Params.role_bio }}{{ end }}</p>
     </div>
 
@@ -220,7 +220,7 @@
     </div>
 
     <div class="card-section-footer">
-      <a href="{{ .Permalink }}" class="card-footer-btn {{ if $isMember }}btn-member{{ else }}btn-coc{{ end }}">Ver Perfil &rsaquo;</a>
+      <a href="{{ .RelPermalink }}" class="card-footer-btn {{ if $isMember }}btn-member{{ else }}btn-coc{{ end }}">Ver Perfil &rsaquo;</a>
       <div class="social-icons-row">
         {{ if .Params.github }}<a href="https://github.com/{{ .Params.github }}" target="_blank" class="social-link" title="GitHub"><i class="p-icon--github" style="width: 15px;"></i></a>{{ end }}
         {{ if .Params.launchpad }}<a href="https://launchpad.net/~{{ .Params.launchpad }}" target="_blank" class="social-link" title="Launchpad"><i class="p-icon--help" style="width: 15px;"></i></a>{{ end }}

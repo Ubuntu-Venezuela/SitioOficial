@@ -126,7 +126,7 @@
             </div>
             
             <div style="flex: 1;">
-              <a href="{{ .Permalink }}" class="discourse-title">{{ .Title }}</a>
+              <a href="{{ .RelPermalink }}" class="discourse-title">{{ .Title }}</a>
               <div style="display: flex; flex-wrap: wrap; gap: 4px; margin-top: 2px;">
                 <!-- Categoria "News" simulando el badge cuadrado de discourse -->
                 <span class="discourse-tag">
@@ -184,7 +184,7 @@
           
           <!-- Columna: Activity (Date) -->
           <td style="text-align: right;">
-            <a href="{{ .Permalink }}" class="stat-activity" title="{{ .Date.Format "02 de Enero de 2006" }}">
+            <a href="{{ .RelPermalink }}" class="stat-activity" title="{{ .Date.Format "02 de Enero de 2006" }}">
               {{ .Date.Format "Jan '06" }}
             </a>
           </td>
