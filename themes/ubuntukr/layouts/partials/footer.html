@@ -51,6 +51,8 @@
   </div>
 
   <!-- UBUNTU-VE RADIO PLAYER (Moderno y Centrado) -->
+  {{ $radioSet := and .Site.Params.radio (not (strings.Contains (.Site.Params.radio.url | default "") "your-stream-url")) }}
+  {{ if $radioSet }}
   <div class="row" style="max-width: 72rem; margin: 3rem auto 0 auto; padding: 0 1rem;">
     <div class="col-12">
       <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 4px; padding: 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;">
@@ -74,6 +76,7 @@
       </div>
     </div>
   </div>
+  {{ end }}
 
   <!-- BARRA LEGAL (Negro Puro) -->
   <div style="background-color: #000; padding: 2rem 0; margin-top: 4rem; border-top: 1px solid #111;">

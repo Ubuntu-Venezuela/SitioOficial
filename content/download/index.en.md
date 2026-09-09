@@ -12,13 +12,13 @@ ubuntuVersions:
 ---
 
 # Version and system requirements
-## Ubuntu {{< param "ubuntuVersions.ltsVersion" >}}
+## Ubuntu {{< param "ubuntuVersions.ltsVersion" >}} {#ubuntu-lts}
 Ubuntu {{< param "ubuntuVersions.ltsVersion" >}}, the latest LTS (Long term support) version provides 5 years of maintenance and security updates for free.
 In most cases, the LTS version is recommended for stable use.
 
 - [See Ubuntu {{< param "ubuntuVersions.ltsVersion" >}} release notes]({{< param "ubuntuVersions.ltsReleaseNote" >}})
 
-## Ubuntu {{< param "ubuntuVersions.normalVersion" >}}
+## Ubuntu {{< param "ubuntuVersions.normalVersion" >}} {#ubuntu-normal}
 If you want to try out the latest features, try out Ubuntu {{< param "ubuntuVersions.normalVersion" >}}, the latest version. It provides 9 months of maintenance and security updates for free.
 
 [See Ubuntu {{< param "ubuntuVersions.normalVersion" >}} release notes]({{< param "ubuntuVersions.normalReleaseNote" >}})

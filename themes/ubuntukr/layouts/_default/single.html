@@ -20,9 +20,11 @@
           <h1>{{.Title}}</h1>
           <p>{{.Params.description}}</p>
         </div>
+        {{ if .Params.image }}
         <div class="col-4 right-section">
           <img src="{{ .RelPermalink }}{{.Params.image}}" alt="">
         </div>
+        {{ end }}
         {{end}}
       </div>
   </section>

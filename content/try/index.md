@@ -2,6 +2,7 @@
 title: "Comunidad y Chat"
 description: "Únete a nuestra comunidad a través de Telegram o IRC para interactuar con otros usuarios de Ubuntu Venezuela."
 image: "chat.svg"
+backgroundType: suru-topped
 ---
 
 # Telegram (Canal Principal)
